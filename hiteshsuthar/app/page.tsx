@@ -7,13 +7,14 @@ import Link from "./Components/Link";
 import Profile from "./Components/Profile/Profile";
 import TextPressure from "@/components/TextPressure";
 import GithubContribution from "@/app/Components/Profile/GithubContribution";
+import Stack from "@/app/Components/Stack";
 export default function Home() {
   return (
     <>
       <div className="flex flex-col flex-1 items-center justify-center font-sans dark:bg-[#09090B] mt-2">
         <Navbar />
         {/* Block */}
-        <div className="dotted-background">
+        <div className="dotted-background p-12">
           <TextPressure
             text="Welcome!"
             flex={false}
@@ -35,6 +36,7 @@ export default function Home() {
         <About />
         <Link />
         <GithubContribution />
+        <Stack />
       </div>
     </>
   );

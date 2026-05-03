@@ -52,7 +52,7 @@ const BioCard = ({
               console.error("Copy failed", err);
             }
           }}
-          className="w-6 opacity-0 border-neutral-200 group-hover:opacity-100 transition dark:border-neutral-900 text-neutral-400 h-6 rounded-md dark:text-neutral-400 dark:bg-neutral-900 border hover:text-neutral-500 bg-white flex items-center justify-center"
+          className="w-6 opacity-0 pl-0.5 border-neutral-200 group-hover:opacity-100 transition dark:border-neutral-900 text-neutral-400 h-6 rounded-md dark:text-neutral-400 dark:bg-neutral-900 border hover:text-neutral-500 bg-white flex items-center justify-center"
         >
           {isClicked ? <Check /> : <Copy size={16} />}
         </div>
