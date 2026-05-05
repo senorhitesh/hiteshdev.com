@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -24,7 +26,6 @@ body {
   color: var(--foreground);
   font-family: "Neue",  Arial, Helvetica, sans-serif;
 }
-
 
 @font-face {
   font-family: "Neue";
@@ -102,7 +103,6 @@ body {
   color: #0a0a0a;
 }
 
-
 .dotted-background {
   display: flex;
   align-items: center;
@@ -135,7 +135,6 @@ body {
   }
 }
 
-
 .react-activity-calendar__tooltip {
   width: max-content;
   max-width: calc(100vw - 20px);
@@ -144,7 +143,7 @@ body {
   background-color: hsl(0 0% 10%);
   color: hsl(0 0% 94%);
   font-size: 13px;
-font-family: var(--font-mono);
+  font-family: var(--font-mono);
   /* See the `withArrow` setting. */
   .react-activity-calendar__tooltip-arrow {
     fill: hsl(0 0% 10%);
@@ -163,7 +162,6 @@ font-family: var(--font-mono);
  color: #333333;
 }
 
-
 /* target the wrapper that scrolls */
 .your-scroll-container::-webkit-scrollbar {
   height: 6px; /* 👈 thickness */
@@ -181,3 +179,4 @@ font-family: var(--font-mono);
 .your-scroll-container::-webkit-scrollbar-thumb:hover {
   background-color: #555;
 }
+

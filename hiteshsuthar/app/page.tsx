@@ -8,6 +8,7 @@ import Profile from "./Components/Profile/Profile";
 import TextPressure from "@/components/TextPressure";
 import GithubContribution from "@/app/Components/Profile/GithubContribution";
 import Stack from "@/app/Components/Stack";
+import Experience from "@/app/Components/Experience";
 export default function Home() {
   return (
     <>
@@ -37,6 +38,8 @@ export default function Home() {
         <Link />
         <GithubContribution />
         <Stack />
+        <Divider />
+        <Experience />
       </div>
     </>
   );

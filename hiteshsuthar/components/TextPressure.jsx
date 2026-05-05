@@ -170,13 +170,13 @@ const TextPressure = ({
 
         .flex {
           display: flex;
-          justify-content: space-between;
+          // justify-content: space-between;
         }
 
-        .stroke span {
-          position: relative;
-          color: ${textColor};
-        }
+        // .stroke span {
+        //   position: relative;
+        //   color: ${textColor};
+        // }
         .stroke span::after {
           content: attr(data-char);
           position: absolute;
