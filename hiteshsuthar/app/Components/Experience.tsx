@@ -4,7 +4,7 @@ import { CodeXmlIcon, LightbulbIcon } from "lucide-react";
 import softechLogo from "@/public/softech-logo.png";
 const Experience = () => {
   return (
-    <div className="w-full">
+    <div className="w-full border-b border-neutral-200 dark:border-neutral-900">
       <div className="w-2xl border-x flex flex-col p-3  gap-4 border-neutral-200 dark:border-neutral-900 mx-auto">
         {" "}
         <p className="text-2xl font-bold font-[Neue] text-left mt-8">
