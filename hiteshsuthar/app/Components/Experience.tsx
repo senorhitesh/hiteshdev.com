@@ -40,8 +40,8 @@ const WORK_EXPERIENCE: ExperienceItemType[] = [
         employmentType: "Intenship",
         icon: <CodeXmlIcon />,
         description: `- Enhanced the user experience and interface of an internal CMS system, improving usability and visual consistency across key workflows.
-- Led the full migration of a legacy PHP website to Next.js, achieving a 10% improvement in overall performance and significantly improving maintainability.
-- Developed and maintained a CMS system for a bank's website, utilizing PostgreSQL for robust and secure data management.`,
+                      - Led the full migration of a legacy PHP website to Next.js, achieving a 10% improvement in overall performance and significantly improving maintainability.
+                      - Developed and maintained a CMS system for a bank's website, utilizing PostgreSQL for robust and secure data management.`,
         skills: [
           "Next.js",
           "Typescript",

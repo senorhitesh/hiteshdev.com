@@ -1,8 +1,18 @@
+"use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import displayPicture from "@/public/profile.png";
 import { TextLoop } from "@/components/motion-primitives/text-loop";
-import SpotifyPlayer from "./SpotifyPlayer";
 const Profile = () => {
+  const [currentTime, setCurrentTime] = useState<string>(
+    new Date().toLocaleTimeString(),
+  );
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date().toLocaleTimeString());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div className="flex flex-1 w-full  flex-col items-center border-t border-b  border-neutral-100 dark:border-neutral-800 dark:bg-[#09090B] sm:items-start">
       <div className="border-r flex w-2xl  mx-auto border-neutral-200 dark:border-neutral-800 border-l ">
@@ -13,12 +23,15 @@ const Profile = () => {
             alt="Hitesh Suthar Gibli Picture"
             className="w-full h-full object-cover rounded-full"
           />
-
           {/* Progressive blur overlay */}
         </div>
         <div className="flex flex-col  w-full">
           <div className="overflow-hidden flex items-baseline-last flex-col h-full">
-            <SpotifyPlayer />
+            <div className="m-3">
+              <p className="font-mono text-md text-neutral-600 dark:text-neutral-100">
+                {currentTime}
+              </p>
+            </div>
           </div>
           <div className="flex flex-col w-full ">
             <div className=" text-4xl font-[Neue] flex items-center gap-1 tracking-tight border-t border-b border-neutral-200  dark:border-neutral-900 font-bold dark:text-neutral-200 text-neutral-900  px-3 h-fit w-full">
@@ -41,7 +54,7 @@ const Profile = () => {
                   Frotend React Dev
                 </span>
                 <span className="font-mono dark:text-neutral-500 font-light text-sm">
-                  Crafting Experience
+                  Designer Soul. Developer Brain
                 </span>
                 <span className="font-mono dark:text-neutral-500 font-light text-sm">
                   Currently Cooking Something

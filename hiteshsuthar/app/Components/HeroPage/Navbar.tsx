@@ -28,10 +28,10 @@ const Navbar = () => {
           <div className="font-mono flex gap-2 items-center text-neutral-600   text-[12px]">
             <Link
               className="hover:text-neutral-800 group relative text-neutral-500 dark:text-neutral-400 hover:dark:text-neutral-200 transtion   underline-offset-3"
-              href={"/components-page"}
+              href={"/projects"}
             >
               {" "}
-              <p>Components</p>
+              <p>Projects</p>
               <div className="h-0.5 w-0 transition-all duration-700  group-hover:w-full absolute  bg-neutral-800"></div>
             </Link>
             <Link
