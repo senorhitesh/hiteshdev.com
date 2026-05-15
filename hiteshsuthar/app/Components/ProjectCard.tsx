@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowUpRight, Link2 } from "lucide-react";
 import Link from "next/link";
+import { StaticImageData } from "next/image";
 
 const ProjectCard = ({
   name,
@@ -16,9 +17,9 @@ const ProjectCard = ({
   type: string;
   description: string;
   isActive: boolean;
-  bgImage: any;
-  projectImage: any;
-  stack: unknown;
+  bgImage: StaticImageData;
+  projectImage: StaticImageData;
+  stack: React.ReactNode[];
   link: string;
 }) => {
   const active = isActive;
