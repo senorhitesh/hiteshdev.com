@@ -87,12 +87,11 @@ const Links = () => {
       <div className="relative grid grid-cols-1 gap-3 mx-auto border-b border-r md:grid-cols-2 lg:grid-cols-3 w-2xl border-neutral-200 dark:border-neutral-900">
         {SocialLinks.map((link) => {
           return (
-            // Changed from <div> to <a> to make it clickable
             <Link
               href={link.link}
               target="_blank"
               //   rel="noopener noreferrer"
-              className="flex justify-between col-span-1 p-3 border-l border-r border-neutral-200 dark:border-neutral-900 group"
+              className="flex justify-between col-span-1 p-3 border-l  border-neutral-200 dark:border-neutral-900 group"
               key={link.id}
             >
               <div className="flex items-center gap-3">

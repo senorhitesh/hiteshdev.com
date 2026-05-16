@@ -619,10 +619,10 @@ const STACK = [
 ];
 
 const Badge = ({ name, icon }: { name: string; icon: React.ReactNode }) => (
-  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 text-sm font-medium hover:border-neutral-400 dark:hover:border-neutral-500 transition-colors cursor-default select-none whitespace-nowrap">
+  <div className="inline-flex  items-center gap-1.5 px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 text-sm font-medium hover:border-neutral-400 dark:hover:border-neutral-500 transition-colors cursor-default select-none whitespace-nowrap">
     <span className="text-xs leading-none">{icon}</span>
     {name}
-  </span>
+  </div>
 );
 const Stack = () => {
   return (
@@ -633,7 +633,7 @@ const Stack = () => {
             Skills & Technologies
           </p>
         </div>
-        <div className="flex  flex-wrap gap-2">
+        <div className="flex justify-baseline flex-wrap  gap-2">
           {STACK.map((item, index) => (
             <Badge key={index} name={item.name} icon={item.icon} />
           ))}
