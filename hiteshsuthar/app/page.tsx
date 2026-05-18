@@ -6,17 +6,20 @@ export default function Home() {
       <div className="flex flex-col flex-1 items-center justify-center font-sans dark:bg-[#09090B] mt-2">
         <Page.Navbar />
         {/* Block */}
-        <div className="dotted-background p-12">
-          <p className="font-mono bg-white">
-            Designer Soul. <br /> Developer Brain.
-          </p>
+        <div className="w-full border-b border-neutral-200 dark:border-neutral-900">
+          <div className="max-w-2xl mx-auto">
+            <div className="dotted-background  p-12">
+              <p className="font-mono bg-white">
+                Designer Soul. <br /> Developer Brain.
+              </p>
+            </div>
+          </div>
         </div>
         <Page.Profile />
         <Page.Divider />
         <Page.BioComponent />
         <Page.Divider />
         <Page.About />
-        <Page.Link />
         <Page.GithubContribution />
         <Page.Stack />
         <Page.Divider />

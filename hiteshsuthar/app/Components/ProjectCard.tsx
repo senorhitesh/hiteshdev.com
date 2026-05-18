@@ -70,14 +70,14 @@ const ProjectCard = ({
             ) : null}
           </div>
           <span
-            className={`text-[11px] flex items-center gap-1 justify-center  rounded-full ${isActive ? "dark:bg-emerald-950 text-emerald-700  dark:text-emerald-400" : "text-red-500"}`}
+            className={`text-[11px] flex items-center gap-1 justify-center  rounded-full ${isActive ? "dark:bg-emerald-950 text-emerald-700  dark:text-emerald-400" : "text-orange-500"}`}
           >
             <div className="w-3 h-3 relative">
               <div
-                className={`w-3 h-3 animate-ping rounded-full  ${isActive ? "bg-green-300" : "bg-red-200"}`}
+                className={`w-3 h-3 animate-ping rounded-full  ${isActive ? "bg-green-300" : "bg-orange-200"}`}
               ></div>{" "}
               <div
-                className={`absolute w-2 h-2 -translate-y-1/2 left-1/2 top-1/2 ${isActive ? "bg-green-500 " : "bg-red-400"} rounded-full   -translate-x-1/2`}
+                className={`absolute w-2 h-2 -translate-y-1/2 left-1/2 top-1/2 ${isActive ? "bg-green-500 " : "bg-orange-400"} rounded-full   -translate-x-1/2`}
               />
             </div>
             {active ? "Live" : "Building.."}
