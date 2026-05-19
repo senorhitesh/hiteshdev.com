@@ -1,7 +1,9 @@
-import type { ExperienceItemType } from "@/components/work-experience";
-import { WorkExperience } from "@/components/work-experience";
+import type { Position, WorkExp } from "@/components/work-experience";
+import WorkExperience from "@/components/work-experience";
 import { CodeXmlIcon, LightbulbIcon } from "lucide-react";
 import softechLogo from "@/public/softech-logo.png";
+import { StaticImageData } from "next/image";
+
 const Experience = () => {
   return (
     <div className="w-full border-b border-neutral-200 dark:border-neutral-900">
@@ -19,14 +21,13 @@ const Experience = () => {
 export default Experience;
 
 function WorkExperienceDemo() {
-  return <WorkExperience className="w-full" experiences={WORK_EXPERIENCE} />;
+  return <WorkExperience experience={WORK_EXPERIENCE} />;
 }
-
-const WORK_EXPERIENCE: ExperienceItemType[] = [
+const WORK_EXPERIENCE: WorkExp[] = [
   {
     id: "softech",
     companyName: "Softech Solutions",
-    companyLogo: `  ${softechLogo.src}`,
+    companyLogo: softechLogo,
     companyWebsite: "https://soft-techsolutions.com/",
     positions: [
       {
@@ -38,10 +39,9 @@ const WORK_EXPERIENCE: ExperienceItemType[] = [
         },
 
         employmentType: "Intenship",
-        icon: <CodeXmlIcon />,
-        description: `- Enhanced the user experience and interface of an internal CMS system, improving usability and visual consistency across key workflows.
-                      - Led the full migration of a legacy PHP website to Next.js, achieving a 10% improvement in overall performance and significantly improving maintainability.
-                      - Developed and maintained a CMS system for a bank's website, utilizing PostgreSQL for robust and secure data management.`,
+        description: ` Enhanced the user experience and interface of an internal CMS system, improving usability and visual consistency across key workflows.
+                       Led the full migration of a legacy PHP website to Next.js, achieving a 10% improvement in overall performance and significantly improving maintainability.
+                       Developed and maintained a CMS system for a bank's website, utilizing PostgreSQL for robust and secure data management.`,
         skills: [
           "Next.js",
           "Typescript",
