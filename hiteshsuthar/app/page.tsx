@@ -29,6 +29,7 @@ export default function Home() {
         <Page.Divider />
         <Page.Quote />
         <Page.Divider />
+        <Page.QuoteSection />
         <Page.Footer />
         <div className="dotted-background p-12"></div>
         <Page.ScrollTop />

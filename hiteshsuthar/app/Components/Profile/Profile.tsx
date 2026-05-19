@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import displayPicture from "@/public/profile.png";
 import { FileTextIcon, CopyIcon, MailIcon } from "lucide-react";
+import ShinyText from "../ShineText";
 import Link from "next/link";
 const phrases = [
-  "Frontend React Dev",
+  "Python Full-Stack Developer",
   "Building @Fypped",
-  "Cooking something new",
+  "Cooking something",
 ];
 
 const Profile = () => {
@@ -35,7 +36,7 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="bg-white  border -mt-4 border-zinc-200 p-3.5 w-3xl">
+    <div className="bg-white rounded-xl  border -mt-4 border-zinc-200 p-3.5 w-3xl">
       {/* Top row */}
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">
@@ -52,9 +53,19 @@ const Profile = () => {
           </div>
           {/* Text */}
           <div>
-            <p className="text-[10px] text-zinc-400 uppercase tracking-[0.06em] font-medium mb-0.5">
-              Hola, I'm
-            </p>
+            <ShinyText
+              text="✨ Hola, I'm"
+              speed={2}
+              delay={0}
+              color="#666666"
+              shineColor="#d6ddff"
+              spread={120}
+              direction="left"
+              yoyo={false}
+              pauseOnHover={false}
+              disabled={false}
+              className="text-[10px] text-zinc-400 uppercase tracking-[0.06em] font-medium mb-0.5"
+            />
             <p className="text-3xl font-[Neue] font-semibold text-zinc-900 tracking-tight mb-0.5">
               Hitesh Suthar
             </p>
