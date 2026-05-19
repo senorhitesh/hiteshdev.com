@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isDay, setisDay] = useState<boolean>(false);
   const { setTheme } = useTheme();
   return (
-    <div className="flex flex-1 w-full  flex-col items-center  border-t border-b  border-neutral-100 dark:border-neutral-800 dark:bg-[##09090B] sm:items-start">
+    <div className="flex flex-1 w-full  flex-col items-center  border-t border-b  border-neutral-100 dark:border-neutral-800 dark:bg-[#09090B] sm:items-start">
       {/* Container */}
       <div className="mx-auto relative w-2xl border-neutral-200 dark:border-neutral-900   border-r border-l">
         {" "}

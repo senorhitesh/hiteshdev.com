@@ -121,7 +121,13 @@ body {
   background-image: radial-gradient(#dcdcdc 1px, transparent 1px);
   background-size: 18px 18px;
 }
-
+.grid-background{
+  background-image: linear-gradient(#e5e5e5 1px, transparent 1px), linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.divider-background{
+  background-image: repeating-linear-gradient(135deg, rgba(0,0,0, 0.02) 0px, rgba(0,0,0, 0.06) 0.5px, transparent 2px, transparent 8px);
+}
 /* 
    Dark Mode Overrides 
    (If you use a `.dark` class on your <html> tag instead of system preferences, 
@@ -130,8 +136,32 @@ body {
 @media (prefers-color-scheme: dark) {
   .dotted-background {
     background-color: #09090b;
-    border-color: #262626; /* neutral-800 */
-    background-image: radial-gradient(#333333 1px, transparent 1px);
+    border-color: #262626;
+
+    /* softer dots */
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px
+    );
+
+    background-size: 18px 18px;
+  }
+  .grid-background {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+
+    background-size: 24px 24px;
+  }
+  .divider-background {
+    background-image:
+      repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,0.015) 0px,
+        rgba(255,255,255,0.03) 0.5px,
+        transparent 2px,
+        transparent 8px
+      );
   }
 }
 
@@ -142,6 +172,8 @@ body {
   border-radius: 0.25em;
   background-color: hsl(0 0% 10%);
   color: hsl(0 0% 94%);
+overflow-x: hidden !important;
+
   font-size: 13px;
   font-family: var(--font-mono);
   /* See the `withArrow` setting. */
@@ -150,10 +182,12 @@ body {
   }
 
   &[data-color-scheme='dark'] {
+overflow-x: hidden !important;
     background-color: hsl(0 0% 94%);
     color: hsl(0 0% 6%);
 
     .react-activity-calendar__tooltip-arrow {
+overflow-x: hidden !important;
       fill: hsl(0 0% 94%);
     }
   }
@@ -164,7 +198,7 @@ body {
 
 /* target the wrapper that scrolls */
 .your-scroll-container::-webkit-scrollbar {
-  height: 6px; /* 👈 thickness */
+  height: 2px; /* 👈 thickness */
 }
 
 .your-scroll-container::-webkit-scrollbar-track {
@@ -180,6 +214,15 @@ body {
   background-color: #555;
 }
 
-@utility link-underline {
-    @apply underline decoration-current/30 decoration-1 underline-offset-3 transition-colors hover:decoration-current;
+.react-activity-calendar {
+  width: 100%;
+}
+
+.react-activity-calendar > div {
+  overflow-x: hidden !important;
+  scrollbar-width: none; /* Firefox */
+}
+
+.react-activity-calendar > div::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }

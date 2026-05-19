@@ -13,10 +13,10 @@ const Footer = () => {
         <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -bottom-1 -left-1 absolute border"></div>
         <div className="w-2 h-2 bg-white  dark:bg-black border-neutral-200 dark:border-neutral-800 -bottom-1 -right-1 absolute border"></div>
         <div>
-          <p className="text-xs font-mono text-neutral-900 dark:text-neutral-100 ">
+          <p className="text-xs font-mono text-neutral-900 dark:text-neutral-300 ">
             &copy; Hitesh Suthar
           </p>
-          <p className="text-xs font-mono text-neutral-900 dark:text-neutral-100 ">
+          <p className="text-xs font-mono text-neutral-900 dark:text-neutral-300 ">
             Built with Chai & ❤
           </p>
         </div>

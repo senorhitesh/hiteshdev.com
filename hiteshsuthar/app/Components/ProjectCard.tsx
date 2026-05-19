@@ -25,17 +25,17 @@ const ProjectCard = ({
   const active = isActive;
 
   return (
-    <div className="w-full  justify-between  flex flex-col items-start group dark:bg-neutral-900 cursor-pointer   transition-all duration-200">
+    <div className="w-full  justify-between  flex flex-col items-start group dark:bg-[#09090B] cursor-pointer   transition-all duration-200">
       {/* Thumbnail */}
-      <div className="relative h-36 w-full bg-neutral-50 dark:bg-neutral-800 rounded-xl border-neutral-200 border overflow-hidden ">
+      <div className="relative h-36 w-full dark:bg-neutral-900 bg-neutral-50  rounded-xl border-neutral-200 dark:border-neutral-800 border overflow-hidden ">
         {/* Grid pattern */}
         <div
-          className="absolute inset-0 opacity-50"
-          style={{
-            backgroundImage:
-              "linear-gradient(#e5e5e5 1px, transparent 1px), linear-gradient(90deg, #e5e5e5 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-          }}
+          className="absolute inset-0 grid-background opacity-50"
+          // style={{
+          //   backgroundImage:
+          //     "linear-gradient(#e5e5e5 1px, transparent 1px), linear-gradient(90deg, #e5e5e5 1px, transparent 1px)",
+          //   backgroundSize: "24px 24px",
+          // }}
         />
         <div className="absolute opacity-0 translate-y-5 scale-70 group-hover:scale-100 group-hover:blur-none  group-hover:opacity-100 group-hover:translate-y-0  transition duration-200 top-0 right-0 inset-0">
           <Image src={bgImage} alt={"Background1"} className="object-cover" />
@@ -44,7 +44,7 @@ const ProjectCard = ({
           <Image src={projectImage} alt="fyyped" className="object-cover" />
         </div>
         {/* Animated label */}
-        <span className="absolute top-2.5 left-2.5 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 text-xs text-neutral-500 group-hover:text-neutral-800 group-hover:bg-white group-hover:dark:bg-neutral-900 border border-transparent group-hover:border-neutral-200 group-hover:dark:border-neutral-700 rounded-md group-hover:px-2.5 py-1 whitespace-nowrap">
+        <span className="absolute top-2.5 dark:text-neutral-300 dark:group-hover:text-neutral-200 left-2.5 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 text-xs text-neutral-500 group-hover:text-neutral-800 group-hover:bg-white group-hover:dark:bg-neutral-900 border border-transparent group-hover:border-neutral-200 group-hover:dark:border-neutral-700 rounded-md group-hover:px-2.5 py-1 whitespace-nowrap">
           {type}
         </span>
       </div>
@@ -70,7 +70,7 @@ const ProjectCard = ({
             ) : null}
           </div>
           <span
-            className={`text-[11px] flex items-center gap-1 justify-center  rounded-full ${isActive ? "dark:bg-emerald-950 text-emerald-700  dark:text-emerald-400" : "text-orange-500"}`}
+            className={`text-[11px] flex items-center gap-1 justify-center  rounded-full ${isActive ? " text-emerald-700  dark:text-emerald-400" : "text-orange-500"}`}
           >
             <div className="w-3 h-3 relative">
               <div
@@ -83,7 +83,7 @@ const ProjectCard = ({
             {active ? "Live" : "Building.."}
           </span>
         </div>
-        <p className="text-xs text-neutral-400 group-hover:text-neutral-700 transition  mb-1">
+        <p className="text-xs text-neutral-400 group-hover:text-neutral-700 dark:group-hover:text-neutral-300 transition  mb-1">
           {description}
         </p>
       </div>

@@ -9,7 +9,7 @@ export default function Home() {
         <div className="w-full border-b border-neutral-200 dark:border-neutral-900">
           <div className="max-w-2xl mx-auto">
             <div className="dotted-background  p-12">
-              <p className="font-mono bg-white">
+              <p className="font-mono dark:bg-[#09090B] bg-white">
                 Designer Soul. <br /> Developer Brain.
               </p>
             </div>
