@@ -101,7 +101,7 @@ const ProjectCard = ({
             </div>
           ))}
         </div>
-        <button className="flex group cursor-pointer items-center gap-1 text-xs text-neutral-400 group-hover:text-neutral-700 dark:group-hover:text-neutral-200 transition duration-200 group/btn">
+        <button className="flex group cursor-pointer items-center   gap-1 text-xs text-neutral-400 group-hover:text-neutral-700 dark:group-hover:text-neutral-200 transition duration-200 group/btn">
           View Project
           <ArrowUpRight className="size-0 scale-0  group-hover:scale-100  group-hover:size-4 transition " />
         </button>

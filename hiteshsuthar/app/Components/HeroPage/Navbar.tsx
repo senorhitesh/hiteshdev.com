@@ -13,8 +13,8 @@ const Navbar = () => {
       {/* Container */}
       <div className="mx-auto relative w-2xl border-neutral-200 dark:border-neutral-900   border-r border-l">
         {" "}
-        <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -left-1 absolute border"></div>
-        <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -right-1 absolute border"></div>
+        <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -left-1 absolute border" />
+        <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -right-1 absolute border" />
         <div className="flex realtive items-center w-full  px-3 justify-between">
           {" "}
           <Image

@@ -37,7 +37,7 @@ const Profile = () => {
 
   return (
     <div
-      className="bg-white   rounded-xl  border -mt-4 dark:bg-[#09090B]
+      className="bg-white z-12   rounded-xl  border -mt-4 dark:bg-[#09090B]
 border-neutral-100 dark:border-neutral-800 p-3.5 w-3xl"
     >
       {/* Top row */}
@@ -46,11 +46,7 @@ border-neutral-100 dark:border-neutral-800 p-3.5 w-3xl"
           {/* Avatar */}
           <div className="relative shrink-0">
             <div className="w-26 h-26 rounded-[14px] bg-zinc-100 border border-zinc-200 dark:border-neutral-700 overflow-hidden">
-              <Image
-                src={displayPicture}
-                alt="Hitesh Suthar"
-                className="w-full h-full object-cover"
-              />
+              <Image src={displayPicture} alt="Hitesh Suthar" />
             </div>
             <div className="absolute -bottom-0.5 -right-0.5 w-2.75 h-2.75 rounded-full bg-green-500 border-2 border-white" />
           </div>
@@ -69,7 +65,7 @@ border-neutral-100 dark:border-neutral-800 p-3.5 w-3xl"
               disabled={false}
               className="text-[10px] text-zinc-400 uppercase tracking-[0.06em] font-medium mb-0.5"
             />
-            <p className="text-3xl font-[Neue] font-semibold dark:text-neutral-300 text-zinc-900 tracking-tight mb-0.5">
+            <p className="text-3xl  font-[Neue] font-semibold dark:text-neutral-300 text-zinc-900 tracking-tight mb-0.5">
               Hitesh Suthar
             </p>
             <p

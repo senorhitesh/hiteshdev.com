@@ -83,7 +83,6 @@ const WorkExperience = ({ experience }: { experience: WorkExp[] }) => {
                     <ChevronDown className="w-3.5 h-3.5 text-zinc-400 transition-transform duration-200 group-data-expanded:rotate-180" />
                   </div>
                 </AccordionTrigger>
-
                 <AccordionContent className="origin-top">
                   <div className="px-3.5 pb-3.5 pt-3 ">
                     <ul className="space-y-1.5 list-disc list-outside ml-4">

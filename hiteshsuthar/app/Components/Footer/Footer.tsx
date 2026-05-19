@@ -38,6 +38,7 @@ const Footer = () => {
           }}
         >
           <img
+            loading="eager"
             src={isHovering ? waving.src : coding.src}
             alt={"Coding"}
             className="-scale-x-100 pointer-events-none"

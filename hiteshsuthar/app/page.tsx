@@ -4,10 +4,12 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col flex-1 items-center justify-center font-sans dark:bg-[#09090B] mt-2">
-        <Page.Navbar />
+        {/* <Page.Navbar /> */}
         {/* Block */}
-        <div className="w-full border-b border-neutral-200 dark:border-neutral-900">
-          <div className="max-w-2xl mx-auto">
+        <div className="w-full border-y z-0 border-neutral-200 dark:border-neutral-900">
+          <div className="max-w-2xl relative mx-auto">
+            <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -left-1 absolute border" />
+            <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -right-1 absolute border" />
             <div className="dotted-background  p-12">
               <p className="font-mono dark:bg-[#09090B] bg-white">
                 Designer Soul. <br /> Developer Brain.
