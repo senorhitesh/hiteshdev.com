@@ -11,6 +11,7 @@ import Footer from "@/app/Components/Footer/Footer";
 import Quote from "@/app/Components/Quote/Quote";
 import ScrollTop from "@/app/Components/ScrollTop";
 import QuoteSection from "@/app/Components/QuoteSection";
+import GradualBlur from "@/app/Components/BelowBlur";
 const Page = {
   About,
   BioComponent,
@@ -25,6 +26,7 @@ const Page = {
   Quote,
   ScrollTop,
   QuoteSection,
+  GradualBlur,
 };
 
 export default Page;

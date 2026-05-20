@@ -9,12 +9,12 @@ const About = () => {
       </div>
       <div className="mx-auto p-6 relative w-2xl border-neutral-200 dark:border-neutral-900   border-r border-l ">
         {" "}
-        <p>
+        <h1>
           I build fast, clean, and interactive UI and I'm currently expanding
           into <span className="font-medium">AI agent systems</span> and backend
           engineering. My goal is to ship complete AI-powered products: polished
           frontends backed by agents that think and automate real workflows.
-        </p>
+        </h1>
       </div>
     </div>
   );

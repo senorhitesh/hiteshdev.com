@@ -2,9 +2,10 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import displayPicture from "@/public/profile.png";
-import { FileTextIcon, CopyIcon, MailIcon } from "lucide-react";
+import { FileTextIcon, CopyIcon, MailIcon, CalendarClock } from "lucide-react";
 import ShinyText from "../ShineText";
 import Link from "next/link";
+import { getCalApi } from "@calcom/embed-react";
 const phrases = [
   "Python Full-Stack Developer",
   "Building @Fypped",
@@ -33,6 +34,13 @@ const Profile = () => {
       }, 350);
     }, 2200);
     return () => clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: "quickchat" });
+      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+    })();
   }, []);
 
   return (
@@ -83,9 +91,18 @@ border-neutral-100 dark:border-neutral-800 p-3.5 w-3xl"
 
       {/* Buttons */}
       <div className="flex gap-2 mt-3.5">
-        <button className="px-4 flex items-center justify-center gap-1.5 bg-zinc-900 dark:text-neutral-300 text-white text-[12px] font-medium py-2 rounded-[10px]">
-          <FileTextIcon className="w-3.5 h-3.5" />
-          Resume
+        <button className="px-4 flex items-center cursor-pointer justify-center gap-1.5 bg-zinc-900 dark:text-neutral-300 text-white text-[12px] font-medium py-2 rounded-[10px]">
+          <MailIcon className="w-3.5 h-3.5" />
+          Get in touch
+        </button>
+        <button
+          data-cal-namespace="quickchat"
+          data-cal-link="senorhitesh/quickchat"
+          data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+          className="px-4 flex items-center cursor-pointer justify-center gap-1.5   text-neutral-800 border border-neutral-200 text-[12px] font-medium py-2 rounded-[10px]"
+        >
+          <CalendarClock className="w-3.5 h-3.5" />
+          Book a Meet
         </button>
         <Link
           target="_black"

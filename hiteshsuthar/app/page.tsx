@@ -3,7 +3,7 @@ import Page from "@/lib/assest/page";
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col flex-1 items-center justify-center font-sans dark:bg-[#09090B] mt-2">
+      <div className="flex flex-col overflow-hidden flex-1 relative items-center justify-center font-sans dark:bg-[#09090B] mt-2">
         {/* <Page.Navbar /> */}
         {/* Block */}
         <div className="w-full border-y z-0 border-neutral-200 dark:border-neutral-900">
@@ -34,6 +34,17 @@ export default function Home() {
         <Page.QuoteSection />
         <Page.Footer />
         <div className="dotted-background p-12"></div>
+        <Page.GradualBlur
+          target="page"
+          position="bottom"
+          height="3rem"
+          strength={2.5}
+          divCount={2}
+          curve="bezier"
+          exponential
+          opacity={0.5}
+          className="z-99"
+        />
         <Page.ScrollTop />
       </div>
     </>

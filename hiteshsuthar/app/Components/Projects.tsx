@@ -2,6 +2,7 @@ import { projectBackgrounds, projectImages } from "@/lib/assest/project";
 import { StaticImageData } from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import ProjectCard from "./ProjectCard";
+import Link from "next/link";
 interface ProjectProp {
   id: number;
   name: string;
@@ -385,13 +386,16 @@ const Projects = () => {
         </div>
         <div className="flex mt-5 w-full items-center justify-center">
           {" "}
-          <button className="flex font-mono dark:text-neutral-900 dark:ring-neutral-700 dark:hover:bg-neutral-100 ring-1 ring-neutral-400 hover:scale-97 cursor-pointer ring-offset-2 hover:ring-offset-1 transition duration-200 hover:bg-neutral-800 text-sm items-center group   bg-neutral-700 dark:bg-neutral-50  text-white rounded-md px-3 py-1 border gap-1  justify-center">
-            More{" "}
-            <ArrowUpRight
-              size={18}
-              className="group-hover:rotate-45 transtion duration-300 group-hover:translate-x-1.5"
-            />
-          </button>
+          <Link href="/projects">
+            {" "}
+            <button className="flex font-mono dark:text-neutral-900 dark:ring-neutral-700 dark:hover:bg-neutral-100 ring-1 ring-neutral-400 hover:scale-97 cursor-pointer ring-offset-2 hover:ring-offset-1 transition duration-200 hover:bg-neutral-800 text-sm items-center group   bg-neutral-700 dark:bg-neutral-50  text-white rounded-md px-3 py-1 border gap-1  justify-center">
+              More{" "}
+              <ArrowUpRight
+                size={18}
+                className="group-hover:rotate-45 transtion duration-300 group-hover:translate-x-1.5"
+              />
+            </button>
+          </Link>
         </div>
       </div>
     </div>

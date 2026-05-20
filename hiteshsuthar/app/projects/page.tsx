@@ -12,7 +12,9 @@ const page = () => {
           <ProjectCard />
         </div>
       </div>
+      <Page.Footer />
       <Page.ScrollTop />
+      <div className="dotted-background p-12"></div>
     </div>
   );
 };
