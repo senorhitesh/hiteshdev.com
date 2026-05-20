@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
-
+import { ArrowLeft, ChevronLeft } from "lucide-react";
+import Link from "next/link";
 const Page = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -37,14 +38,13 @@ const Page = () => {
     <div className="w-full min-h-screen bg-white dark:bg-black transition-colors duration-300">
       <div className="flex items-center justify-center max-w-2xl mx-auto border-x border-zinc-200 dark:border-zinc-800">
         <section className="h-full flex items-center justify-center mx-auto relative py-20">
-          {/* Background Text */}
           <p className="absolute font-extrabold text-7xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-zinc-200 dark:text-zinc-900">
             FAAHHHHHHH
           </p>
-
+          <div className="dark:bg-white w-80 bg-yellow-200 left-1/2 -translate-x-1/2 h-4 absolute top-22" />
           <div
             className="mx-auto relative overflow-hidden py-8 lg:px-16 md:px-14 px-4 max-w-195
-            bg-white dark:bg-black
+            bg-white/10 dark:bg-black/20
             border-y border-zinc-200 dark:border-zinc-800
             backdrop-blur-3xl"
           >
@@ -59,9 +59,19 @@ const Page = () => {
             <div className="w-30 h-30 bg-black/5 dark:bg-white/20 -right-10 -bottom-20 blur-3xl absolute" />
 
             {/* Heading */}
-            <h2 className="mb-1 font-[Neue] text-center text-4xl font-semibold leading-[0.92] text-black dark:text-white">
-              Get In Touch.
-            </h2>
+            <div className="flex items-center justify-between">
+              <Link href={"/"}>
+                <div className="text-neutral-700">
+                  <ChevronLeft />
+                </div>
+              </Link>
+              <h2 className="mb-1 font-[Neue] text-center text-4xl font-semibold leading-[0.92] text-black dark:text-white">
+                Get In Touch.
+              </h2>
+              <div className="opacity-0">
+                <ArrowLeft />
+              </div>
+            </div>
 
             <p className="mb-8 mt-4 text-base font-sans text-center text-zinc-600 dark:text-zinc-500">
               Available for freelance projects, collaborations, and full-time
@@ -121,7 +131,7 @@ const Page = () => {
 
               {/* Message */}
               <div>
-                <label className="text-[11px] after:content-['*'] font-bold uppercase tracking-[2px] text-zinc-500">
+                <label className="text-[11px] after:content-['*'] font-sans font-bold uppercase tracking-[2px] text-zinc-500">
                   Message
                 </label>
 
@@ -148,7 +158,7 @@ const Page = () => {
               className={`group 
               mt-5 px-6 relative rounded-xl py-2 overflow-hidden
               transition duration-200
-              hover:bg-zinc-100 dark:hover:bg-zinc-900  ${email === "" || name === "" || interested === "" || message === "" ? "bg-neutral-100 text-neutral-500 cursor-not-allowed" : "text-neutral-800 dark:text-white border border-zinc-300 dark:border-neutral-700 cursor-pointer"}`}
+              hover:bg-zinc-100 dark:hover:bg-zinc-900  ${email === "" || name === "" || interested === "" || message === "" ? "bg-neutral-100 dark:bg-neutral-800 text-neutral-500 cursor-not-allowed" : "text-neutral-800 dark:text-white border border-zinc-300 dark:border-neutral-700 cursor-pointer "}`}
             >
               <div className="absolute w-10 h-30 -top-5 -translate-x-26 group-hover:translate-x-26 bg-white blur-xl -rotate-12 transition duration-500" />
               Submit
