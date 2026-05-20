@@ -11,9 +11,11 @@
   "dependencies": {
     "@base-ui/react": "^1.4.1",
     "@calcom/embed-react": "^1.5.3",
+    "@supabase/supabase-js": "^2.106.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.2.1",
+    "dotenv": "^17.4.2",
     "lucide-react": "^1.14.0",
     "motion": "^12.39.0",
     "next": "^16.2.6",

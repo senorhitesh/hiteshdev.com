@@ -91,10 +91,12 @@ border-neutral-100 dark:border-neutral-800 p-3.5 w-3xl"
 
       {/* Buttons */}
       <div className="flex gap-2 mt-3.5">
-        <button className="px-4 flex items-center cursor-pointer justify-center gap-1.5 bg-zinc-900 dark:text-neutral-300 text-white text-[12px] font-medium py-2 rounded-[10px]">
-          <MailIcon className="w-3.5 h-3.5" />
-          Get in touch
-        </button>
+        <Link target="_black" href={"mailto:senorhitesh@gmail.com"}>
+          <button className="px-4 flex items-center cursor-pointer justify-center gap-1.5 bg-zinc-900 dark:text-neutral-300 text-white text-[12px] font-medium py-2 rounded-[10px]">
+            <MailIcon className="w-3.5 h-3.5" />
+            Get in touch
+          </button>
+        </Link>
         <button
           data-cal-namespace="quickchat"
           data-cal-link="senorhitesh/quickchat"

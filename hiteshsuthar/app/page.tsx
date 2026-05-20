@@ -28,10 +28,11 @@ export default function Home() {
         <Page.Experience />
         <Page.Divider />
         <Page.Projects />
-        <Page.Divider />
         <Page.Quote />
         <Page.Divider />
         <Page.QuoteSection />
+        <Page.Divider />
+
         <Page.Footer />
         <div className="dotted-background p-12"></div>
         <Page.GradualBlur
