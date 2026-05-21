@@ -68,7 +68,6 @@ const WorkExperience = ({ experience }: { experience: WorkExp[] }) => {
                       <Link target="_black" href={job.companyWebsite}>
                         <p className="text-sm w-fit  relative font-medium text-zinc-900 dark:text-zinc-50 leading-tight">
                           {job.companyName}
-                          <span className="h-px w-0 left-0 bottom-0 transition-all duration-700 bottom-0.4  group-hover:w-full absolute  bg-neutral-400" />
                         </p>
                       </Link>
                       <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">

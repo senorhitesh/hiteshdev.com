@@ -1,39 +1,50 @@
 "use client";
-
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { ArrowLeft, ChevronLeft } from "lucide-react";
 import Link from "next/link";
+
+const ValidationSchema = Yup.object({
+  name: Yup.string()
+    .required("Required")
+    .min(2, "Name must be at least 2 characters"),
+  email: Yup.string()
+    .required("Email required")
+    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Please enter a valid email"),
+  phone: Yup.string()
+    .min(5, "Invalid phone number")
+    .max(15, "Invalid phone number"),
+  interested: Yup.string().required("Please select a subject"),
+  message: Yup.string().required("Message is required").min(5, "Too short"),
+});
+
 const Page = () => {
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [interested, setInterested] = useState("");
-  const [message, setMessage] = useState("");
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phone: "",
+      interested: "web",
+      message: "",
+    },
+    validationSchema: ValidationSchema,
+    onSubmit: async (values, { resetForm, setSubmitting }) => {
+      const { error } = await supabase.from("customers").insert([values]);
 
-  const handleSubmit = async () => {
-    const { error } = await supabase.from("customers").insert([
-      {
-        name,
-        email,
-        phone,
-        interested,
-        message,
-      },
-    ]);
+      if (error) {
+        console.error(error);
+        alert("Something went wrong");
+      } else {
+        alert("Message sent successfully!");
+        resetForm();
+      }
+      setSubmitting(false);
+    },
+  });
 
-    if (error) {
-      console.log(error);
-      alert("Something went wrong");
-      return;
-    }
-    alert("Message sent successfully!");
-    setName("");
-    setEmail("");
-    setPhone("");
-    setInterested("");
-    setMessage("");
-  };
+  if (formik.isSubmitting) alert("Form Submiited");
   return (
     <div className="w-full min-h-screen bg-white dark:bg-black transition-colors duration-300">
       <div className="flex items-center justify-center max-w-2xl mx-auto border-x border-zinc-200 dark:border-zinc-800">
@@ -53,11 +64,9 @@ const Page = () => {
             <div className="w-2 h-2 bg-zinc-300 dark:bg-neutral-500 border border-zinc-400 dark:border-neutral-400 top-0 right-0 absolute" />
             <div className="w-2 h-2 bg-zinc-300 dark:bg-neutral-500 border border-zinc-400 dark:border-neutral-400 bottom-0 left-0 absolute" />
             <div className="w-2 h-2 bg-zinc-300 dark:bg-neutral-500 border border-zinc-400 dark:border-neutral-400 bottom-0 right-0 absolute" />
-
             {/* Glow */}
             <div className="w-30 h-30 bg-black/5 dark:bg-white/20 -left-10 -top-20 blur-3xl absolute" />
             <div className="w-30 h-30 bg-black/5 dark:bg-white/20 -right-10 -bottom-20 blur-3xl absolute" />
-
             {/* Heading */}
             <div className="flex items-center justify-between">
               <Link href={"/"}>
@@ -72,36 +81,46 @@ const Page = () => {
                 <ArrowLeft />
               </div>
             </div>
-
             <p className="mb-8 mt-4 text-base font-sans text-center text-zinc-600 dark:text-zinc-500">
               Available for freelance projects, collaborations, and full-time
               opportunities
             </p>
-
-            <div className="flex flex-col">
+            <form
+              onSubmit={() => formik.handleSubmit()}
+              className="flex flex-col"
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 font-sans">
                 <InputField
                   label="Name"
                   placeholder="Your name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  name="name"
+                  value={formik.values.name}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={formik.touched.name ? formik.errors.name : undefined}
                   classNameLabel="after:content-['*']"
                 />
 
                 <InputField
                   label="Email"
                   placeholder="email@example.com"
-                  value={email}
+                  name="email"
                   type="email"
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={formik.touched.email ? formik.errors.email : undefined}
                   classNameLabel="after:content-['*']"
                 />
 
                 <InputField
                   label="Phone"
                   placeholder="Phone No"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  name="phone"
+                  value={formik.values.phone}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={formik.touched.phone ? formik.errors.phone : undefined}
                 />
 
                 {/* Select */}
@@ -111,14 +130,16 @@ const Page = () => {
                   </label>
 
                   <select
-                    value={interested}
-                    onChange={(e) => setInterested(e.target.value)}
+                    name="interested"
+                    value={formik.values.interested}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     className="mt-2.5 mb-5 w-full rounded-xl border
-                    border-zinc-300 dark:border-zinc-800
-                    bg-zinc-100 dark:bg-[#0f0f0f]
-                    px-4 py-3.5 text-[15px]
-                    text-black dark:text-neutral-300
-                    outline-none focus:border-neutral-400"
+                        border-zinc-300 dark:border-zinc-800
+                        bg-zinc-100 dark:bg-[#0f0f0f]
+                        px-4 py-3.5 text-[15px]
+                       text-black dark:text-neutral-300
+                       outline-none focus:border-neutral-400"
                   >
                     <option value="">Select a subject</option>
                     <option value="web">Web Development</option>
@@ -131,16 +152,17 @@ const Page = () => {
 
               {/* Message */}
               <div>
-                <label className="text-[11px] after:content-['*'] font-sans font-bold uppercase tracking-[2px] text-zinc-500">
+                <label className="text-[11px] after:content-['*'] font-bold uppercase tracking-[2px] text-zinc-500">
                   Message
                 </label>
-
                 <textarea
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
+                  name="message"
+                  value={formik.values.message}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   placeholder="Type your message here."
                   rows={6}
-                  className="mt-2.5 w-full rounded-xl border
+                  className="mt-2.5 w-full  rounded-xl border
                   border-zinc-300 dark:border-zinc-800
                   bg-zinc-100 dark:bg-[#0f0f0f]
                   px-4 py-3.5 text-[15px]
@@ -149,43 +171,60 @@ const Page = () => {
                   placeholder:text-zinc-500 dark:placeholder:text-zinc-600
                   focus:border-neutral-400 resize-none font-mono"
                 />
+                {formik.touched.message && formik.errors.message && (
+                  <p className="text-red-500 font-sans text-xs mt-1">
+                    {formik.errors.message}
+                  </p>
+                )}
               </div>
-            </div>
 
-            {/* Button */}
-            <button
-              onClick={handleSubmit}
-              className={`group 
-              mt-5 px-6 relative rounded-xl py-2 overflow-hidden
-              transition duration-200
-              hover:bg-zinc-100 dark:hover:bg-zinc-900  ${email === "" || name === "" || interested === "" || message === "" ? "bg-neutral-100 dark:bg-neutral-800 text-neutral-500 cursor-not-allowed" : "text-neutral-800 dark:text-white border border-zinc-300 dark:border-neutral-700 cursor-pointer "}`}
-            >
-              <div className="absolute w-10 h-30 -top-5 -translate-x-26 group-hover:translate-x-26 bg-white blur-xl -rotate-12 transition duration-500" />
-              Submit
-            </button>
+              {/* Button */}
+              <button
+                type="submit"
+                disabled={
+                  !formik.isValid || !formik.dirty || formik.isSubmitting
+                }
+                className={`group 
+                      mt-5 px-6 relative rounded-xl py-2 overflow-hidden
+                      transition duration-200
+                      hover:bg-zinc-100 dark:hover:bg-zinc-900  
+                ${
+                  !formik.isValid || !formik.dirty
+                    ? "bg-neutral-100 dark:bg-neutral-800 text-neutral-500 cursor-not-allowed"
+                    : "text-neutral-800 dark:text-white border border-zinc-300 dark:border-neutral-700 cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                }`}
+              >
+                <div className="absolute w-10 h-30 -top-5 -translate-x-26 group-hover:translate-x-26 bg-white blur-xl -rotate-12 transition duration-500" />
+                {formik.isSubmitting ? "Sending..." : "Submit"}
+              </button>
+            </form>
           </div>
         </section>
       </div>
     </div>
   );
 };
-
 export default Page;
-
 const InputField = ({
   label,
   placeholder,
   onChange,
+  onBlur,
   value,
+  name,
   type = "text",
   classNameLabel = "",
+  error,
 }: {
   label: string;
   placeholder: string;
+  name: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   value: string;
   type?: string;
   classNameLabel?: string;
+  error?: string;
 }) => {
   return (
     <div>
@@ -194,11 +233,12 @@ const InputField = ({
       >
         {label}
       </label>
-
       <input
         type={type}
+        name={name}
         value={value}
         onChange={onChange}
+        onBlur={onBlur}
         placeholder={placeholder}
         className="mt-2.5 mb-5 w-full rounded-xl border
         border-zinc-300 dark:border-zinc-800
@@ -209,6 +249,7 @@ const InputField = ({
         placeholder:text-zinc-500 dark:placeholder:text-zinc-600
         focus:border-neutral-400 font-mono"
       />
+      {error && <p className="text-red-500 text-xs mb-4">{error}</p>}
     </div>
   );
 };

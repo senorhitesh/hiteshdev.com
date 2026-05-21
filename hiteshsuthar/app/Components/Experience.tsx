@@ -32,7 +32,7 @@ const WORK_EXPERIENCE: WorkExp[] = [
     positions: [
       {
         id: "2",
-        title: "Frontend Developer",
+        title: "Frontend Intern Developer",
         employmentPeriod: {
           start: "04.2026",
           end: "04.2026",
