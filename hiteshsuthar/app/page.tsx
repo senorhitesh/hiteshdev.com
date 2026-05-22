@@ -4,7 +4,6 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col overflow-hidden flex-1 relative items-center justify-center font-sans dark:bg-[#09090B] mt-2">
-        {/* Block */}
         <DynamicIsland />
         <div className="w-full border-y z-0 border-neutral-200 dark:border-neutral-900">
           <div className="max-w-2xl relative mx-auto">
