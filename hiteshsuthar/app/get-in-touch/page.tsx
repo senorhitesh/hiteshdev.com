@@ -1,10 +1,10 @@
 "use client";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useState } from "react";
 import { supabase } from "@/lib/supabase";
-import { ArrowLeft, ChevronLeft } from "lucide-react";
+import { ArrowLeft, ChevronLeft, Send } from "lucide-react";
 import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
 
 const ValidationSchema = Yup.object({
   name: Yup.string()
@@ -19,7 +19,6 @@ const ValidationSchema = Yup.object({
   interested: Yup.string().required("Please select a subject"),
   message: Yup.string().required("Message is required").min(5, "Too short"),
 });
-
 const Page = () => {
   const formik = useFormik({
     initialValues: {
@@ -34,25 +33,35 @@ const Page = () => {
       const { error } = await supabase.from("customers").insert([values]);
 
       if (error) {
-        console.error(error);
-        alert("Something went wrong");
+        toast.error("Something went wrong");
       } else {
-        alert("Message sent successfully!");
+        toast.success("Message sent successfully ✔");
         resetForm();
       }
       setSubmitting(false);
     },
   });
 
-  if (formik.isSubmitting) alert("Form Submiited");
   return (
     <div className="w-full min-h-screen bg-white dark:bg-black transition-colors duration-300">
+      <ToastContainer
+        position="bottom-center"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className="flex items-center justify-center max-w-2xl mx-auto border-x border-zinc-200 dark:border-zinc-800">
         <section className="h-full flex items-center justify-center mx-auto relative py-20">
           <p className="absolute font-extrabold text-7xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-zinc-200 dark:text-zinc-900">
             FAAHHHHHHH
           </p>
-          <div className="dark:bg-white w-80 bg-yellow-200 left-1/2 -translate-x-1/2 h-4 absolute top-22" />
+          <div className="dark:bg-neutral-400 rounded-full w-80 bg-yellow-200 left-1/2 -translate-x-1/2 h-4 absolute top-22" />
           <div
             className="mx-auto relative overflow-hidden py-8 lg:px-16 md:px-14 px-4 max-w-195
             bg-white/10 dark:bg-black/20
@@ -194,8 +203,8 @@ const Page = () => {
                     : "text-neutral-800 dark:text-white border border-zinc-300 dark:border-neutral-700 cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-900"
                 }`}
               >
-                <div className="absolute w-10 h-30 -top-5 -translate-x-26 group-hover:translate-x-26 bg-white blur-xl -rotate-12 transition duration-500" />
-                {formik.isSubmitting ? "Sending..." : "Submit"}
+                <div className="absolute w-10  h-30 -top-5 -translate-x-26 group-hover:translate-x-26 bg-white blur-xl -rotate-12 transition duration-500" />
+                {formik.isSubmitting ? "Sending..." : <>Send</>}
               </button>
             </form>
           </div>

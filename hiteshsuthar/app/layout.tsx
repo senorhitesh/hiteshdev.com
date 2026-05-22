@@ -23,11 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      suppressHydrationWarning={true}
+      suppressHydrationWarning
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex flex-col">{children}</body>
+      <body className="flex flex-col"> {children}</body>
     </html>
   );
 }

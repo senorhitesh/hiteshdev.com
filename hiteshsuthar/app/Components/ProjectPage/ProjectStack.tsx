@@ -1,7 +1,9 @@
 import { projectBackgrounds, projectImages } from "@/lib/assest/project";
 import { StaticImageData } from "next/image";
 import ProjectCard from "@/app/Components/ProjectCard";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ChevronLeft } from "lucide-react";
+
+import Link from "next/link";
 interface ProjectProp {
   id: number;
   name: string;
@@ -361,8 +363,12 @@ const Projects = () => {
   return (
     <div className="w-full">
       <div className="max-w-2xl mx-auto px-3 border-x border-neutral-200 dark:border-neutral-900 py-6">
-        <div className="flex items-baseline gap-2 mb-5">
-          <ArrowLeft className="border border-neutral-200 rounded-md" />
+        <div className="flex items-center gap-2 mb-5">
+          <Link href={"/"}>
+            <div className="text-neutral-700">
+              <ChevronLeft />
+            </div>
+          </Link>
           <h2 className="relative font-[Neue] text-2xl inline-block font-semibold text-neutral-900 dark:text-neutral-100 ">
             Projects
           </h2>

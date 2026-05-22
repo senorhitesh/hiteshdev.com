@@ -101,7 +101,7 @@ border-neutral-100 dark:border-neutral-800 p-3.5 w-3xl"
           data-cal-namespace="quickchat"
           data-cal-link="senorhitesh/quickchat"
           data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-          className="px-4 flex items-center cursor-pointer justify-center gap-1.5   text-neutral-800 border border-neutral-200 text-[12px] font-medium py-2 rounded-[10px]"
+          className="px-4 flex items-center cursor-pointer  justify-center gap-1.5  dark:border-neutral-700 dark:bg-neutral-100 dark:text-neutral-900 text-neutral-800 border border-neutral-200 text-[12px] font-medium py-2 rounded-[10px]"
         >
           <CalendarClock className="w-3.5 h-3.5" />
           Book a Meet

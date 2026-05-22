@@ -1,7 +1,6 @@
 import About from "@/app/Components/About";
 import BioComponent from "@/app/Components/BioComponent";
 import Divider from "@/app/Components/Divider";
-import Navbar from "@/app/Components/HeroPage/Navbar";
 import Profile from "@/app/Components/Profile/Profile";
 import GithubContribution from "@/app/Components/Profile/GithubContribution";
 import Stack from "@/app/Components/Stack";
@@ -16,7 +15,6 @@ const Page = {
   About,
   BioComponent,
   Divider,
-  Navbar,
   Profile,
   GithubContribution,
   Stack,

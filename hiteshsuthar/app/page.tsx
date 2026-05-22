@@ -1,11 +1,11 @@
 import Page from "@/lib/assest/page";
-
+import DynamicIsland from "./Components/DockBar";
 export default function Home() {
   return (
     <>
       <div className="flex flex-col overflow-hidden flex-1 relative items-center justify-center font-sans dark:bg-[#09090B] mt-2">
-        {/* <Page.Navbar /> */}
         {/* Block */}
+        <DynamicIsland />
         <div className="w-full border-y z-0 border-neutral-200 dark:border-neutral-900">
           <div className="max-w-2xl relative mx-auto">
             <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -left-1 absolute border" />
@@ -32,7 +32,6 @@ export default function Home() {
         <Page.Divider />
         <Page.QuoteSection />
         <Page.Divider />
-
         <Page.Footer />
         <div className="dotted-background p-12"></div>
         <Page.GradualBlur
