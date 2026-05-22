@@ -1,5 +1,7 @@
 import Page from "@/lib/assest/page";
 import ProjectCard from "@/app/Components/ProjectPage/ProjectStack";
+import Navbar from "@/app/Components/DockBar";
+import Link from "next/link";
 const page = () => {
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans dark:bg-[#09090B] mt-2">
@@ -10,10 +12,24 @@ const page = () => {
           <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -left-1 absolute border"></div>
           <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -right-1 absolute border"></div>
           <ProjectCard />
+          <div className="p-4 -mt-3 font-sans border-neutral-200 dark:border-neutral-900 items-center justify-center flex border-x border-t">
+            <p className="text-sm text-neutral-600">
+              For more cool projects, visit my{" "}
+              <Link
+                href={"https://github.com/senorhitesh"}
+                target={"_blank"}
+                className="text-neutral-900 font-semibold"
+              >
+                Github.
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
       <Page.Footer />
       <Page.ScrollTop />
+      <Navbar />
+
       <div className="dotted-background p-12"></div>
     </div>
   );

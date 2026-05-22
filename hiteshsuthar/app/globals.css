@@ -226,3 +226,18 @@ overflow-x: hidden !important;
 .react-activity-calendar > div::-webkit-scrollbar {
   display: none; /* Chrome/Safari */
 }
+
+
+
+.profile-sweep{
+  animation:ProfileSweep 3s ease-in infinite
+}
+
+@keyframes ProfileSweep{
+  from{
+    transform: translateX(-120px) rotate(12deg);
+  }
+  to{
+    transform: translateX(120px) rotate(12deg);
+  }
+}

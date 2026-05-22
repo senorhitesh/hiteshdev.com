@@ -2,6 +2,7 @@ import { projectBackgrounds, projectImages } from "@/lib/assest/project";
 import { StaticImageData } from "next/image";
 import ProjectCard from "@/app/Components/ProjectCard";
 import { ArrowLeft, ChevronLeft } from "lucide-react";
+import DynamicIsland from "@/app/Components/DockBar";
 
 import Link from "next/link";
 interface ProjectProp {
@@ -365,7 +366,7 @@ const Projects = () => {
       <div className="max-w-2xl mx-auto px-3 border-x border-neutral-200 dark:border-neutral-900 py-6">
         <div className="flex items-center gap-2 mb-5">
           <Link href={"/"}>
-            <div className="text-neutral-700">
+            <div className="text-neutral-700  rounded-md border border-transparent hover:border-neutral-200 hover:bg-neutral-50">
               <ChevronLeft />
             </div>
           </Link>

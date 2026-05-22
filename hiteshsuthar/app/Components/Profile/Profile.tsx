@@ -53,7 +53,8 @@ border-neutral-100 dark:border-neutral-800 p-3.5 w-3xl"
         <div className="flex items-center gap-3">
           {/* Avatar */}
           <div className="relative shrink-0">
-            <div className="w-26 h-26 rounded-[14px] bg-zinc-100 border border-zinc-200 dark:border-neutral-700 overflow-hidden">
+            <div className="w-26 h-26 rounded-[14px] bg-zinc-100 relative border border-zinc-200 dark:border-neutral-700 overflow-hidden">
+              <div className="bg-white absolute h-full blur-lg w-2 profile-sweep left-4" />
               <Image src={displayPicture} alt="Hitesh Suthar" />
             </div>
             <div className="absolute -bottom-0.5 -right-0.5 w-2.75 h-2.75 rounded-full bg-green-500 border-2 border-white" />
