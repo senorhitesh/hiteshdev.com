@@ -12,7 +12,7 @@ const BlogMetaData: BlogDataProps[] = [
   {
     title: "Skip the Backend: Supabase Setup",
     description: "How I connected my contact form with supabse",
-    link: "SupabaseBlog",
+    link: "blogs/SupabaseBlog",
     date: "23-05-2026",
   },
 ];
@@ -35,9 +35,12 @@ const Blogs = () => {
         Thoughts, tutorials, and insights on programming and life
       </p>
       <div className="flex  flex-col items-center gap-4">
-        {BlogMetaData.map((blog) => {
+        {BlogMetaData.map((blog, i) => {
           return (
-            <div className="w-full px-2 py-3 flex justify-between items-center hover:border-neutral-400 border border-dashed border-neutral-200">
+            <div
+              key={i}
+              className="w-full px-2 py-3 flex justify-between items-center hover:border-neutral-400 border border-dashed border-neutral-200"
+            >
               <div className="flex items-start flex-col ">
                 <div className="flex flex-col">
                   <h1 className="font-sans font-semibold  text-xl md:text-md sm:text-md">

@@ -1,0 +1,73 @@
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Backgrounds */
+    --bg: #f7faf5;
+    --surface: #f0ece4;
+    --code-bg: #1c1917;
+    
+    /* Text */
+    --text: #1c1917;
+    --muted: #78716c;
+    --code-text: #e7e5e0;
+    
+    /* Borders & Shadows */
+    --border: #ddd8ce;
+    --shadow: rgba(0, 0, 0, 0.08);
+    
+    /* Accent - Warm Amber/Gold */
+    --accent: #b45309;
+    --accent-dim: rgba(180, 83, 9, 0.08);
+    --accent-border: rgba(180, 83, 9, 0.2);
+    --accent-text: #92400e;
+    
+    /* Warning */
+    --warn-dim: rgba(239, 68, 68, 0.07);
+    --warn-border: rgba(239, 68, 68, 0.18);
+    --warn-text: #991b1b;
+    
+    /* Syntax Highlighting */
+    --syn-kw: #7c3aed;
+    --syn-fn: #1d4ed8;
+    --syn-str: #166534;
+    --syn-prop: #0e7490;
+    --syn-cm: #9ca3af;
+    --hl-line: rgba(180, 83, 9, 0.06);
+  }
+
+  .dark {
+    /* Backgrounds */
+    --bg: #0c0c0e;
+    --surface: #16161a;
+    --code-bg: #0a0a0c;
+    
+    /* Text */
+    --text: #e8e6e1;
+    --muted: #6b6b75;
+    --code-text: #d4cfc7;
+    
+    /* Borders & Shadows */
+    --border: #252529;
+    --shadow: rgba(0, 0, 0, 0.4);
+    
+    /* Accent - Warm Amber/Gold */
+    --accent: #f59e0b;
+    --accent-dim: rgba(245, 158, 11, 0.1);
+    --accent-border: rgba(245, 158, 11, 0.22);
+    --accent-text: #fcd34d;
+    
+    /* Warning */
+    --warn-dim: rgba(239, 68, 68, 0.1);
+    --warn-border: rgba(239, 68, 68, 0.22);
+    --warn-text: #fca5a5;
+    
+    /* Syntax Highlighting */
+    --syn-kw: #c084fc;
+    --syn-fn: #60a5fa;
+    --syn-str: #86efac;
+    --syn-prop: #67e8f9;
+    --syn-cm: #4b5563;
+    --hl-line: rgba(245, 158, 11, 0.08);
+  }
+}

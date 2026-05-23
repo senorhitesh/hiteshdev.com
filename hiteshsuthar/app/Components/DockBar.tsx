@@ -7,7 +7,7 @@ import Link from "next/link";
 import displayPicture from "@/public/profile.png";
 const navItems = [
   { label: "Projects", icon: FolderKanban, href: "/projects" },
-  { label: "Blogs", icon: BookOpen, href: "/blogs-page" },
+  { label: "Blogs", icon: BookOpen, href: "/blogs" },
   { label: "Contact", icon: Mail, href: "/get-in-touch" },
 ];
 
@@ -25,13 +25,15 @@ export default function Navbar() {
       `}
     >
       {/* Avatar / Logo */}
-      <div
-        className={`w-8 h-8  overflow-hidden rounded-full flex items-center justify-center mr-1 transition-colors duration-300 
+      <Link href="/">
+        <div
+          className={`w-8 h-8  overflow-hidden rounded-full flex items-center justify-center mr-1 transition-colors duration-300 
           "dark:bg-zinc-100"  "bg-zinc-900"
         `}
-      >
-        <Image src={displayPicture} alt={"prfile"} className="object-cover" />
-      </div>
+        >
+          <Image src={displayPicture} alt={"prfile"} className="object-cover" />
+        </div>
+      </Link>
 
       {/* Divider */}
       <div className={`w-px h-5 mx-1 "dark:bg-zinc-600"  "bg-zinc-200"`} />
