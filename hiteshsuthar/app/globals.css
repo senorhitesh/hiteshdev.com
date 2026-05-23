@@ -112,11 +112,9 @@ body {
   width: 42rem;     /* Equivalent to w-2xl */
   height: 12.5rem;  /* Equivalent to h-50 */
 
-  /* Borders (gray-200) */
   border-left: 1px solid #e5e7eb;
   border-right: 1px solid #e5e7eb;
 
-  /* Light Mode Background & Pattern */
   background-color: #ffffff;
   background-image: radial-gradient(#dcdcdc 1px, transparent 1px);
   background-size: 18px 18px;

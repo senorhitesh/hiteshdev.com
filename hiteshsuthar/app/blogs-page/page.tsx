@@ -1,39 +1,25 @@
-import React from "react";
+import Page from "@/lib/assest/page";
+import ProjectCard from "@/app/Components/ProjectPage/ProjectStack";
+import Navbar from "@/app/Components/DockBar";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-
+import Blogs from "../Components/Blogs";
 const page = () => {
   return (
-    <div className="flex flex-col flex-1 items-center font-sans dark:bg-black mt-2">
-      {/* Header */}
-      <div className="flex flex-1 w-full justify-center relative  flex-col items-center  border-t border-b  border-neutral-100 dark:bg-black sm:items-start">
-        {/* Container */}
-        <div className="mx-auto relative bg-amber-100 w-2xl flex justify-center items-center border-yellow-200 border-r border-l">
-          <div className="w-2 h-2 bg-yellow-100 -top-1 -left-1 absolute border border-yellow-500 "></div>
-          <div className="w-2 h-2 bg-yellow-100 -top-1 -right-1 absolute border border-yellow-500 "></div>{" "}
-          <div className="w-2 h-2 bg-yellow-100 -bottom-1 -left-1 absolute border border-yellow-500 "></div>
-          <div className="w-2 h-2 bg-yellow-100 -bottom-1 -right-1 absolute border border-yellow-500 "></div>{" "}
-          <p className="text-7xl font-sans tracking-tighter text-neutral-800 font-bold">
-            Work in Progress
-          </p>
+    <div className="flex flex-col flex-1 items-center justify-center font-sans dark:bg-[#09090B] mt-2">
+      {/* Block */}
+      <div className="w-2xl mx-auto border-x border-neutral-200 dark:border-neutral-900  p-12" />
+      <div className="w-full relative border-b border-t font-mono tracking-tight dark:border-neutral-900 border-neutral-200">
+        <div className="mx-auto gap-3 flex flex-col max-w-2xl   relative">
+          <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -left-1 absolute border"></div>
+          <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -right-1 absolute border"></div>
+          <Blogs />
         </div>
       </div>
-      <div className="flex flex-1 w-full  relative  flex-col items-center  border-t border-b  border-neutral-100 dark:bg-black sm:items-start">
-        {/* Container */}
-        <div className="flex justify-center items-center flex-col min-h-screen min-w-screen">
-          <div className="mx-auto  h-fit  w-fit px-4 flex justify-center items-center border-neutral-200  ">
-            <Link href="/">
-              <button className="flex gap-2 justofy-center items-center cursor-pointer">
-                {" "}
-                <ArrowLeft />
-                <p className=" font-sans text-neutral-800 font-italic">
-                  Back to Home
-                </p>
-              </button>
-            </Link>
-          </div>
-        </div>
-      </div>
+      <Page.Footer />
+      <Page.ScrollTop />
+      <Navbar />
+
+      <div className="dotted-background p-12"></div>
     </div>
   );
 };

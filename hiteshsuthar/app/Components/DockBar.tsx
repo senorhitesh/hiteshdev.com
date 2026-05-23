@@ -7,7 +7,7 @@ import Link from "next/link";
 import displayPicture from "@/public/profile.png";
 const navItems = [
   { label: "Projects", icon: FolderKanban, href: "/projects" },
-  { label: "Blogs", icon: BookOpen, href: "/blogs" },
+  { label: "Blogs", icon: BookOpen, href: "/blogs-page" },
   { label: "Contact", icon: Mail, href: "/get-in-touch" },
 ];
 
