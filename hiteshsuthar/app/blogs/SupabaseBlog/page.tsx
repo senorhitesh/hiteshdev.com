@@ -1,32 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { ChevronLeft, Moon, Sun, CalendarRange } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { ChevronLeft, CalendarRange, Play, Pause } from "lucide-react";
 import Link from "next/link";
 import "./supabase.css";
 import { motion } from "framer-motion";
+import ShareButton from "@/app/Components/BlogPage/ShareBtn";
+import Footer from "@/app/Components/Footer/Footer";
 // ─── Types ────────────────────────────────────────────────────────────────────
 export type Theme = "dark" | "light";
 
 // ─── Reusable UI Components ───────────────────────────────────────────────────
-
-export function ThemeToggle({
-  theme,
-  toggle,
-}: {
-  theme: Theme;
-  toggle: () => void;
-}) {
-  return (
-    <button
-      onClick={toggle}
-      aria-label="Toggle theme"
-      className="fixed top-5 right-6 z-50 w-10 h-10 rounded-full border border-[#ddd8ce] dark:border-[#252529] bg-[#f0ece4] dark:bg-[#16161a] text-[#1c1917] dark:text-[#e8e6e1] cursor-pointer flex items-center justify-center text-[17px] shadow-[0_2px_12px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.4)] transition-all duration-200 hover:scale-105 active:scale-95"
-    >
-      {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-    </button>
-  );
-}
 
 export function Tag({ children }: { children: React.ReactNode }) {
   return (
@@ -142,6 +126,7 @@ export const H2 = ({ children }: { children: React.ReactNode }) => (
       duration: 0.3,
       ease: "easeIn",
     }}
+    viewport={{ once: true }}
     className="font-['Instrument_Serif',Georgia,_serif] text-[clamp(1.45rem,3vw,1.75rem)] font-normal text-[#1c1917] dark:text-[#e8e6e1] mt-13 mb-3.5 pt-1.5"
   >
     {children}
@@ -160,6 +145,7 @@ export const H3 = ({ children }: { children: React.ReactNode }) => (
       duration: 0.3,
       ease: "easeIn",
     }}
+    viewport={{ once: true }}
     className="font-['JetBrains_Mono',monospace] text-[11.5px] font-medium text-[#b45309] dark:text-[#f59e0b] uppercase tracking-[0.08em] mt-1.5"
   >
     {children}
@@ -178,6 +164,7 @@ export const P = ({ children }: { children: React.ReactNode }) => (
       duration: 0.3,
       ease: "easeIn",
     }}
+    viewport={{ once: true }}
     className="text-[#78716c] dark:text-[#6b6b75] mb-4 text-[16px] leading-[1.78]"
   >
     {children}
@@ -206,6 +193,7 @@ export const InlineCode = ({ children }: { children: React.ReactNode }) => (
       duration: 0.3,
       ease: "easeIn",
     }}
+    viewport={{ once: true }}
     className="font-['JetBrains_Mono',monospace] text-[0.85em] bg-[#f0ece4] dark:bg-[#16161a] border border-[#ddd8ce] dark:border-[#252529] rounded px-1.5 py-px text-[#b45309] dark:text-[#f59e0b]"
   >
     {children}
@@ -230,6 +218,7 @@ export const StyledLink = ({
       duration: 0.3,
       ease: "easeIn",
     }}
+    viewport={{ once: true }}
     href={href}
     target="_blank"
     rel="noreferrer"
@@ -251,6 +240,7 @@ export const StepBadge = ({ number }: { number: number }) => (
       duration: 0.3,
       ease: "easeIn",
     }}
+    viewport={{ once: true }}
     className="shrink-0 w-8 h-8 rounded-full bg-[#b45309]/8 dark:bg-[#f59e0b]/1 border border-[#b45309]/2 dark:border-[#f59e0b]/22 flex items-center justify-center font-['JetBrains_Mono',monospace] text-[13px] text-[#b45309] dark:text-[#f59e0b] mt-1"
   >
     {number}
@@ -271,6 +261,7 @@ export const K = ({ c }: { c: string }) => (
       duration: 0.3,
       ease: "easeIn",
     }}
+    viewport={{ once: true }}
     className="text-[#cced3a] dark:text-[#cced3a]"
   >
     {c}
@@ -288,6 +279,7 @@ export const F = ({ c }: { c: string }) => (
       duration: 0.3,
       ease: "easeIn",
     }}
+    viewport={{ once: true }}
     className="text-[#d89a1d] dark:text-[#d89a1d]"
   >
     {c}
@@ -305,6 +297,7 @@ export const S = ({ c }: { c: string }) => (
       duration: 0.3,
       ease: "easeIn",
     }}
+    viewport={{ once: true }}
     className="text-[#e83aff] dark:text-[#e83aff]"
   >
     {c}
@@ -322,6 +315,7 @@ export const Prop = ({ c }: { c: string }) => (
       duration: 0.3,
       ease: "easeIn",
     }}
+    viewport={{ once: true }}
     className="text-[#0e7490] dark:text-[#67e8f9]"
   >
     {c}
@@ -339,6 +333,7 @@ export const C = ({ c }: { c: string }) => (
       duration: 0.3,
       ease: "easeIn",
     }}
+    viewport={{ once: true }}
     className="text-[#9ca3af] dark:text-[#4b5563] italic"
   >
     {c}
@@ -354,6 +349,7 @@ export const HL = ({ children }: { children: React.ReactNode }) => (
       duration: 0.3,
       ease: "easeIn",
     }}
+    viewport={{ once: true }}
     className="block bg-[#8aff67]/10 dark:bg-[#8aff67]/10 -mx-5 px-5"
   >
     {children}
@@ -364,6 +360,10 @@ export const HL = ({ children }: { children: React.ReactNode }) => (
 
 export default function SupabaseBlog() {
   const [theme, setTheme] = useState<Theme>("dark");
+
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [visible, setvisible] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-color-scheme: light)");
@@ -378,8 +378,6 @@ export default function SupabaseBlog() {
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@400;500&display=swap');
         `}</style>
-
-        <ThemeToggle theme={theme} toggle={toggle} />
 
         <div className="max-w-170 mx-auto px-6">
           {/* ── Header ── */}
@@ -407,10 +405,16 @@ export default function SupabaseBlog() {
               <span>·</span>
               <span>No server required</span>
             </div>
-            <button className="flex mt-4 items-center text-neutral-400 text-[14px] gap-2">
-              <CalendarRange size={16} className="text-neutral-400" />{" "}
-              23-05-2026
-            </button>
+            <div className="flex items-center justify-between">
+              <button className="flex mt-4 items-center text-neutral-400 text-[14px] gap-2">
+                <CalendarRange size={16} className="text-neutral-400" />{" "}
+                23-05-2026
+              </button>
+              <ShareButton
+                title="Skip the Backend: Connect a Contact Form Directly to Supabase"
+                url="https://hiteshdevcom.vercel.app/blogs/SupabaseBlog"
+              />
+            </div>
           </header>
 
           {/* ── TOC ── */}
@@ -516,7 +520,7 @@ export default function SupabaseBlog() {
             </div>
 
             {/* Step 2 */}
-            <div className="flex gap-5 mb-9">
+            <div className="flex flex-col gap-5 mb-9">
               <div className="flex-1">
                 <div className="flex items-center  gap-2">
                   {" "}
@@ -531,7 +535,42 @@ export default function SupabaseBlog() {
                 </P>
               </div>
 
-              <div></div>
+              <div className="border  lg:h-70 relative group md:h-50 h-40  rounded-lg overflow-hidden border-neutral-200">
+                <div className="absolute -translate-x-1/2  left-1/2 bottom-5 w-10 h-10 rounded-full group-hover:scale-100 scale-0  ">
+                  <div
+                    className="flex items-center justify-center"
+                    onClick={() => {
+                      const nextPlaying = !isPlaying;
+
+                      setIsPlaying(nextPlaying);
+
+                      if (nextPlaying) {
+                        videoRef.current?.play();
+                      } else {
+                        videoRef.current?.pause();
+                      }
+                    }}
+                  >
+                    {isPlaying ? <Pause /> : <Play />}
+                  </div>
+                </div>
+                <div className="bg-[#f0ece4] dark:bg-[#16161a] px-3.5 py-2 font-['JetBrains_Mono',monospace] text-xs text-[#78716c] dark:text-[#6b6b75] flex items-center justify-between border-b border-[#ddd8ce] dark:border-[#252529]">
+                  <span className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#e0957e] dark:bg-[#252529] inline-block" />
+                    <span className="w-2 h-2 rounded-full bg-[#e4b964] dark:bg-[#252529] inline-block" />
+                    <span className="w-2 h-2 rounded-full bg-[#8ae272] dark:bg-[#252529] inline-block" />
+                  </span>
+                </div>
+
+                <div>
+                  <video
+                    ref={videoRef}
+                    preload="metadata"
+                    playsInline
+                    src="./tutorial.mp4"
+                  />
+                </div>
+              </div>
             </div>
 
             {/* Step 3 */}
@@ -744,9 +783,10 @@ export default function SupabaseBlog() {
           </article>
 
           {/* Footer */}
-          <footer className="border-t border-[#ddd8ce] dark:border-[#252529] py-9 text-center font-['JetBrains_Mono',monospace]  text-xs text-[#78716c] dark:text-[#6b6b75]">
+          {/* <footer className="border-t border-[#ddd8ce] dark:border-[#252529] py-9 text-center font-['JetBrains_Mono',monospace]  text-xs text-[#78716c] dark:text-[#6b6b75]">
             Written while learning Supabase · No backend was harmed
-          </footer>
+          </footer> */}
+          <Footer cn="" />
         </div>
       </div>
     </div>

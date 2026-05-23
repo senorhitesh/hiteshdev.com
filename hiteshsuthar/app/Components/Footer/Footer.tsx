@@ -3,13 +3,15 @@ import coding from "@/public/Footer/deskbreak-coder-idle.gif";
 import waving from "@/public/Footer/deskbreak-coder-waving.gif";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-const Footer = () => {
+const Footer = ({ cn = "border-x" }) => {
   const [isHovering, setisHovering] = useState(false);
   const div = useRef<HTMLDivElement>(null);
 
   return (
     <div className="border-b w-full  dark:border-neutral-900 border-neutral-200">
-      <div className="max-w-2xl p-3 relative gap-3 flex justify-between items-center  w-full mx-auto border-x dark:border-neutral-900  border-neutral-200">
+      <div
+        className={`max-w-2xl p-3 relative gap-3 flex justify-between items-center  w-full mx-auto  dark:border-neutral-900  border-neutral-200 ${cn}`}
+      >
         <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -bottom-1 -left-1 absolute border"></div>
         <div className="w-2 h-2 bg-white  dark:bg-black border-neutral-200 dark:border-neutral-800 -bottom-1 -right-1 absolute border"></div>
         <div>

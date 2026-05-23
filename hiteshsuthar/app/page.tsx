@@ -28,6 +28,8 @@ export default function Home() {
         <Page.Experience />
         <Page.Divider />
         <Page.Projects />
+        <Page.Divider />
+        <Page.Blogs />
         <Page.Quote />
         <Page.Divider />
         <Page.QuoteSection />
