@@ -81,7 +81,7 @@ const Page = () => {
               {/* Heading */}
               <div className="flex items-center justify-between">
                 <Link href={"/"}>
-                  <div className="text-neutral-700  rounded-md border border-transparent hover:border-neutral-200 hover:bg-neutral-50">
+                  <div className="text-neutral-700 hover:dark:bg-neutral-900 hover:dark:border-neutral-800 rounded-md border border-transparent hover:border-neutral-200 hover:bg-neutral-50">
                     <ChevronLeft />
                   </div>
                 </Link>

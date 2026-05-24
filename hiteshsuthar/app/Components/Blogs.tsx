@@ -19,11 +19,11 @@ const BlogMetaData: BlogDataProps[] = [
 
 const Blogs = () => {
   return (
-    <div className="border-x flex flex-col   border-neutral-200 p-4">
+    <div className="border-x flex flex-col dark:border-neutral-900   border-neutral-200 p-4">
       {" "}
       <div className="flex items-center gap-2 ">
         <Link href={"/"}>
-          <div className="text-neutral-700  rounded-md border border-transparent hover:border-neutral-200 hover:bg-neutral-50">
+          <div className="text-neutral-700 hover:dark:bg-neutral-900 hover:dark:border-neutral-800 rounded-md border border-transparent hover:border-neutral-200 hover:bg-neutral-50">
             <ChevronLeft />
           </div>
         </Link>
@@ -71,10 +71,12 @@ export const BlogCard = ({ title, link, description, date }: BlogDataProps) => {
       </div>
       <Link href={link}>
         <div className="mr-2 cursor-pointer flex gap-1 group items-center">
-          <p className="text-neutral-500 group-hover:text-neutral-700">Read</p>{" "}
+          <p className="text-neutral-500 dark:group-hover:text-neutral-500 group-hover:text-neutral-700">
+            Read
+          </p>{" "}
           <ArrowUpRight
             size={18}
-            className="text-neutral-500 group-hover:text-neutral-700"
+            className="text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-500"
           />
         </div>
       </Link>

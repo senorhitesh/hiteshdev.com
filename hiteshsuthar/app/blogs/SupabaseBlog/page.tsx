@@ -782,10 +782,6 @@ export default function SupabaseBlog() {
             </Callout>
           </article>
 
-          {/* Footer */}
-          {/* <footer className="border-t border-[#ddd8ce] dark:border-[#252529] py-9 text-center font-['JetBrains_Mono',monospace]  text-xs text-[#78716c] dark:text-[#6b6b75]">
-            Written while learning Supabase · No backend was harmed
-          </footer> */}
           <Footer cn="" />
         </div>
       </div>

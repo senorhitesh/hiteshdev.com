@@ -23,7 +23,9 @@ export default function ShareButton({
         setOpen(false);
       }
     }
+
     if (open) document.addEventListener("mousedown", handleClick);
+
     return () => document.removeEventListener("mousedown", handleClick);
   }, [open]);
 
@@ -32,27 +34,34 @@ export default function ShareButton({
     function handleKey(e: KeyboardEvent) {
       if (e.key === "Escape") setOpen(false);
     }
+
     if (open) document.addEventListener("keydown", handleKey);
+
     return () => document.removeEventListener("keydown", handleKey);
   }, [open]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(url).then(() => {
       setCopied(true);
+
       setTimeout(() => setCopied(false), 2000);
     });
   };
 
   const shareTwitter = () => {
     window.open(
-      `https://twitter.com/intent/tweet?text=${encodeURIComponent(`"${title}"`)}&url=${encodeURIComponent(url)}`,
+      `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+        `"${title}"`,
+      )}&url=${encodeURIComponent(url)}`,
       "_blank",
     );
   };
 
   const shareLinkedIn = () => {
     window.open(
-      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+        url,
+      )}`,
       "_blank",
     );
   };
@@ -64,7 +73,7 @@ export default function ShareButton({
       {/* ── Share Button ── */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 bg-white text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 hover:border-gray-300 active:scale-95 transition-all duration-150 cursor-pointer"
+        className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-sm font-medium text-gray-700 dark:text-gray-200 shadow-sm hover:bg-gray-50 dark:hover:bg-neutral-800 hover:border-gray-300 dark:hover:border-neutral-600 active:scale-95 transition-all duration-150 cursor-pointer"
       >
         <Share2 size={15} strokeWidth={2} />
         Share
@@ -74,29 +83,37 @@ export default function ShareButton({
       {open && (
         <div
           ref={modalRef}
-          className="absolute left-0 top-full mt-2 w-80 rounded-2xl border border-gray-200 bg-white shadow-xl z-50 overflow-hidden"
+          className="absolute left-0 top-full mt-2 w-80 rounded-2xl border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 shadow-xl z-50 overflow-hidden"
           style={{ animation: "popIn .15s ease both" }}
         >
           <style>{`
             @keyframes popIn {
-              from { opacity: 0; transform: scale(.96) translateY(-4px); }
-              to   { opacity: 1; transform: scale(1)   translateY(0); }
+              from {
+                opacity: 0;
+                transform: scale(.96) translateY(-4px);
+              }
+              to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+              }
             }
           `}</style>
 
           {/* Header */}
           <div className="flex items-start justify-between px-5 pt-5 pb-3">
             <div>
-              <p className="text-sm font-semibold text-gray-900">
+              <p className="text-sm font-semibold text-gray-900 dark:text-white">
                 Share this Blog.
               </p>
-              <p className="text-xs text-gray-400 mt-0.5 leading-snug">
+
+              <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5 leading-snug">
                 "{title}"
               </p>
             </div>
+
             <button
               onClick={() => setOpen(false)}
-              className="ml-3 flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors cursor-pointer"
+              className="ml-3 flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-gray-400 dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-neutral-800 hover:text-gray-600 dark:hover:text-gray-300 transition-colors cursor-pointer"
               aria-label="Close"
             >
               <X size={15} strokeWidth={2.5} />
@@ -106,19 +123,21 @@ export default function ShareButton({
           <div className="px-5 pb-5 space-y-4">
             {/* Copy link */}
             <div>
-              <p className="text-xs font-medium text-gray-500 mb-1.5">
+              <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1.5">
                 Copy link
               </p>
-              <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2 bg-gray-50">
-                <span className="flex-1 text-xs text-gray-500 truncate font-mono">
+
+              <div className="flex items-center gap-2 border border-gray-200 dark:border-neutral-700 rounded-lg px-3 py-2 bg-gray-50 dark:bg-neutral-800">
+                <span className="flex-1 text-xs text-gray-500 dark:text-gray-300 truncate font-mono">
                   {displayUrl}
                 </span>
+
                 <button
                   onClick={handleCopy}
                   className={`flex-shrink-0 p-1 rounded-md transition-all duration-150 cursor-pointer ${
                     copied
-                      ? "text-emerald-500 bg-emerald-50"
-                      : "text-gray-400 hover:text-gray-600 hover:bg-gray-200"
+                      ? "text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10"
+                      : "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-200 dark:hover:bg-neutral-700"
                   }`}
                   aria-label="Copy link"
                 >
@@ -133,21 +152,22 @@ export default function ShareButton({
 
             {/* Share on */}
             <div>
-              <p className="text-xs font-medium text-gray-500 mb-1.5">
+              <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1.5">
                 Share on
               </p>
+
               <div className="flex gap-2">
                 {/* Twitter / X */}
                 <button
                   onClick={shareTwitter}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 hover:border-gray-300 active:scale-95 transition-all duration-150 cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-neutral-800 hover:border-gray-300 dark:hover:border-neutral-600 active:scale-95 transition-all duration-150 cursor-pointer"
                 >
                   <svg
                     width="13"
                     height="13"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="text-gray-800"
+                    className="text-gray-800 dark:text-white"
                   >
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
@@ -157,7 +177,7 @@ export default function ShareButton({
                 {/* LinkedIn */}
                 <button
                   onClick={shareLinkedIn}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 hover:border-gray-300 active:scale-95 transition-all duration-150 cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-neutral-800 hover:border-gray-300 dark:hover:border-neutral-600 active:scale-95 transition-all duration-150 cursor-pointer"
                 >
                   <svg
                     width="13"
