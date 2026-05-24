@@ -2,19 +2,10 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { supabase } from "@/lib/supabase";
-import { ArrowLeft, ChevronLeft, Send } from "lucide-react";
+import { ArrowLeft, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import Navbar from "@/app/Components/Global/DockBar";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Contact Form - Hitesh Suthar",
-  description: "Want's to work/connect with me .Here is quick form.",
-  alternates: {
-    canonical: "/blog",
-  },
-};
 
 const ValidationSchema = Yup.object({
   name: Yup.string()
@@ -231,6 +222,7 @@ const Page = () => {
   );
 };
 export default Page;
+
 const InputField = ({
   label,
   placeholder,
