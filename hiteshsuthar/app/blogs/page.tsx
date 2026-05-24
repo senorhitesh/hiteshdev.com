@@ -1,8 +1,7 @@
 import Page from "@/lib/assest/page";
-import ProjectCard from "@/app/Components/ProjectPage/ProjectStack";
-import Navbar from "@/app/Components/DockBar";
-import Link from "next/link";
+import Navbar from "@/app/Components/Global/DockBar";
 import Blogs from "../Components/Blogs";
+
 const page = () => {
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans dark:bg-[#09090B] mt-2">
@@ -23,5 +22,4 @@ const page = () => {
     </div>
   );
 };
-
 export default page;

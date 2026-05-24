@@ -1,7 +1,16 @@
 import Page from "@/lib/assest/page";
 import ProjectCard from "@/app/Components/ProjectPage/ProjectStack";
-import Navbar from "@/app/Components/DockBar";
+import Navbar from "@/app/Components/Global/DockBar";
 import Link from "next/link";
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Projects - Hitesh Suthar",
+  description:
+    "Projects I’ve built along the way, shaped by curiosity, AI, and a focus on building things that actually work and mean something.",
+  alternates: {
+    canonical: "/blog",
+  },
+};
 const page = () => {
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans dark:bg-[#09090B] mt-2">
@@ -18,7 +27,7 @@ const page = () => {
               <Link
                 href={"https://github.com/senorhitesh"}
                 target={"_blank"}
-                className="text-neutral-900 font-semibold"
+                className="text-neutral-900 dark:text-neutral-300 font-semibold"
               >
                 Github.
               </Link>

@@ -1,6 +1,13 @@
 import Page from "@/lib/assest/page";
-import Navbar from "./Components/DockBar";
-
+import Navbar from "./Components/Global/DockBar";
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Hitesh Suthar",
+  description: "Founder, Creator, and a Learner.",
+  alternates: {
+    canonical: "/",
+  },
+};
 export default function Home() {
   return (
     <>

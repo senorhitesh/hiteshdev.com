@@ -1,7 +1,6 @@
-import { ArrowUpRight, ChevronLeft, CalendarRange } from "lucide-react";
-import Link from "next/link";
 import type { BlogDataProps } from "@/app/Components/Blogs";
 import { BlogCard } from "@/app/Components/Blogs";
+import type { Metadata } from "next";
 const BlogMetaData: BlogDataProps[] = [
   {
     title: "Skip the Backend: Supabase Setup",
@@ -10,6 +9,16 @@ const BlogMetaData: BlogDataProps[] = [
     date: "23-05-2026",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Blog - Hitesh Suthar",
+  description:
+    "Notes on software,  engineering, freelancing, and things I learn while building.",
+  alternates: {
+    canonical: "/blog",
+  },
+};
+
 const Blogs = () => {
   return (
     <div className="w-full border-b font-mono tracking-tight dark:border-neutral-900 border-neutral-200">

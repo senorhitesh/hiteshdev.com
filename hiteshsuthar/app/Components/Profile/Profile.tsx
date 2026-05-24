@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import displayPicture from "@/public/profile.png";
 import { FileTextIcon, CopyIcon, MailIcon, CalendarClock } from "lucide-react";
-import ShinyText from "../ShineText";
+import ShinyText from "../Global/ShineText";
 import Link from "next/link";
 import { getCalApi } from "@calcom/embed-react";
 const phrases = [

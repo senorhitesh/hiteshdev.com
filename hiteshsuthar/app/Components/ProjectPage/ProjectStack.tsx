@@ -1,8 +1,8 @@
 import { projectBackgrounds, projectImages } from "@/lib/assest/project";
 import { StaticImageData } from "next/image";
-import ProjectCard from "@/app/Components/ProjectCard";
+import ProjectCard from "@/app/Components/Project/ProjectCard";
 import { ArrowLeft, ChevronLeft } from "lucide-react";
-import DynamicIsland from "@/app/Components/DockBar";
+import DynamicIsland from "@/app/Components/Global/DockBar";
 
 import Link from "next/link";
 interface ProjectProp {
