@@ -2,10 +2,14 @@ import Image from "next/image";
 import { ArrowUpRight, Link2 } from "lucide-react";
 import Link from "next/link";
 import { StaticImageData } from "next/image";
-
+interface StackProp {
+  icon: React.ReactNode;
+  label: string;
+}
 const ProjectCard = ({
   name,
   type,
+  slug,
   description,
   isActive,
   bgImage,
@@ -15,28 +19,23 @@ const ProjectCard = ({
 }: {
   name: string;
   type: string;
+  slug: string;
   description: string;
   isActive: boolean;
   bgImage: StaticImageData;
   projectImage: StaticImageData;
-  stack: React.ReactNode[];
+  stack: StackProp[];
   link: string;
 }) => {
   const active = isActive;
 
+  console.log(`Slug value in Project Card ${slug}`);
   return (
     <div className="w-full  justify-between  flex flex-col items-start group dark:bg-[#09090B] cursor-pointer   transition-all duration-200">
       {/* Thumbnail */}
       <div className="relative h-36 w-full dark:bg-neutral-900 bg-neutral-50  rounded-xl border-neutral-200 dark:border-neutral-800 border overflow-hidden ">
         {/* Grid pattern */}
-        <div
-          className="absolute inset-0 grid-background opacity-50"
-          // style={{
-          //   backgroundImage:
-          //     "linear-gradient(#e5e5e5 1px, transparent 1px), linear-gradient(90deg, #e5e5e5 1px, transparent 1px)",
-          //   backgroundSize: "24px 24px",
-          // }}
-        />
+        <div className="absolute inset-0 grid-background opacity-50" />
         <div className="absolute opacity-0 translate-y-5 scale-70 group-hover:scale-100 group-hover:blur-none  group-hover:opacity-100 group-hover:translate-y-0  transition duration-200 top-0 right-0 inset-0">
           <Image src={bgImage} alt={"Background1"} className="object-cover" />
         </div>
@@ -91,20 +90,44 @@ const ProjectCard = ({
       {/* Footer */}
       <div className="flex items-center justify-between px-4 py-2  w-full">
         <div className="flex ">
-          {stack.map((initials, i) => (
-            <div
-              key={i}
-              className="w-6 h-6  rounded-full border-2 border-white dark:border-neutral-900 bg-neutral-100 dark:bg-neutral-800 flex items-center  justify-center text-[10px] font-medium text-neutral-500"
-              style={{ marginLeft: i === 0 ? 0 : -6 }}
-            >
-              {initials}
-            </div>
-          ))}
+          {stack.length > 3 ? (
+            <>
+              {stack.slice(0, 4).map((item, i) => (
+                <div
+                  key={i}
+                  className="w-6 h-6 rounded-full border-2 border-white dark:border-neutral-900 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-[10px] font-medium text-neutral-500"
+                  style={{ marginLeft: i === 0 ? 0 : -6 }}
+                >
+                  {item.icon}
+                </div>
+              ))}
+              <div
+                className="w-6 h-6 rounded-full border-2 border-white dark:border-neutral-900 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-[10px] font-medium text-neutral-500"
+                style={{ marginLeft: -6 }}
+              >
+                +{stack.length - 4}
+              </div>
+            </>
+          ) : (
+            <>
+              {stack.map((item, i) => (
+                <div
+                  key={i}
+                  className="w-6 h-6 rounded-full border-2 border-white dark:border-neutral-900 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-[10px] font-medium text-neutral-500"
+                  style={{ marginLeft: i === 0 ? 0 : -6 }}
+                >
+                  {item.icon}
+                </div>
+              ))}
+            </>
+          )}
         </div>
-        <button className="flex group cursor-pointer items-center   gap-1 text-xs text-neutral-400 group-hover:text-neutral-700 dark:group-hover:text-neutral-200 transition duration-200 group/btn">
-          View Project
-          <ArrowUpRight className="size-0 scale-0  group-hover:scale-100  group-hover:size-4 transition " />
-        </button>
+        <Link href={`/projects/${slug}`}>
+          <button className="flex group cursor-pointer items-center   gap-1 text-xs text-neutral-400 group-hover:text-neutral-700 dark:group-hover:text-neutral-200 transition duration-200 group/btn">
+            View Project
+            <ArrowUpRight className="size-0 scale-0  group-hover:scale-100  group-hover:size-4 transition " />
+          </button>
+        </Link>
       </div>
     </div>
   );

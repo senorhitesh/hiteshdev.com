@@ -29,7 +29,7 @@ export default function Home() {
         <Page.BioComponent />
         <Page.Divider />
         <Page.About />
-        <Page.GithubContribution />
+        {/* <Page.GithubContribution /> */}
         <Page.Stack />
         <Page.Divider />
         <Page.Experience />

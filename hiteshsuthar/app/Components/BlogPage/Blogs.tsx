@@ -9,16 +9,14 @@ const BlogMetaData: BlogDataProps[] = [
     date: "23-05-2026",
   },
 ];
-
 export const metadata: Metadata = {
   title: "Blog - Hitesh Suthar",
   description:
     "Notes on software,  engineering, freelancing, and things I learn while building.",
   alternates: {
-    canonical: "/blog",
+    canonical: "/blogs",
   },
 };
-
 const Blogs = () => {
   return (
     <div className="w-full border-b font-mono tracking-tight dark:border-neutral-900 border-neutral-200">

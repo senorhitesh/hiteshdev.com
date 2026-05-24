@@ -3,14 +3,16 @@ import ProjectCard from "@/app/Components/ProjectPage/ProjectStack";
 import Navbar from "@/app/Components/Global/DockBar";
 import Link from "next/link";
 import type { Metadata } from "next";
+
 export const metadata: Metadata = {
   title: "Projects - Hitesh Suthar",
   description:
     "Projects I’ve built along the way, shaped by curiosity, AI, and a focus on building things that actually work and mean something.",
   alternates: {
-    canonical: "/blog",
+    canonical: "/projects",
   },
 };
+
 const page = () => {
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans dark:bg-[#09090B] mt-2">

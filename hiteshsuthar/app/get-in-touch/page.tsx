@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import Navbar from "@/app/Components/Global/DockBar";
 
+
 const ValidationSchema = Yup.object({
   name: Yup.string()
     .required("Required")

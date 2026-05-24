@@ -18,7 +18,7 @@ const siteUrl = "https://hiteshdevcom.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Hitesh Suthar - Developer & creator.",
+    default: "Hitesh Suthar - Developer, Creator, Learner and Delusional .",
     template: "%s – Hitesh Suthar",
   },
   description: "Full-Stack developer, AI enthusiast, Freelancer and a Learner.",
