@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Page from "@/lib/assest/page";
 import { ThemeProvider } from "@/components/theme-provider";
-
+import { Analytics } from "@vercel/analytics/next";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -68,6 +68,7 @@ export default function RootLayout({
           <Page.ScrollTop />
         </ThemeProvider>
       </body>
+      <Analytics />
     </html>
   );
 }
