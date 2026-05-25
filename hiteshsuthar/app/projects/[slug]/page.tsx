@@ -2,6 +2,8 @@ import Navbar from "@/app/Components/Global/DockBar";
 import Link from "next/link";
 import { Project } from "@/lib/data/project";
 import { ChevronLeft } from "lucide-react";
+import ProjectVideoPlayer from "@/app/Components/Project/ProjectVideoPlayer";
+
 interface Props {
   params: {
     slug: string;
@@ -31,16 +33,7 @@ const Page = async ({ params }: Props) => {
           </div>
           {/* Video Block */}
           <div className="h-70 border m-2 rounded-lg p-2 border-neutral-200 dark:border-neutral-800">
-            <div className="w-full h-full">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                src={project?.video}
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <ProjectVideoPlayer src={project?.video} />
           </div>
           {/* Links Block */}
           <div className="w-full p-2 grid  m-2 grid-cols-2 divide-x divide-neutral-200 dark:divide-neutral-900  rounded-lg overflow-hidden text-sm">

@@ -7,6 +7,7 @@ import "./supabase.css";
 import { motion } from "framer-motion";
 import ShareButton from "@/app/Components/BlogPage/ShareBtn";
 import Footer from "@/app/Components/Footer/Footer";
+import { Spinner } from "@/components/ui/spinner";
 // ─── Types ────────────────────────────────────────────────────────────────────
 export type Theme = "dark" | "light";
 
@@ -363,6 +364,7 @@ export default function SupabaseBlog() {
 
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [visible, setvisible] = useState(false);
+  const [isVideoLoading, setIsVideoLoading] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -561,12 +563,21 @@ export default function SupabaseBlog() {
                     <span className="w-2 h-2 rounded-full bg-[#8ae272] dark:bg-[#252529] inline-block" />
                   </span>
                 </div>
-                <div>
+                <div className="relative w-full h-full flex items-center justify-center bg-neutral-100 dark:bg-neutral-900">
+                  {isVideoLoading && (
+                    <div className="absolute inset-0 flex items-center justify-center z-10 bg-neutral-50/50 dark:bg-neutral-950/50 backdrop-blur-xs">
+                      <Spinner className="size-6 text-neutral-500 animate-spin" />
+                    </div>
+                  )}
                   <video
                     ref={videoRef}
                     preload="metadata"
                     playsInline
-                    src="./tutorial.mp4"
+                    src="/blogs/tutorial.mp4"
+                    onCanPlay={() => setIsVideoLoading(false)}
+                    onWaiting={() => setIsVideoLoading(true)}
+                    onPlaying={() => setIsVideoLoading(false)}
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
