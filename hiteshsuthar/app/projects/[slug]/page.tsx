@@ -37,10 +37,9 @@ const Page = async ({ params }: Props) => {
                 muted
                 loop
                 playsInline
+                src={project?.video}
                 className="w-full h-full object-cover"
-              >
-                <source src="/ProjectVideos/wauting.mp4" type="video/mp4" />
-              </video>
+              />
             </div>
           </div>
           {/* Links Block */}

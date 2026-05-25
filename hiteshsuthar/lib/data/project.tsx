@@ -41,14 +41,14 @@ export const Project: ProjectCardProps[] = [
       { icon: <SiTailwindcss size={18} color="#06B6D4" />, label: "Tailwind" },
     ],
     link: "https://fyyped.vercel.app/",
-    video: "/ProjectVideos/wauting.mp4",
+    video: "/Project/ProjectVideos/waiting.mp4",
   },
   {
     id: 2,
     name: "Task Tracker",
     slug: "task-tracker",
     type: "Tracker",
-    video: "/ProjectVideos/task-Traker.mp4",
+    video: "/Project/ProjectVideos/tt.mp4",
     description:
       "A modern productivity app that helps users manage tasks and goals through a GitHub-style visual tracking system.",
     isActive: true,
@@ -70,7 +70,7 @@ export const Project: ProjectCardProps[] = [
     name: "Softtech Solution",
     slug: "sofftech-solutions",
     type: "Redesign",
-    video: "/ProjectVideos/SOFTECH.mp4",
+    video: "/Project/ProjectVideos/stecg.mp4",
     github: "https://github.com/senorhitesh/softtechsolution-rewamp",
     description:
       "A redesigned telecom startup website with modern visuals, smooth interactions, and an improved user experience.",
@@ -89,7 +89,7 @@ export const Project: ProjectCardProps[] = [
     name: "Shushiman",
     slug: "shushiman",
     type: "Shushi Website",
-    video: "/ProjectVideos/SHUSHI-WEBSITE.mp4",
+    video: "/Project/ProjectVideos/sw.mp4",
     description:
       "A Japanese-theme sushi restaurant website featuring clean visuals, smooth animations, and a fully responsive design.",
     isActive: true,

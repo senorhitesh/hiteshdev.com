@@ -535,7 +535,7 @@ export default function SupabaseBlog() {
                 </P>
               </div>
 
-              <div className="border  lg:h-70 relative group md:h-50 h-40  rounded-lg overflow-hidden border-neutral-200">
+              <div className="border  lg:h-70 relative group md:h-50 h-40  rounded-lg overflow-hidden dark:border-neutral-800 border-neutral-200">
                 <div className="absolute -translate-x-1/2  left-1/2 bottom-5 w-10 h-10 rounded-full group-hover:scale-100 scale-0  ">
                   <div
                     className="flex items-center justify-center"
@@ -554,14 +554,13 @@ export default function SupabaseBlog() {
                     {isPlaying ? <Pause /> : <Play />}
                   </div>
                 </div>
-                <div className="bg-[#f0ece4] dark:bg-[#16161a] px-3.5 py-2 font-['JetBrains_Mono',monospace] text-xs text-[#78716c] dark:text-[#6b6b75] flex items-center justify-between border-b border-[#ddd8ce] dark:border-[#252529]">
+                <div className="bg-[#f0ece4] dark:bg-[#16161a] px-3.5 py-2 font-['JetBrains_Mono',monospace] text-xs text-[#78716c] dark:text-[#6b6b75] flex items-center justify-between border-b border-[#ddd8ce] dark:border-[#0d0d0e]">
                   <span className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#e0957e] dark:bg-[#252529] inline-block" />
                     <span className="w-2 h-2 rounded-full bg-[#e4b964] dark:bg-[#252529] inline-block" />
                     <span className="w-2 h-2 rounded-full bg-[#8ae272] dark:bg-[#252529] inline-block" />
                   </span>
                 </div>
-
                 <div>
                   <video
                     ref={videoRef}
