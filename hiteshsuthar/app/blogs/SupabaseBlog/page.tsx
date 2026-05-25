@@ -1,9 +1,15 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { ChevronLeft, CalendarRange, Play, Pause, Sun, Moon } from "lucide-react";
+import {
+  ChevronLeft,
+  CalendarRange,
+  Play,
+  Pause,
+  Sun,
+  Moon,
+} from "lucide-react";
 import Link from "next/link";
-import "./supabase.css";
 import { motion } from "framer-motion";
 import ShareButton from "@/app/Components/BlogPage/ShareBtn";
 import Footer from "@/app/Components/Footer/Footer";
@@ -12,8 +18,10 @@ import { Spinner } from "@/components/ui/spinner";
 const playClickSound = () => {
   if (typeof window === "undefined") return;
   try {
-    const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
-    
+    const ctx = new (
+      window.AudioContext || (window as any).webkitAudioContext
+    )();
+
     // Snappy mechanical click pop
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
@@ -415,7 +423,7 @@ export default function SupabaseBlog() {
 
   return (
     <div className={theme === "dark" ? "dark" : ""}>
-      <div className="min-h-screen bg-[#faf8f5] dark:bg-[#0c0c0e] text-[#1c1917] dark:text-[#e8e6e1] font-['DM_Sans','Segoe_UI',sans-serif] transition-colors duration-300 selection:bg-[#b45309]/15 dark:selection:bg-[#f59e0b]/2 selection:text-[#b45309] dark:selection:text-[#f59e0b]">
+      <div className="min-h-screen bg-[#faf8f5] overflow-hidden dark:bg-[#0c0c0e] text-[#1c1917] dark:text-[#e8e6e1] font-['DM_Sans','Segoe_UI',sans-serif] transition-colors duration-300 selection:bg-[#b45309]/15 dark:selection:bg-[#f59e0b]/2 selection:text-[#b45309] dark:selection:text-[#f59e0b]">
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@400;500&display=swap');
         `}</style>

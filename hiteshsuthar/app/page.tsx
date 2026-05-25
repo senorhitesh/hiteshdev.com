@@ -12,12 +12,14 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col overflow-hidden flex-1 relative items-center justify-center font-sans dark:bg-[#09090B] mt-2">
-        <div className="w-full border-y z-0 border-neutral-200 dark:border-neutral-900">
-          <div className="max-w-2xl relative mx-auto">
+        <div className="w-full border-y z-0 items-center justify-center flex border-neutral-200 dark:border-neutral-900">
+          <div className="max-w-2xl w-full relative mx-auto">
             <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -left-1 absolute border" />
             <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -right-1 absolute border" />
-            <div className="dotted-background  p-12">
-              <p className="font-mono dark:bg-[#09090B] bg-white">
+
+            {/* Added w-full, h-[12.5rem], flex, items-center, justify-center here */}
+            <div className="dotted-background w-full h-[12.5rem] flex items-center justify-center p-12">
+              <p className="font-mono dark:bg-[#09090B] bg-white text-center">
                 Designer Soul. <br /> Developer Brain.
               </p>
             </div>
@@ -29,7 +31,7 @@ export default function Home() {
         <Page.BioComponent />
         <Page.Divider />
         <Page.About />
-        {/* <Page.GithubContribution /> */}
+        <Page.GithubContribution />
         <Page.Stack />
         <Page.Divider />
         <Page.Experience />
@@ -42,7 +44,11 @@ export default function Home() {
         <Page.QuoteSection />
         <Page.Divider />
         <Page.Footer />
-        <div className="dotted-background p-12"></div>
+        <div className="w-full  z-0 items-center justify-center flex border-neutral-200 dark:border-neutral-900">
+          <div className="max-w-2xl w-full relative mx-auto">
+            <div className="dotted-background w-full h-[12.5rem] flex items-center justify-center p-12"></div>
+          </div>
+        </div>
       </div>
     </>
   );

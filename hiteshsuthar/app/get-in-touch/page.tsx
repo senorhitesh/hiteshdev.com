@@ -7,7 +7,6 @@ import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import Navbar from "@/app/Components/Global/DockBar";
 
-
 const ValidationSchema = Yup.object({
   name: Yup.string()
     .required("Required")
@@ -46,7 +45,7 @@ const Page = () => {
 
   return (
     <>
-      <div className="w-full min-h-screen bg-white dark:bg-black transition-colors duration-300">
+      <div className="w-full overflow-hidden min-h-screen bg-white dark:bg-black transition-colors duration-300">
         <ToastContainer
           position="bottom-center"
           autoClose={3000}

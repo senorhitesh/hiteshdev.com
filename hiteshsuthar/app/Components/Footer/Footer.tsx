@@ -7,21 +7,23 @@ import { motion } from "framer-motion";
 const playPullSound = () => {
   if (typeof window === "undefined") return;
   try {
-    const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+    const ctx = new (
+      window.AudioContext || (window as any).webkitAudioContext
+    )();
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
-    
+
     osc.type = "sine";
     // Rising pitch for the stretching tension
-    osc.frequency.setValueAtTime(150, ctx.currentTime);
+    osc.frequency.setValueAtTime(750, ctx.currentTime);
     osc.frequency.exponentialRampToValueAtTime(450, ctx.currentTime + 0.15);
-    
-    gain.gain.setValueAtTime(0.05, ctx.currentTime);
+
+    gain.gain.setValueAtTime(0.1, ctx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
-    
+
     osc.connect(gain);
     gain.connect(ctx.destination);
-    
+
     osc.start();
     osc.stop(ctx.currentTime + 0.16);
   } catch (e) {
@@ -32,8 +34,10 @@ const playPullSound = () => {
 const playSnapSound = () => {
   if (typeof window === "undefined") return;
   try {
-    const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
-    
+    const ctx = new (
+      window.AudioContext || (window as any).webkitAudioContext
+    )();
+
     // Snap contact pop
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
@@ -56,7 +60,7 @@ const playSnapSound = () => {
     osc2.frequency.linearRampToValueAtTime(150, ctx.currentTime + 0.05);
     osc2.frequency.linearRampToValueAtTime(100, ctx.currentTime + 0.1);
     osc2.frequency.linearRampToValueAtTime(120, ctx.currentTime + 0.15);
-    
+
     gain2.gain.setValueAtTime(0.06, ctx.currentTime);
     gain2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
     osc2.connect(gain2);

@@ -145,8 +145,8 @@ body {
   justify-content: center;
 
   /* Sizing */
-  width: 42rem;     /* Equivalent to w-2xl */
-  height: 12.5rem;  /* Equivalent to h-50 */
+  width: 100%;       /* Changed from 42rem */
+  height: 12.5rem;   /* You can keep this fixed, or change to min-height */
 
   border-left: 1px solid var(--dotted-border);
   border-right: 1px solid var(--dotted-border);

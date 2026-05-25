@@ -83,7 +83,7 @@ export default function ShareButton({
       {open && (
         <div
           ref={modalRef}
-          className="absolute left-0 top-full mt-2 w-80 rounded-2xl border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 shadow-xl z-50 overflow-hidden"
+          className="absolute right-0 top-full mt-2 w-[calc(100vw-2rem)] max-w-[320px] sm:w-80 rounded-2xl border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 shadow-xl z-50 overflow-hidden"
           style={{ animation: "popIn .15s ease both" }}
         >
           <style>{`
