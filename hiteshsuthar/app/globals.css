@@ -221,21 +221,31 @@ overflow-x: hidden !important;
   }
 }
 
-/* Custom circular clip-path theme wipe transition */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
+/* Custom View Transition: Slide in from the right */
 ::view-transition-old(root) {
-  z-index: 1;
+  animation: 350ms cubic-bezier(0.16, 1, 0.3, 1) both slide-out-left;
 }
 ::view-transition-new(root) {
-  z-index: 9999;
+  animation: 350ms cubic-bezier(0.16, 1, 0.3, 1) both slide-in-right;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
 }
-.dark::view-transition-old(root) {
-  z-index: 9999;
+
+@keyframes slide-out-left {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-20%);
+    opacity: 0.8;
+  }
 }
-.dark::view-transition-new(root) {
-  z-index: 1;
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }

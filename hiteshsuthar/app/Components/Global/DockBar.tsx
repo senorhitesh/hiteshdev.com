@@ -61,45 +61,19 @@ export default function Navbar() {
 
   const isDark = mounted ? resolvedTheme === "dark" : false;
 
-  const handleToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleToggle = () => {
     // 1. Play snappy custom synthesized click sound
     playClickSound();
 
-    // 2. Wipe-out circular View Transition (if supported)
+    // 2. Slide-in View Transition (if supported)
     const doc = document as any;
     if (!doc.startViewTransition) {
       setTheme(isDark ? "light" : "dark");
       return;
     }
 
-    const x = event.clientX;
-    const y = event.clientY;
-
-    const endRadius = Math.hypot(
-      Math.max(x, window.innerWidth - x),
-      Math.max(y, window.innerHeight - y)
-    );
-
-    const transition = doc.startViewTransition(() => {
+    doc.startViewTransition(() => {
       setTheme(isDark ? "light" : "dark");
-    });
-
-    transition.ready.then(() => {
-      const clipPath = [
-        `circle(0px at ${x}px ${y}px)`,
-        `circle(${endRadius}px at ${x}px ${y}px)`,
-      ];
-
-      document.documentElement.animate(
-        {
-          clipPath: clipPath,
-        },
-        {
-          duration: 500,
-          easing: "ease-in-out",
-          pseudoElement: "::view-transition-new(root)",
-        }
-      );
     });
   };
 
