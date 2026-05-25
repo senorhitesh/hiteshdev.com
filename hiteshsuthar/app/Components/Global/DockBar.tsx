@@ -15,6 +15,41 @@ const navItems = [
   { label: "Contact", icon: Mail, href: "/get-in-touch" },
 ];
 
+const playClickSound = () => {
+  if (typeof window === "undefined") return;
+  try {
+    const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+    
+    // Snappy mechanical click pop
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(1400, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.04);
+    gain.gain.setValueAtTime(0.06, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.05);
+
+    // High frequency friction click
+    const osc2 = ctx.createOscillator();
+    const gain2 = ctx.createGain();
+    osc2.type = "triangle";
+    osc2.frequency.setValueAtTime(2600, ctx.currentTime);
+    osc2.frequency.exponentialRampToValueAtTime(600, ctx.currentTime + 0.02);
+    gain2.gain.setValueAtTime(0.03, ctx.currentTime);
+    gain2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.02);
+    osc2.connect(gain2);
+    gain2.connect(ctx.destination);
+    osc2.start();
+    osc2.stop(ctx.currentTime + 0.03);
+  } catch (e) {
+    console.warn("Web Audio API not supported", e);
+  }
+};
+
 export default function Navbar() {
   const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -25,6 +60,48 @@ export default function Navbar() {
   }, []);
 
   const isDark = mounted ? resolvedTheme === "dark" : false;
+
+  const handleToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
+    // 1. Play snappy custom synthesized click sound
+    playClickSound();
+
+    // 2. Wipe-out circular View Transition (if supported)
+    const doc = document as any;
+    if (!doc.startViewTransition) {
+      setTheme(isDark ? "light" : "dark");
+      return;
+    }
+
+    const x = event.clientX;
+    const y = event.clientY;
+
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    const transition = doc.startViewTransition(() => {
+      setTheme(isDark ? "light" : "dark");
+    });
+
+    transition.ready.then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`,
+      ];
+
+      document.documentElement.animate(
+        {
+          clipPath: clipPath,
+        },
+        {
+          duration: 500,
+          easing: "ease-in-out",
+          pseudoElement: "::view-transition-new(root)",
+        }
+      );
+    });
+  };
 
   return (
     <motion.nav
@@ -84,7 +161,7 @@ export default function Navbar() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
-        onClick={() => setTheme(isDark ? "light" : "dark")}
+        onClick={handleToggle}
         className="
           flex h-8 w-8 items-center justify-center
           rounded-full
