@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Page from "@/lib/assest/page";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,20 +52,21 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex realtive flex-col">
-        {" "}
-        {children}{" "}
-        <Page.GradualBlur
-          target="page"
-          position="bottom"
-          height="3rem"
-          strength={2.5}
-          divCount={2}
-          curve="bezier"
-          exponential
-          opacity={0.5}
-          className="z-99"
-        />
-        <Page.ScrollTop />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+          <Page.GradualBlur
+            target="page"
+            position="bottom"
+            height="3rem"
+            strength={2.5}
+            divCount={2}
+            curve="bezier"
+            exponential
+            opacity={0.5}
+            className="z-99"
+          />
+          <Page.ScrollTop />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { FolderKanban, BookOpen, Mail, Sun, Moon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 
 import displayPicture from "@/public/profile.png";
 
@@ -15,18 +16,15 @@ const navItems = [
 ];
 
 export default function Navbar() {
-  const [dark, setDark] = useState(false);
+  const { setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  // Apply dark class to html
+  // Avoid hydration mismatch
   useEffect(() => {
-    const root = window.document.documentElement;
+    setMounted(true);
+  }, []);
 
-    if (dark) {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-  }, [dark]);
+  const isDark = mounted ? resolvedTheme === "dark" : false;
 
   return (
     <motion.nav
@@ -78,7 +76,7 @@ export default function Navbar() {
 
       {/* Theme Toggle */}
       <button
-        onClick={() => setDark(!dark)}
+        onClick={() => setTheme(isDark ? "light" : "dark")}
         className="
           flex h-8 w-8 items-center justify-center
           rounded-full
@@ -94,7 +92,7 @@ export default function Navbar() {
         "
         aria-label="Toggle theme"
       >
-        {dark ? (
+        {isDark ? (
           <Sun size={15} strokeWidth={1.8} />
         ) : (
           <Moon size={15} strokeWidth={1.8} />
