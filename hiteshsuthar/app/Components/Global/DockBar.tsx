@@ -65,8 +65,16 @@ export default function Navbar() {
     // 1. Play snappy custom synthesized click sound
     playClickSound();
 
-    // 2. Immediate theme toggle (keep it simple!)
-    setTheme(isDark ? "light" : "dark");
+    // 2. View Transition theme toggle for Triangle scale effect
+    const doc = document as any;
+    if (!doc.startViewTransition) {
+      setTheme(isDark ? "light" : "dark");
+      return;
+    }
+
+    doc.startViewTransition(() => {
+      setTheme(isDark ? "light" : "dark");
+    });
   };
 
   return (
