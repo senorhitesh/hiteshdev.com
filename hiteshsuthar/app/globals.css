@@ -6,11 +6,29 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --dotted-bg: #ffffff;
+  --dotted-dot: #dcdcdc;
+  --dotted-border: #e5e7eb;
+
+  --grid-color: #e5e5e5;
+
+  --divider-color-1: rgba(0, 0, 0, 0.02);
+  --divider-color-2: rgba(0, 0, 0, 0.06);
 }
 
 .dark {
   --background: #09090b;
   --foreground: #ededed;
+
+  --dotted-bg: #09090b;
+  --dotted-dot: rgba(255, 255, 255, 0.08);
+  --dotted-border: #262626;
+
+  --grid-color: rgba(255, 255, 255, 0.05);
+
+  --divider-color-1: rgba(255, 255, 255, 0.015);
+  --divider-color-2: rgba(255, 255, 255, 0.03);
 }
 
 @theme inline {
@@ -111,52 +129,19 @@ body {
   width: 42rem;     /* Equivalent to w-2xl */
   height: 12.5rem;  /* Equivalent to h-50 */
 
-  border-left: 1px solid #e5e7eb;
-  border-right: 1px solid #e5e7eb;
+  border-left: 1px solid var(--dotted-border);
+  border-right: 1px solid var(--dotted-border);
 
-  background-color: #ffffff;
-  background-image: radial-gradient(#dcdcdc 1px, transparent 1px);
+  background-color: var(--dotted-bg);
+  background-image: radial-gradient(var(--dotted-dot) 1px, transparent 1px);
   background-size: 18px 18px;
 }
 .grid-background{
-  background-image: linear-gradient(#e5e5e5 1px, transparent 1px), linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+  background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 .divider-background{
-  background-image: repeating-linear-gradient(135deg, rgba(0,0,0, 0.02) 0px, rgba(0,0,0, 0.06) 0.5px, transparent 2px, transparent 8px);
-}
-/* 
-   Dark Mode Overrides 
-   Using the .dark class on the html tag for consistency
-*/
-.dark .dotted-background {
-  background-color: #09090b;
-  border-color: #262626;
-
-  /* softer dots */
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.08) 1px,
-    transparent 1px
-  );
-
-  background-size: 18px 18px;
-}
-.dark .grid-background {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-
-  background-size: 24px 24px;
-}
-.dark .divider-background {
-  background-image:
-    repeating-linear-gradient(
-      135deg,
-      rgba(255,255,255,0.015) 0px,
-      rgba(255,255,255,0.03) 0.5px,
-      transparent 2px,
-      transparent 8px
-    );
+  background-image: repeating-linear-gradient(135deg, var(--divider-color-1) 0px, var(--divider-color-2) 0.5px, transparent 2px, transparent 8px);
 }
 
 .react-activity-calendar__tooltip {
