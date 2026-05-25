@@ -1,13 +1,49 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { ChevronLeft, CalendarRange, Play, Pause } from "lucide-react";
+import { ChevronLeft, CalendarRange, Play, Pause, Sun, Moon } from "lucide-react";
 import Link from "next/link";
 import "./supabase.css";
 import { motion } from "framer-motion";
 import ShareButton from "@/app/Components/BlogPage/ShareBtn";
 import Footer from "@/app/Components/Footer/Footer";
 import { Spinner } from "@/components/ui/spinner";
+
+const playClickSound = () => {
+  if (typeof window === "undefined") return;
+  try {
+    const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+    
+    // Snappy mechanical click pop
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(1400, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.04);
+    gain.gain.setValueAtTime(0.06, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.05);
+
+    // High frequency friction click
+    const osc2 = ctx.createOscillator();
+    const gain2 = ctx.createGain();
+    osc2.type = "triangle";
+    osc2.frequency.setValueAtTime(2600, ctx.currentTime);
+    osc2.frequency.exponentialRampToValueAtTime(600, ctx.currentTime + 0.02);
+    gain2.gain.setValueAtTime(0.03, ctx.currentTime);
+    gain2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.02);
+    osc2.connect(gain2);
+    gain2.connect(ctx.destination);
+    osc2.start();
+    osc2.stop(ctx.currentTime + 0.03);
+  } catch (e) {
+    console.warn("Web Audio API not supported", e);
+  }
+};
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 export type Theme = "dark" | "light";
 
@@ -372,7 +408,10 @@ export default function SupabaseBlog() {
     if (mq.matches) setTheme("light");
   }, []);
 
-  const toggle = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
+  const toggle = () => {
+    playClickSound();
+    setTheme((t) => (t === "dark" ? "light" : "dark"));
+  };
 
   return (
     <div className={theme === "dark" ? "dark" : ""}>
@@ -384,14 +423,44 @@ export default function SupabaseBlog() {
         <div className="max-w-170 mx-auto px-6">
           {/* ── Header ── */}
           <header className="pt-19 pb-8 border-b border-[#ddd8ce] dark:border-[#252529]">
-            <Link
-              href="/blogs"
-              className="inline-block mb-2 text-[#78716c] dark:text-[#6b6b75] hover:text-[#1c1917] dark:hover:text-[#e8e6e1] transition-colors"
-            >
-              <button className="flex gap-2 items-center text-sm font-medium">
-                <ChevronLeft size={18} /> Back to Blogs
-              </button>
-            </Link>
+            <div className="flex items-center justify-between">
+              <Link
+                href="/blogs"
+                className="inline-block mb-2 text-[#78716c] dark:text-[#6b6b75] hover:text-[#1c1917] dark:hover:text-[#e8e6e1] transition-colors"
+              >
+                <button className="flex gap-2 items-center text-sm font-medium">
+                  <ChevronLeft size={18} /> Back to Blogs
+                </button>
+              </Link>
+
+              <motion.button
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                onClick={toggle}
+                className="
+                  flex h-8 w-8 items-center justify-center
+                  rounded-full border border-[#ddd8ce] dark:border-[#252529]
+                  transition-colors duration-200
+                  cursor-pointer
+
+                  text-[#78716c]
+                  hover:bg-[#f0ece4]
+                  hover:text-[#1c1917]
+
+                  dark:text-[#6b6b75]
+                  dark:hover:bg-[#16161a]
+                  dark:hover:text-[#e8e6e1]
+                "
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? (
+                  <Sun size={15} strokeWidth={1.8} />
+                ) : (
+                  <Moon size={15} strokeWidth={1.8} />
+                )}
+              </motion.button>
+            </div>
 
             <h1 className="font-['Instrument_Serif',Georgia,serif] text-[clamp(1.9rem,5vw,2.75rem)] leading-[1.15] font-normal text-[#1c1917] dark:text-[#e8e6e1] mb-5 mt-3">
               Skip the Backend: Connect a Contact Form Directly to{" "}
