@@ -28,10 +28,12 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      initial={{ y: 60, scale: 0.7 }}
-      animate={{ y: 0, scale: 1 }}
+      initial={{ y: 50, scale: 0.9, opacity: 0 }}
+      animate={{ y: 0, scale: 1, opacity: 1 }}
       transition={{
-        ease: "easeIn",
+        type: "spring",
+        stiffness: 260,
+        damping: 24,
       }}
       className="
         fixed bottom-4 z-500000
@@ -50,7 +52,10 @@ export default function Navbar() {
     >
       {/* Avatar / Logo */}
       <Link href="/">
-        <div
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
           className="
             mr-1 flex h-8 w-8 items-center justify-center
             overflow-hidden rounded-full
@@ -61,7 +66,7 @@ export default function Navbar() {
           "
         >
           <Image src={displayPicture} alt="profile" className="object-cover" />
-        </div>
+        </motion.div>
       </Link>
 
       {/* Divider */}
@@ -75,12 +80,15 @@ export default function Navbar() {
       <div className="mx-1 h-5 w-px bg-zinc-200 dark:bg-zinc-600" />
 
       {/* Theme Toggle */}
-      <button
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 400, damping: 17 }}
         onClick={() => setTheme(isDark ? "light" : "dark")}
         className="
           flex h-8 w-8 items-center justify-center
           rounded-full
-          transition-all duration-200
+          transition-colors duration-200
 
           text-zinc-500
           hover:bg-zinc-100
@@ -97,7 +105,7 @@ export default function Navbar() {
         ) : (
           <Moon size={15} strokeWidth={1.8} />
         )}
-      </button>
+      </motion.button>
     </motion.nav>
   );
 }
