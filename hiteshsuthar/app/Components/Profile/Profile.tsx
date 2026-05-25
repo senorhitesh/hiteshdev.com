@@ -18,8 +18,14 @@ const Profile = () => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const tick = () =>
-      setCurrentTime(new Date().toLocaleTimeString("en-GB", { hour12: true }));
+    const tick = () => {
+      const timeString = new Date().toLocaleTimeString("en-GB", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      });
+      setCurrentTime(`IST ${timeString}`);
+    };
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
@@ -85,7 +91,7 @@ border-neutral-100 dark:border-neutral-800 p-3.5 w-3xl"
           </div>
         </div>
         {/* Clock */}
-        <span className="font-mono text-[12px] text-zinc-400 pt-0.5 shrink-0">
+        <span className="font-mono text-[11px] bg-neutral-100/80 dark:bg-neutral-900 border border-neutral-200/60 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 px-2.5 py-1 rounded-full shrink-0">
           {currentTime}
         </span>
       </div>
