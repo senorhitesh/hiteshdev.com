@@ -65,16 +65,8 @@ export default function Navbar() {
     // 1. Play snappy custom synthesized click sound
     playClickSound();
 
-    // 2. Slide-in View Transition (if supported)
-    const doc = document as any;
-    if (!doc.startViewTransition) {
-      setTheme(isDark ? "light" : "dark");
-      return;
-    }
-
-    doc.startViewTransition(() => {
-      setTheme(isDark ? "light" : "dark");
-    });
+    // 2. Immediate theme toggle (keep it simple!)
+    setTheme(isDark ? "light" : "dark");
   };
 
   return (
