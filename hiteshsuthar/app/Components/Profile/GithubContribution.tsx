@@ -2,7 +2,7 @@
 import { GitHubCalendar } from "react-github-calendar";
 export default function GithubContribution() {
   const explicitTheme = {
-    light: ["#f2f2f2", "#cccccc", "#b0b0b0", "#878787", "#636363"],
+    light: ["#f5f5f5", "#d4d4d4", "#a3a3a3", "#737373", "#262626"],
     dark: ["#161616", "#2a2a2a", "#525252", "#8a8a8a", "#d4d4d4"],
   };
   return (
@@ -17,7 +17,7 @@ export default function GithubContribution() {
                   `${activity.level} activities on ${activity.date}`,
               },
               colorLegend: {
-                text: (level) => `Activity level ${level + 1}`,
+                text: (level) => `Activity level ${level + 2}`,
               },
             }}
             year={2026}

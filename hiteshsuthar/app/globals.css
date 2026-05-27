@@ -168,13 +168,11 @@ body {
   max-width: calc(100vw - 20px);
   padding: 0.2em 0.5em;
   border-radius: 0.25em;
-  background-color: hsl(0 0% 10%);
+  background-color: hsl(0, 0%, 95%);
   color: hsl(0 0% 94%);
-overflow-x: hidden !important;
-
+  overflow-x: hidden !important;
   font-size: 13px;
   font-family: var(--font-mono);
-  /* See the `withArrow` setting. */
   .react-activity-calendar__tooltip-arrow {
     fill: hsl(0 0% 10%);
   }
