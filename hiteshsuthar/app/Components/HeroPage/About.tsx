@@ -13,7 +13,7 @@ const About = () => {
           I use Python to build the 'brain' (Agentic logic & RAG) and React/TypeScript to build the 'body' (the interface). 
           .I build end-to-end AI products.
           <br />
-          . My goal is to ship complete AI-powered products: polished
+           My goal is to ship complete AI-powered products: polished
           frontends backed by agents that think and automate real workflows.
         </h1>
       </div>
