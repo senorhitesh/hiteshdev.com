@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { supabase } from "@/lib/supabase";
@@ -21,8 +21,57 @@ const ValidationSchema = Yup.object({
   interested: Yup.string().required("Please select a subject"),
   message: Yup.string().required("Message is required").min(5, "Too short"),
 });
+const playPopSound = () => {
+  try {
+    const AudioContext =
+      window.AudioContext || (window as any).webkitAudioContext;
+    if (!AudioContext) return;
+    const ctx = new AudioContext();
+
+    // First oscillator: base sine sweep
+    const osc1 = ctx.createOscillator();
+    const gain1 = ctx.createGain();
+    osc1.type = "sine";
+    osc1.frequency.setValueAtTime(280, ctx.currentTime);
+    osc1.frequency.exponentialRampToValueAtTime(840, ctx.currentTime + 0.08);
+
+    gain1.gain.setValueAtTime(0, ctx.currentTime);
+    gain1.gain.linearRampToValueAtTime(0.35, ctx.currentTime + 0.02);
+    gain1.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+
+    osc1.connect(gain1);
+    gain1.connect(ctx.destination);
+
+    // Second oscillator: triangle chime harmony
+    const osc2 = ctx.createOscillator();
+    const gain2 = ctx.createGain();
+    osc2.type = "triangle";
+    osc2.frequency.setValueAtTime(560, ctx.currentTime + 0.02);
+    osc2.frequency.exponentialRampToValueAtTime(1120, ctx.currentTime + 0.1);
+
+    gain2.gain.setValueAtTime(0, ctx.currentTime + 0.02);
+    gain2.gain.linearRampToValueAtTime(0.12, ctx.currentTime + 0.04);
+    gain2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.14);
+
+    osc2.connect(gain2);
+    gain2.connect(ctx.destination);
+
+    osc1.start();
+    osc2.start(ctx.currentTime + 0.02);
+
+    osc1.stop(ctx.currentTime + 0.13);
+    osc2.stop(ctx.currentTime + 0.15);
+  } catch (e) {
+    console.warn("Audio Context playback failed:", e);
+  }
+};
+
 const Page = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [shakingFields, setShakingFields] = useState<Record<string, boolean>>(
+    {},
+  );
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -38,7 +87,7 @@ const Page = () => {
       if (error) {
         toast.error("Something went wrong");
       } else {
-        toast.success("Message sent successfully ✔");
+        playPopSound();
         setIsSubmitted(true);
         resetForm();
       }
@@ -46,11 +95,58 @@ const Page = () => {
     },
   });
 
+  const prevErrors = useRef(formik.errors);
+
+  useEffect(() => {
+    const newShaking: Record<string, boolean> = {};
+    let shouldShake = false;
+
+    Object.keys(formik.errors).forEach((key) => {
+      const errorKey = key as keyof typeof formik.errors;
+      // If it was not in error state before, but now has an error, trigger shake
+      if (!prevErrors.current[errorKey] && formik.errors[errorKey]) {
+        newShaking[key] = true;
+        shouldShake = true;
+      }
+    });
+
+    if (shouldShake) {
+      setShakingFields((prev) => ({ ...prev, ...newShaking }));
+      const timer = setTimeout(() => {
+        setShakingFields((prev) => {
+          const updated = { ...prev };
+          Object.keys(newShaking).forEach((key) => {
+            delete updated[key];
+          });
+          return updated;
+        });
+      }, 280);
+      return () => clearTimeout(timer);
+    }
+
+    prevErrors.current = formik.errors;
+  }, [formik.errors]);
+
+  // Trigger shake for all currently invalid fields on submit attempt block
+  useEffect(() => {
+    if (formik.submitCount > 0 && Object.keys(formik.errors).length > 0) {
+      const newShaking: Record<string, boolean> = {};
+      Object.keys(formik.errors).forEach((key) => {
+        newShaking[key] = true;
+      });
+      setShakingFields(newShaking);
+      const timer = setTimeout(() => {
+        setShakingFields({});
+      }, 280);
+      return () => clearTimeout(timer);
+    }
+  }, [formik.submitCount]);
+
   return (
     <>
       <div className="w-full overflow-hidden min-h-screen bg-white dark:bg-black transition-colors duration-300">
         <ToastContainer
-          position="bottom-center"
+          position="top-center"
           autoClose={3000}
           hideProgressBar={true}
           newestOnTop={false}
@@ -83,9 +179,20 @@ const Page = () => {
               <div className="w-30 h-30 bg-black/5 dark:bg-white/20 -right-10 -bottom-20 blur-3xl absolute" />
 
               {isSubmitted ? (
-                <div className="flex flex-col items-center justify-center py-12 text-center">
-                  <span className="t-success-check mb-6" data-state="in" aria-hidden="true">
-                    <svg viewBox="0 0 20 20" className="w-16 h-16 stroke-emerald-500 animate-in" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none">
+                <div className="flex flex-col items-center justify-center py-12 text-center t-success-pop">
+                  <span
+                    className="t-success-check mb-6"
+                    data-state="in"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      viewBox="0 0 20 20"
+                      className="w-16 h-16 stroke-emerald-500 animate-in"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    >
                       <path d="M4 11l3.5 3.5L16 6" />
                     </svg>
                   </span>
@@ -93,7 +200,8 @@ const Page = () => {
                     Message Sent!
                   </h2>
                   <p className="mb-8 text-sm font-sans text-zinc-600 dark:text-zinc-500 max-w-sm">
-                    Thank you for reaching out. Hitesh Suthar has received your message and will get back to you shortly.
+                    Thank you for reaching out. Hitesh Suthar has received your
+                    message and will get back to you shortly.
                   </p>
                   <div className="flex gap-4">
                     <button
@@ -103,9 +211,7 @@ const Page = () => {
                       Send Another
                     </button>
                     <Link href="/">
-                      <button
-                        className="px-5 py-2.5 rounded-xl bg-zinc-900 dark:bg-neutral-100 text-white dark:text-zinc-900 text-xs font-semibold hover:bg-zinc-800 dark:hover:bg-neutral-200 transition duration-150 cursor-pointer"
-                      >
+                      <button className="px-5 py-2.5 rounded-xl bg-zinc-900 dark:bg-neutral-100 text-white dark:text-zinc-900 text-xs font-semibold hover:bg-zinc-800 dark:hover:bg-neutral-200 transition duration-150 cursor-pointer">
                         Go Back Home
                       </button>
                     </Link>
@@ -128,8 +234,8 @@ const Page = () => {
                     </div>
                   </div>
                   <p className="mb-8 mt-4 text-base font-sans text-center text-zinc-600 dark:text-zinc-500">
-                    Available for freelance projects, collaborations, and full-time
-                    opportunities
+                    Available for freelance projects, collaborations, and
+                    full-time opportunities
                   </p>
                   <form
                     onSubmit={formik.handleSubmit}
@@ -143,7 +249,10 @@ const Page = () => {
                         value={formik.values.name}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        error={formik.touched.name ? formik.errors.name : undefined}
+                        error={
+                          formik.touched.name ? formik.errors.name : undefined
+                        }
+                        isShaking={shakingFields.name}
                         classNameLabel="after:content-['*']"
                       />
 
@@ -158,6 +267,7 @@ const Page = () => {
                         error={
                           formik.touched.email ? formik.errors.email : undefined
                         }
+                        isShaking={shakingFields.email}
                         classNameLabel="after:content-['*']"
                       />
 
@@ -171,10 +281,13 @@ const Page = () => {
                         error={
                           formik.touched.phone ? formik.errors.phone : undefined
                         }
+                        isShaking={shakingFields.phone}
                       />
 
                       {/* Select */}
-                      <div>
+                      <div
+                        className={`t-input-wrap ${formik.touched.interested && formik.errors.interested ? "is-error" : ""}`}
+                      >
                         <label className="text-[11px] after:content-['*'] font-bold uppercase tracking-[2px] text-zinc-500">
                           Interested In
                         </label>
@@ -184,12 +297,12 @@ const Page = () => {
                           value={formik.values.interested}
                           onChange={formik.handleChange}
                           onBlur={formik.handleBlur}
-                          className="mt-2.5 mb-5 w-full rounded-xl border
-                            border-zinc-300 dark:border-zinc-800
-                            bg-zinc-100 dark:bg-[#0f0f0f]
-                            px-4 py-3.5 text-[15px]
-                           text-black dark:text-neutral-300
-                           outline-none focus:border-neutral-400"
+                          className={`mt-2.5 mb-5 w-full rounded-xl border t-input px-4 py-3.5 text-[15px] text-black dark:text-neutral-300 outline-none focus:border-neutral-400 ${
+                            formik.touched.interested &&
+                            formik.errors.interested
+                              ? `is-error border-red-500 dark:border-red-900 bg-red-50/10 dark:bg-red-950/10 ${shakingFields.interested ? "is-shaking" : ""}`
+                              : "border-zinc-300 dark:border-zinc-800 bg-zinc-100 dark:bg-[#0f0f0f]"
+                          }`}
                         >
                           <option value="">Select a subject</option>
                           <option value="web">Web Development</option>
@@ -197,11 +310,23 @@ const Page = () => {
                           <option value="branding">Branding</option>
                           <option value="freelance">Freelance Project</option>
                         </select>
+                        <div
+                          className={`t-error-msg ${formik.touched.interested && formik.errors.interested ? "-mt-3 mb-4" : ""}`}
+                        >
+                          {formik.touched.interested &&
+                            formik.errors.interested && (
+                              <p className="text-red-500 font-sans text-xs">
+                                {formik.errors.interested}
+                              </p>
+                            )}
+                        </div>
                       </div>
                     </div>
 
                     {/* Message */}
-                    <div>
+                    <div
+                      className={`t-input-wrap ${formik.touched.message && formik.errors.message ? "is-error" : ""}`}
+                    >
                       <label className="text-[11px] after:content-['*'] font-sans font-bold uppercase tracking-[2px] text-zinc-500">
                         Message
                       </label>
@@ -212,20 +337,21 @@ const Page = () => {
                         onBlur={formik.handleBlur}
                         placeholder="Type your message here."
                         rows={6}
-                        className="mt-2.5 w-full  rounded-xl border
-                      border-zinc-300 dark:border-zinc-800
-                      bg-zinc-100 dark:bg-[#0f0f0f]
-                      px-4 py-3.5 text-[15px]
-                      text-black dark:text-white
-                      outline-none transition
-                      placeholder:text-zinc-500 dark:placeholder:text-zinc-600
-                      focus:border-neutral-400 resize-none font-mono"
+                        className={`mt-2.5 w-full  rounded-xl border t-input px-4 py-3.5 text-[15px] text-black dark:text-white outline-none transition placeholder:text-zinc-500 dark:placeholder:text-zinc-600 focus:border-neutral-400 resize-none font-mono ${
+                          formik.touched.message && formik.errors.message
+                            ? `is-error border-red-500 dark:border-red-900 bg-red-50/10 dark:bg-red-950/10 ${shakingFields.message ? "is-shaking" : ""}`
+                            : "border-zinc-300 dark:border-zinc-800 bg-zinc-100 dark:bg-[#0f0f0f]"
+                        }`}
                       />
-                      {formik.touched.message && formik.errors.message && (
-                        <p className="text-red-500 font-sans text-xs mt-1">
-                          {formik.errors.message}
-                        </p>
-                      )}
+                      <div
+                        className={`t-error-msg ${formik.touched.message && formik.errors.message ? "mt-1" : ""}`}
+                      >
+                        {formik.touched.message && formik.errors.message && (
+                          <p className="text-red-500 font-sans text-xs">
+                            {formik.errors.message}
+                          </p>
+                        )}
+                      </div>
                     </div>
 
                     {/* Button */}
@@ -270,6 +396,7 @@ const InputField = ({
   type = "text",
   classNameLabel = "",
   error,
+  isShaking,
 }: {
   label: string;
   placeholder: string;
@@ -280,9 +407,10 @@ const InputField = ({
   type?: string;
   classNameLabel?: string;
   error?: string;
+  isShaking?: boolean;
 }) => {
   return (
-    <div>
+    <div className={`t-input-wrap ${error ? "is-error" : ""}`}>
       <label
         className={`text-[11px] after:text-sm font-bold uppercase tracking-[2px] text-zinc-500 ${classNameLabel}`}
       >
@@ -295,16 +423,20 @@ const InputField = ({
         onChange={onChange}
         onBlur={onBlur}
         placeholder={placeholder}
-        className="mt-2.5 mb-5 w-full rounded-xl border
-        border-zinc-300 dark:border-zinc-800
-        bg-zinc-100 dark:bg-[#0f0f0f]
+        className={`mt-2.5 mb-5 w-full rounded-xl border t-input
         px-4 py-3.5 text-[15px]
         text-black dark:text-white
         outline-none transition
         placeholder:text-zinc-500 dark:placeholder:text-zinc-600
-        focus:border-neutral-400 font-mono"
+        focus:border-neutral-400 font-mono ${
+          error
+            ? `is-error border-red-500 dark:border-red-900 bg-red-50/10 dark:bg-red-950/10 ${isShaking ? "is-shaking" : ""}`
+            : "border-zinc-300 dark:border-zinc-800 bg-zinc-100 dark:bg-[#0f0f0f]"
+        }`}
       />
-      {error && <p className="text-red-500 text-xs mb-4">{error}</p>}
+      <div className={`t-error-msg ${error ? "-mt-3 mb-4" : ""}`}>
+        {error && <p className="text-red-500 text-xs font-sans">{error}</p>}
+      </div>
     </div>
   );
 };
