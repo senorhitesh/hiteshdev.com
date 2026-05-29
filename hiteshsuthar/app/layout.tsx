@@ -4,6 +4,8 @@ import "./globals.css";
 import Page from "@/lib/assest/page";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
+import Preloader from "@/components/ui/preloader";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -53,6 +55,7 @@ export default function RootLayout({
     >
       <body className="flex realtive flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Preloader />
           {children}
           <Page.GradualBlur
             target="page"

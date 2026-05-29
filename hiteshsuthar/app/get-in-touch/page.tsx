@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { supabase } from "@/lib/supabase";
@@ -21,6 +22,7 @@ const ValidationSchema = Yup.object({
   message: Yup.string().required("Message is required").min(5, "Too short"),
 });
 const Page = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -37,6 +39,7 @@ const Page = () => {
         toast.error("Something went wrong");
       } else {
         toast.success("Message sent successfully ✔");
+        setIsSubmitted(true);
         resetForm();
       }
       setSubmitting(false);
@@ -78,141 +81,175 @@ const Page = () => {
               {/* Glow */}
               <div className="w-30 h-30 bg-black/5 dark:bg-white/20 -left-10 -top-20 blur-3xl absolute" />
               <div className="w-30 h-30 bg-black/5 dark:bg-white/20 -right-10 -bottom-20 blur-3xl absolute" />
-              {/* Heading */}
-              <div className="flex items-center justify-between">
-                <Link href={"/"}>
-                  <div className="text-neutral-700 hover:dark:bg-neutral-900 hover:dark:border-neutral-800 rounded-md border border-transparent hover:border-neutral-200 hover:bg-neutral-50">
-                    <ChevronLeft />
-                  </div>
-                </Link>
-                <h2 className="mb-1 font-[Neue] text-center text-4xl font-semibold leading-[0.92] text-black dark:text-white">
-                  Get In Touch.
-                </h2>
-                <div className="opacity-0">
-                  <ArrowLeft />
-                </div>
-              </div>
-              <p className="mb-8 mt-4 text-base font-sans text-center text-zinc-600 dark:text-zinc-500">
-                Available for freelance projects, collaborations, and full-time
-                opportunities
-              </p>
-              <form
-                onSubmit={() => formik.handleSubmit()}
-                className="flex flex-col"
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 font-sans">
-                  <InputField
-                    label="Name"
-                    placeholder="Your name"
-                    name="name"
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    error={formik.touched.name ? formik.errors.name : undefined}
-                    classNameLabel="after:content-['*']"
-                  />
 
-                  <InputField
-                    label="Email"
-                    placeholder="email@example.com"
-                    name="email"
-                    type="email"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    error={
-                      formik.touched.email ? formik.errors.email : undefined
-                    }
-                    classNameLabel="after:content-['*']"
-                  />
-
-                  <InputField
-                    label="Phone"
-                    placeholder="Phone No"
-                    name="phone"
-                    value={formik.values.phone}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    error={
-                      formik.touched.phone ? formik.errors.phone : undefined
-                    }
-                  />
-
-                  {/* Select */}
-                  <div>
-                    <label className="text-[11px] after:content-['*'] font-bold uppercase tracking-[2px] text-zinc-500">
-                      Interested In
-                    </label>
-
-                    <select
-                      name="interested"
-                      value={formik.values.interested}
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      className="mt-2.5 mb-5 w-full rounded-xl border
-                        border-zinc-300 dark:border-zinc-800
-                        bg-zinc-100 dark:bg-[#0f0f0f]
-                        px-4 py-3.5 text-[15px]
-                       text-black dark:text-neutral-300
-                       outline-none focus:border-neutral-400"
+              {isSubmitted ? (
+                <div className="flex flex-col items-center justify-center py-12 text-center">
+                  <span className="t-success-check mb-6" data-state="in" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" className="w-16 h-16 stroke-emerald-500 animate-in" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none">
+                      <path d="M4 11l3.5 3.5L16 6" />
+                    </svg>
+                  </span>
+                  <h2 className="mb-2 font-[Neue] text-3xl font-semibold text-black dark:text-white">
+                    Message Sent!
+                  </h2>
+                  <p className="mb-8 text-sm font-sans text-zinc-600 dark:text-zinc-500 max-w-sm">
+                    Thank you for reaching out. Hitesh Suthar has received your message and will get back to you shortly.
+                  </p>
+                  <div className="flex gap-4">
+                    <button
+                      onClick={() => setIsSubmitted(false)}
+                      className="px-5 py-2.5 rounded-xl border border-zinc-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-zinc-700 dark:text-neutral-300 text-xs font-semibold hover:bg-zinc-50 dark:hover:bg-neutral-800 transition duration-150 cursor-pointer"
                     >
-                      <option value="">Select a subject</option>
-                      <option value="web">Web Development</option>
-                      <option value="uiux">UI/UX Design</option>
-                      <option value="branding">Branding</option>
-                      <option value="freelance">Freelance Project</option>
-                    </select>
+                      Send Another
+                    </button>
+                    <Link href="/">
+                      <button
+                        className="px-5 py-2.5 rounded-xl bg-zinc-900 dark:bg-neutral-100 text-white dark:text-zinc-900 text-xs font-semibold hover:bg-zinc-800 dark:hover:bg-neutral-200 transition duration-150 cursor-pointer"
+                      >
+                        Go Back Home
+                      </button>
+                    </Link>
                   </div>
                 </div>
+              ) : (
+                <>
+                  {/* Heading */}
+                  <div className="flex items-center justify-between">
+                    <Link href={"/"}>
+                      <div className="text-neutral-700 hover:dark:bg-neutral-900 hover:dark:border-neutral-800 rounded-md border border-transparent hover:border-neutral-200 hover:bg-neutral-50">
+                        <ChevronLeft />
+                      </div>
+                    </Link>
+                    <h2 className="mb-1 font-[Neue] text-center text-4xl font-semibold leading-[0.92] text-black dark:text-white">
+                      Get In Touch.
+                    </h2>
+                    <div className="opacity-0">
+                      <ArrowLeft />
+                    </div>
+                  </div>
+                  <p className="mb-8 mt-4 text-base font-sans text-center text-zinc-600 dark:text-zinc-500">
+                    Available for freelance projects, collaborations, and full-time
+                    opportunities
+                  </p>
+                  <form
+                    onSubmit={formik.handleSubmit}
+                    className="flex flex-col"
+                  >
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 font-sans">
+                      <InputField
+                        label="Name"
+                        placeholder="Your name"
+                        name="name"
+                        value={formik.values.name}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        error={formik.touched.name ? formik.errors.name : undefined}
+                        classNameLabel="after:content-['*']"
+                      />
 
-                {/* Message */}
-                <div>
-                  <label className="text-[11px] after:content-['*'] font-sans font-bold uppercase tracking-[2px] text-zinc-500">
-                    Message
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formik.values.message}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    placeholder="Type your message here."
-                    rows={6}
-                    className="mt-2.5 w-full  rounded-xl border
-                  border-zinc-300 dark:border-zinc-800
-                  bg-zinc-100 dark:bg-[#0f0f0f]
-                  px-4 py-3.5 text-[15px]
-                  text-black dark:text-white
-                  outline-none transition
-                  placeholder:text-zinc-500 dark:placeholder:text-zinc-600
-                  focus:border-neutral-400 resize-none font-mono"
-                  />
-                  {formik.touched.message && formik.errors.message && (
-                    <p className="text-red-500 font-sans text-xs mt-1">
-                      {formik.errors.message}
-                    </p>
-                  )}
-                </div>
+                      <InputField
+                        label="Email"
+                        placeholder="email@example.com"
+                        name="email"
+                        type="email"
+                        value={formik.values.email}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        error={
+                          formik.touched.email ? formik.errors.email : undefined
+                        }
+                        classNameLabel="after:content-['*']"
+                      />
 
-                {/* Button */}
-                <button
-                  type="submit"
-                  disabled={
-                    !formik.isValid || !formik.dirty || formik.isSubmitting
-                  }
-                  className={`group 
-                      mt-5 px-6 relative rounded-xl py-2 overflow-hidden
-                      transition duration-200
-                      hover:bg-zinc-100 dark:hover:bg-zinc-900  
-                ${
-                  !formik.isValid || !formik.dirty
-                    ? "bg-neutral-100 dark:bg-neutral-800 text-neutral-500 cursor-not-allowed"
-                    : "text-neutral-800 dark:text-white border border-zinc-300 dark:border-neutral-700 cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-900"
-                }`}
-                >
-                  <div className="absolute w-10  h-30 -top-5 -translate-x-26 group-hover:translate-x-26 bg-white blur-xl -rotate-12 transition duration-500" />
-                  {formik.isSubmitting ? "Sending..." : <>Send</>}
-                </button>
-              </form>
+                      <InputField
+                        label="Phone"
+                        placeholder="Phone No"
+                        name="phone"
+                        value={formik.values.phone}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        error={
+                          formik.touched.phone ? formik.errors.phone : undefined
+                        }
+                      />
+
+                      {/* Select */}
+                      <div>
+                        <label className="text-[11px] after:content-['*'] font-bold uppercase tracking-[2px] text-zinc-500">
+                          Interested In
+                        </label>
+
+                        <select
+                          name="interested"
+                          value={formik.values.interested}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          className="mt-2.5 mb-5 w-full rounded-xl border
+                            border-zinc-300 dark:border-zinc-800
+                            bg-zinc-100 dark:bg-[#0f0f0f]
+                            px-4 py-3.5 text-[15px]
+                           text-black dark:text-neutral-300
+                           outline-none focus:border-neutral-400"
+                        >
+                          <option value="">Select a subject</option>
+                          <option value="web">Web Development</option>
+                          <option value="uiux">UI/UX Design</option>
+                          <option value="branding">Branding</option>
+                          <option value="freelance">Freelance Project</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Message */}
+                    <div>
+                      <label className="text-[11px] after:content-['*'] font-sans font-bold uppercase tracking-[2px] text-zinc-500">
+                        Message
+                      </label>
+                      <textarea
+                        name="message"
+                        value={formik.values.message}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        placeholder="Type your message here."
+                        rows={6}
+                        className="mt-2.5 w-full  rounded-xl border
+                      border-zinc-300 dark:border-zinc-800
+                      bg-zinc-100 dark:bg-[#0f0f0f]
+                      px-4 py-3.5 text-[15px]
+                      text-black dark:text-white
+                      outline-none transition
+                      placeholder:text-zinc-500 dark:placeholder:text-zinc-600
+                      focus:border-neutral-400 resize-none font-mono"
+                      />
+                      {formik.touched.message && formik.errors.message && (
+                        <p className="text-red-500 font-sans text-xs mt-1">
+                          {formik.errors.message}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Button */}
+                    <button
+                      type="submit"
+                      disabled={
+                        !formik.isValid || !formik.dirty || formik.isSubmitting
+                      }
+                      className={`group 
+                          mt-5 px-6 relative rounded-xl py-2 overflow-hidden
+                          transition duration-200
+                          hover:bg-zinc-100 dark:hover:bg-zinc-900  
+                    ${
+                      !formik.isValid || !formik.dirty
+                        ? "bg-neutral-100 dark:bg-neutral-800 text-neutral-500 cursor-not-allowed"
+                        : "text-neutral-800 dark:text-white border border-zinc-300 dark:border-neutral-700 cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                    }`}
+                    >
+                      <div className="absolute w-10  h-30 -top-5 -translate-x-26 group-hover:translate-x-26 bg-white blur-xl -rotate-12 transition duration-500" />
+                      {formik.isSubmitting ? "Sending..." : <>Send</>}
+                    </button>
+                  </form>
+                </>
+              )}
             </div>
           </section>
           <Navbar />
