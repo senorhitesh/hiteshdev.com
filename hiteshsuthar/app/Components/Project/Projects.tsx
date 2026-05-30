@@ -8,7 +8,7 @@ import { Project } from "@/lib/data/project";
 const Projects = () => {
   return (
     <div className="w-full">
-      <div className="max-w-2xl mx-auto px-3 border-x border-neutral-200 dark:border-neutral-900 py-6">
+      <div className="w-full max-w-2xl mx-auto px-3 border-x border-neutral-200 dark:border-neutral-900 py-6">
         <div className="flex items-baseline justify-between mb-5">
           <h2 className="relative font-[Neue] text-2xl inline-block font-semibold text-neutral-900 dark:text-neutral-100 ">
             Projects

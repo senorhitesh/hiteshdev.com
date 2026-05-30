@@ -1,7 +1,7 @@
 const QuoteSection = () => {
   return (
     <div className="w-full border-b font-mono tracking-tight dark:border-neutral-900 border-neutral-200">
-      <div className="mx-auto border-x flex items-center justify-center flex-col dark:border-neutral-900 relative border-neutral-200 max-w-2xl">
+      <div className="mx-auto border-x flex items-center justify-center flex-col dark:border-neutral-900 relative border-neutral-200 w-full max-w-2xl">
         <div className="w-full flex items-center justify-center p-6  dark:border-neutral-900 border-neutral-200">
           <div className="w-full  dark:border-neutral-900  border-neutral-200">
             <div className="relative bg-white  dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-xl w-full px-9 pt-8 pb-7 overflow-hidden ">

@@ -63,7 +63,7 @@ const BioCard = ({
 const BioComponent = () => {
   return (
     <div className="w-full border-b font-mono tracking-tight dark:border-neutral-900 border-neutral-200">
-      <div className="mx-auto border-x gap-3 flex flex-col dark:border-neutral-900 border-neutral-200 p-6 max-w-2xl">
+      <div className="mx-auto border-x gap-3 flex flex-col dark:border-neutral-900 border-neutral-200 p-6 w-full max-w-2xl">
         <BioCard
           Icon={Code}
           title={"Backend Intern at @"}

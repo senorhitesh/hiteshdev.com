@@ -1,5 +1,5 @@
 "use client";
-import { ChevronDown, Code2 } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import {
   Accordion,
   AccordionItem,
@@ -29,13 +29,14 @@ export type WorkExp = {
 
 function formatPeriod(start: string, end: string, isCurrent: boolean) {
   const label = isCurrent ? "Present" : end;
+  // Dynamic duration logic could go here
   const duration = isCurrent ? "~6mos" : "~1 month";
   return { range: `${start} – ${label}`, duration };
 }
 
 const WorkExperience = ({ experience }: { experience: WorkExp[] }) => {
   return (
-    <div className="flex w-full flex-col gap-2">
+    <div className="flex w-full flex-col gap-3">
       {experience.map((job) =>
         job.positions.map((pos) => {
           const { range, duration } = formatPeriod(
@@ -47,44 +48,70 @@ const WorkExperience = ({ experience }: { experience: WorkExp[] }) => {
           return (
             <Accordion
               key={pos.id}
-              className="w-full focus:ring-1 ring-offset-2 ring-blue-100 overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 "
+              className="w-full focus-within:ring-1 ring-blue-500/20 overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950"
               transition={{ type: "spring", stiffness: 120, damping: 20 }}
               variants={{
-                expanded: { opacity: 1, y: 0 },
-                collapsed: { opacity: 0, y: 18 },
+                expanded: { opacity: 1, height: "auto" },
+                collapsed: { opacity: 0, height: 0 },
               }}
             >
-              <AccordionItem value={pos.id} className="">
-                <AccordionTrigger className="w-full  rounded-2xl px-3.5 py-3 flex items-center justify-between hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg border border-zinc-200 dark:border-zinc-900 overflow-hidden flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 shrink-0">
+              <AccordionItem value={pos.id} className="group">
+                <AccordionTrigger className="w-full px-3 py-3 sm:px-4 flex flex-row items-center justify-between gap-3 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-colors">
+                  <div className="flex items-center gap-3 min-w-0 flex-1">
+                    {/* Company Logo */}
+                    <div className="w-9 h-9 rounded-lg border border-zinc-200 dark:border-zinc-800 overflow-hidden flex items-center justify-center bg-zinc-50 dark:bg-zinc-900 shrink-0">
                       <Image
                         src={job.companyLogo}
                         alt={`${job.companyName} logo`}
-                        className="object-contain w-7 h-7"
+                        className="object-contain w-6 h-6 sm:w-7 sm:h-7"
                       />
                     </div>
-                    <div className="text-left">
-                      <Link target="_black" href={job.companyWebsite}>
-                        <p className="text-sm w-fit  relative font-medium text-zinc-900 dark:text-zinc-50 leading-tight">
+
+                    {/* Role & Company Details */}
+                    <div className="text-left min-w-0 flex-1 flex flex-col">
+                      <Link
+                        target="_blank"
+                        href={job.companyWebsite}
+                        className="hover:underline decoration-zinc-400 underline-offset-2 block w-fit"
+                      >
+                        <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-50 leading-none truncate">
                           {job.companyName}
                         </p>
                       </Link>
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
-                        {pos.title} ({duration})
-                      </p>
+
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1">
+                        <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400 truncate">
+                          {pos.title}
+                        </span>
+                        <span className="text-[10px] text-zinc-300 dark:text-zinc-700">
+                          •
+                        </span>
+                        <span className="text-[11px] text-zinc-500 dark:text-zinc-500 font-medium shrink-0">
+                          {duration}
+                        </span>
+                      </div>
+
+                      {/* Mobile-only Date Range */}
+                      <span className="text-[11px] text-zinc-400 dark:text-zinc-600 mt-0.5 sm:hidden shrink-0">
+                        {range}
+                      </span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-1.5 ml-4 shrink-0">
-                    <span className="text-xs text-zinc-500 dark:text-zinc-400 whitespace-nowrap">
+
+                  {/* Desktop Date Range & Chevron */}
+                  <div className="flex items-center gap-3 shrink-0 sm:ml-4">
+                    <span className="hidden sm:inline text-[11px] font-medium text-zinc-400 dark:text-zinc-500 tabular-nums">
                       {range}
                     </span>
-                    <ChevronDown className="w-3.5 h-3.5 text-zinc-400 transition-transform duration-200 group-data-expanded:rotate-180" />
+                    <div className="p-1 rounded-md group-hover:bg-zinc-100 dark:group-hover:bg-zinc-800 transition-colors">
+                      <ChevronDown className="w-4 h-4 text-zinc-400 transition-transform duration-300 group-data-[state=open]:rotate-180" />
+                    </div>
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="origin-top">
-                  <div className="px-3.5 pb-3.5 pt-3 ">
-                    <ul className="space-y-1.5 list-disc list-outside ml-4">
+
+                <AccordionContent>
+                  <div className="px-4 pb-4 pt-1 sm:pl-12">
+                    <ul className="space-y-2 list-none">
                       {pos.description
                         .split("\n")
                         .map((line) => line.replace(/^- /, "").trim())
@@ -92,17 +119,20 @@ const WorkExperience = ({ experience }: { experience: WorkExp[] }) => {
                         .map((line, i) => (
                           <li
                             key={i}
-                            className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed"
+                            className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed flex gap-2"
                           >
+                            <span className="text-zinc-300 dark:text-zinc-700 mt-1.5 block h-1 w-1 shrink-0 rounded-full bg-current" />
                             {line}
                           </li>
                         ))}
                     </ul>
-                    <div className="flex flex-wrap gap-1.5 mt-3">
+
+                    {/* Skills Tags */}
+                    <div className="flex flex-wrap gap-1.5 mt-5">
                       {pos.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="text-[11px] px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700"
+                          className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-zinc-50 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 border border-zinc-200/50 dark:border-zinc-800"
                         >
                           {skill}
                         </span>

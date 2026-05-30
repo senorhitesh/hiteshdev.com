@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const Blogs = () => {
   return (
     <div className="w-full border-b font-mono tracking-tight dark:border-neutral-900 border-neutral-200">
-      <div className="mx-auto border-x flex items-center justify-center flex-col dark:border-neutral-900 relative border-neutral-200 max-w-2xl">
+      <div className="mx-auto border-x flex items-center justify-center flex-col dark:border-neutral-900 relative border-neutral-200 w-full max-w-2xl">
         <div className="w-full flex items-center justify-center p-2">
           <div className="w-full  flex flex-col">
             <h2 className="relative font-[Neue] text-2xl inline-block font-semibold text-neutral-900 dark:text-neutral-100 ">

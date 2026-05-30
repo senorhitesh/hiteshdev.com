@@ -4,6 +4,7 @@ import "./globals.css";
 import Page from "@/lib/assest/page";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
+import LenisProvider from "@/components/lenis-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,19 +55,21 @@ export default function RootLayout({
     >
       <body className="flex realtive flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-          <Page.GradualBlur
-            target="page"
-            position="bottom"
-            height="3rem"
-            strength={2.5}
-            divCount={2}
-            curve="bezier"
-            exponential
-            opacity={0.5}
-            className="z-99"
-          />
-          <Page.ScrollTop />
+          <LenisProvider>
+            {children}
+            <Page.GradualBlur
+              target="page"
+              position="bottom"
+              height="3rem"
+              strength={2.5}
+              divCount={2}
+              curve="bezier"
+              exponential
+              opacity={0.5}
+              className="z-99"
+            />
+            <Page.ScrollTop />
+          </LenisProvider>
         </ThemeProvider>
       </body>
       <Analytics />
