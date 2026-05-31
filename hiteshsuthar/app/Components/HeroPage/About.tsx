@@ -9,9 +9,11 @@ const About = () => {
       </div>
       <div className="relative mx-auto w-full max-w-2xl flex-wrap border-x border-neutral-200 p-4 sm:p-6 dark:border-neutral-900">
         <h1 className="text-base  sm:text-md  md:text-md">
-          I build fast, clean, and interactive UI and I'm currently expanding
-          into <span className="font-medium">AI agent systems</span> and backend
-          engineering. My goal is to ship complete AI-powered products: polished
+          I build autonomous systems that solve problems. 
+          I use Python to build the 'brain' (Agentic logic & RAG) and React/TypeScript to build the 'body' (the interface). 
+          .I build end-to-end AI products.
+          <br />
+           My goal is to ship complete AI-powered products: polished
           frontends backed by agents that think and automate real workflows.
         </h1>
       </div>
