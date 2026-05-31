@@ -191,7 +191,7 @@ export const H3 = ({ children }: { children: React.ReactNode }) => (
       ease: "easeIn",
     }}
     viewport={{ once: true }}
-    className="font-['JetBrains_Mono',monospace] text-[11.5px] font-medium text-[#b45309] dark:text-[#f59e0b] uppercase tracking-[0.08em] mt-1.5"
+    className="font-['JetBrains_Mono',monospace] text-[11.5px] font-medium text-neutral-900 dark:text-white uppercase tracking-[0.08em] mt-1.5"
   >
     {children}
   </motion.h3>
@@ -286,7 +286,7 @@ export const StepBadge = ({ number }: { number: number }) => (
       ease: "easeIn",
     }}
     viewport={{ once: true }}
-    className="shrink-0 w-8 h-8 rounded-full bg-[#b45309]/8 dark:bg-[#f59e0b]/1 border border-[#b45309]/2 dark:border-[#f59e0b]/22 flex items-center justify-center font-['JetBrains_Mono',monospace] text-[13px] text-[#b45309] dark:text-[#f59e0b] mt-1"
+    className="shrink-0 w-8 h-8 rounded-full bg-[#b45309]/8 dark:bg-[#f59e0b]/1 border border-white/2 dark:border-white/22 flex items-center justify-center font-['JetBrains_Mono',monospace] text-[13px] text-neutral-600 dark:text-white mt-1"
   >
     {number}
   </motion.div>
@@ -484,7 +484,7 @@ export default function SupabaseBlog() {
               <span>·</span>
               <span>No server required</span>
             </div>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center mt-3 justify-between">
               <button className="flex mt-4 items-center text-neutral-400 text-[14px] gap-2">
                 <CalendarRange size={16} className="text-neutral-400" />{" "}
                 23-05-2026

@@ -36,11 +36,11 @@ const Projects = () => {
           {" "}
           <Link href="/projects">
             {" "}
-            <button className="flex font-mono dark:text-neutral-900 dark:ring-neutral-700 dark:hover:bg-neutral-100 ring-1 ring-neutral-400 hover:scale-97 cursor-pointer ring-offset-2 hover:ring-offset-1 transition duration-200 hover:bg-neutral-800 text-sm items-center group   bg-neutral-700 dark:bg-neutral-50  text-white rounded-md px-3 py-1 border gap-1  justify-center">
+            <button className="group flex inset-shadow-2xs items-center gap-2 rounded-lg ring-2 active:scale-95 ring-neutral-200   dark:ring-neutral-800 dark:bg-linear-to-b  from-neutral-900 to-neutral-950 px-4 py-1.5 dark:text-white font-medium text-neutral-800 dark:shadow-lg">
               More{" "}
               <ArrowUpRight
                 size={18}
-                className="group-hover:rotate-45 transtion duration-300 group-hover:translate-x-1.5"
+                className="group-hover:rotate-45 transtion duration-300"
               />
             </button>
           </Link>

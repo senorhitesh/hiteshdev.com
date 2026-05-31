@@ -55,30 +55,32 @@ export default Blogs;
 
 export const BlogCard = ({ title, link, description, date }: BlogDataProps) => {
   return (
-    <div className="w-full px-2 py-3 flex justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-950 rounded-2xl">
-      <div className="flex items-start flex-col ">
-        <div className="flex flex-col">
-          <h1 className="font-sans font-semibold  text-xl md:text-md sm:text-md">
-            {title}
-          </h1>
-          <p className="text-sm text-neutral-600">{description}</p>
+    <div className="w-full cursor-pointer px-2 py-3 flex justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-950 rounded-2xl">
+      <Link className="flex justify-between w-full items-center" href={link}>
+        <div className="flex items-start flex-col ">
+          <div className="flex flex-col">
+            <h1 className="font-sans font-semibold  text-xl md:text-md sm:text-md">
+              {title}
+            </h1>
+            <p className="text-sm text-neutral-600">{description}</p>
+          </div>
+          <div className="flex mt-2 gap-2">
+            <button className="flex items-center text-neutral-400 text-[14px] gap-2">
+              <CalendarRange size={16} className="text-neutral-400" /> {date}
+            </button>
+          </div>
         </div>
-        <div className="flex mt-2 gap-2">
-          <button className="flex items-center text-neutral-400 text-[14px] gap-2">
-            <CalendarRange size={16} className="text-neutral-400" /> {date}
-          </button>
-        </div>
-      </div>
-      <Link href={link}>
-        <div className="mr-2 cursor-pointer flex gap-1 group items-center">
-          <p className="text-neutral-500 dark:group-hover:text-neutral-500 group-hover:text-neutral-700">
-            Read
-          </p>{" "}
-          <ArrowUpRight
-            size={18}
-            className="text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-500"
-          />
-        </div>
+        <Link href={link}>
+          <div className="mr-2 cursor-pointer flex gap-1 group items-center">
+            <p className="text-neutral-500 dark:group-hover:text-neutral-500 group-hover:text-neutral-700">
+              Read
+            </p>{" "}
+            <ArrowUpRight
+              size={18}
+              className="text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-500"
+            />
+          </div>
+        </Link>
       </Link>
     </div>
   );
