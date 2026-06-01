@@ -5,7 +5,7 @@ import Page from "@/lib/assest/page";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
 import LenisProvider from "@/components/lenis-provider";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -21,14 +21,14 @@ const siteUrl = "https://hiteshdevcom.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Hitesh Suthar - Developer, Creator, Learner and Delusional .",
+    default: "Hitesh Suthar - Developer, Creator and Learner  .",
     template: "%s – Hitesh Suthar",
   },
-  description: "Full-Stack developer, AI enthusiast, Freelancer and a Learner.",
+  description: "Full-Stack developer, AI enthusiast, Freelancer and Learner.",
   openGraph: {
     title: "Hitesh Suthar - Developer & creator.",
     description:
-      "Full-Stack developer, JavaScript enthusiast, Freelancer and a Learner.",
+      "Full-Stack developer, JavaScript , Python , AI Agents , Freelancer and  Learner.",
     url: siteUrl,
     siteName: "Hitesh Suthar",
     locale: "en_US",
@@ -72,8 +72,8 @@ export default function RootLayout({
           </LenisProvider>
         </ThemeProvider>
       </body>
+      <SpeedInsights />
       <Analytics />
     </html>
   );
 }
-
