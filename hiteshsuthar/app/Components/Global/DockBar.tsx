@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FolderKanban, BookOpen, Mail, Sun, Moon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 
-import displayPicture from "@/public/profile.png";
+import displayPicture from "@/public/profile.jpg";
 
 const navItems = [
   { label: "Projects", icon: FolderKanban, href: "/projects" },
@@ -18,8 +18,10 @@ const navItems = [
 const playClickSound = () => {
   if (typeof window === "undefined") return;
   try {
-    const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
-    
+    const ctx = new (
+      window.AudioContext || (window as any).webkitAudioContext
+    )();
+
     // Snappy mechanical click pop
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
@@ -62,10 +64,7 @@ export default function Navbar() {
   const isDark = mounted ? resolvedTheme === "dark" : false;
 
   const handleToggle = () => {
-    // 1. Play snappy custom synthesized click sound
     playClickSound();
-
-    // 2. View Transition theme toggle for Triangle scale effect
     const doc = document as any;
     if (!doc.startViewTransition) {
       setTheme(isDark ? "light" : "dark");
@@ -77,6 +76,21 @@ export default function Navbar() {
     });
   };
 
+  useEffect(() => {
+    const click = (e: KeyboardEvent) => {
+      if (e.key === "d") {
+        playClickSound();
+        const doc = document as any;
+
+        doc.startViewTransition(() => {
+          setTheme(isDark ? "light" : "dark");
+        });
+      }
+    };
+
+    window.addEventListener("keydown", click);
+    return () => window.removeEventListener("keydown", click);
+  }, [isDark]);
   return (
     <motion.nav
       initial={{ y: 50, scale: 0.9, opacity: 0 }}

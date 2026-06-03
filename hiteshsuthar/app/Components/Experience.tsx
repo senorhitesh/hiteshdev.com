@@ -1,8 +1,7 @@
-import type { Position, WorkExp } from "@/components/work-experience";
+import type { WorkExp } from "@/components/work-experience";
 import WorkExperience from "@/components/work-experience";
-import { CodeXmlIcon, LightbulbIcon } from "lucide-react";
 import softechLogo from "@/public/softech-logo.png";
-import { StaticImageData } from "next/image";
+import Labmetix from "@/public/logoh1.webp";
 
 const Experience = () => {
   return (
@@ -23,6 +22,34 @@ function WorkExperienceDemo() {
   return <WorkExperience experience={WORK_EXPERIENCE} />;
 }
 const WORK_EXPERIENCE: WorkExp[] = [
+  {
+    id: "Labmentix",
+    companyName: "Labmentix",
+    companyLogo: Labmetix,
+    companyWebsite: "",
+    positions: [
+      {
+        id: "1",
+        title: "Python Developer Intern",
+        employmentPeriod: {
+          start: "06.2026",
+          end: "",
+        },
+
+        employmentType: "Intenship",
+        description: `Building and maintaining backend services using Python frameworks like FastAPI and Django, ensuring robust and scalable solutions.`,
+        skills: [
+          "Python",
+          "FastAPI",
+          "Django",
+          "Langchain",
+          "Langgraph",
+          "PostgresQl",
+        ],
+      },
+    ],
+    isCurrentEmployer: true,
+  },
   {
     id: "softech",
     companyName: "Softech Solutions",

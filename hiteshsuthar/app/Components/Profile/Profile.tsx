@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import displayPicture from "@/public/profile.png";
+import displayPicture from "@/public/profile.jpg";
 import { FileTextIcon, CopyIcon, MailIcon, CalendarClock } from "lucide-react";
 import ShinyText from "../Global/ShineText";
 import Link from "next/link";
