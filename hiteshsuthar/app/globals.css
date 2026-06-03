@@ -77,6 +77,23 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
+/* Custom Cursor Overrides */
+html, body {
+  cursor: url('/1. Normal/Normal.cur'), auto;
+}
+
+a, button, select, option, [role="button"], .cursor-pointer, input[type="submit"], input[type="button"] {
+  cursor: url('/1. Normal/Link.cur'), pointer !important;
+}
+
+input, textarea, .cursor-text {
+  cursor: url('/1. Normal/Text.cur'), text !important;
+}
+
+:disabled, [disabled], .cursor-not-allowed {
+  cursor: url('/1. Normal/Unavailable.cur'), not-allowed !important;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
