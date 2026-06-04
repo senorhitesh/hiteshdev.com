@@ -1,10 +1,15 @@
 import { projectBackgrounds, projectImages } from "@/lib/assest/project";
 import { StaticImageData } from "next/image";
 import { RiNextjsFill } from "react-icons/ri";
-import { SiTypescript, SiTailwindcss } from "react-icons/si";
+import {
+  SiTypescript,
+  SiTailwindcss,
+  SiFastapi,
+  SiCloudinary,
+} from "react-icons/si";
 import { FaReact } from "react-icons/fa";
 import { BiLogoJavascript } from "react-icons/bi";
-
+import { BiLogoPostgresql } from "react-icons/bi";
 interface ProjectCardProps {
   id: number;
   name: string;
@@ -31,7 +36,7 @@ export const Project: ProjectCardProps[] = [
     slug: "fyyped",
     type: "Meme Gallery",
     description:
-      "Fyyped is a meme culture hub where internet users discover and sharethe latest memes, viral edits, and popular formats — all in one place",
+      "Fyyped is a Internet's first meme culture gallery where internet users discover and share the latest memes, viral edits, and popular formats — all in one place",
     isActive: false,
     backgroundImage: projectBackgrounds.bg4,
     projectImage: projectImages.flyyped,
@@ -39,6 +44,15 @@ export const Project: ProjectCardProps[] = [
       { icon: <RiNextjsFill size={18} />, label: "Next.js" },
       { icon: <SiTypescript size={18} color="#017ACB" />, label: "TypeScript" },
       { icon: <SiTailwindcss size={18} color="#06B6D4" />, label: "Tailwind" },
+      { icon: <SiFastapi size={18} color="#06B6D4" />, label: "FastAPI" },
+      {
+        icon: <SiCloudinary size={18} color="#06B6D4" />,
+        label: "Cloudinary SDK",
+      },
+      {
+        icon: <BiLogoPostgresql size={18} color="#06B6D4" />,
+        label: "PostgreSQL",
+      },
     ],
     link: "https://fyyped.vercel.app/",
     video: "/Project/ProjectVideos/waiting.mp4",

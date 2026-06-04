@@ -13,12 +13,15 @@ interface Props {
 const Page = async ({ params }: Props) => {
   const { slug } = await params;
   const project = Project.find((p) => p.slug === slug);
-  // console.log(project);
-  console.log(project?.video);
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans dark:bg-[#09090B] mt-2">
       {/* Block */}
-      <div className="dotted-background dark:border-neutral-900  p-12" />
+
+      <div className="w-full border-t z-0 items-center justify-center flex border-neutral-200 dark:border-neutral-900">
+        <div className="max-w-2xl w-full relative mx-auto">
+          <div className="dotted-background w-full h-[12.5rem] flex items-center justify-center p-12"></div>
+        </div>
+      </div>
       <div className="w-full relative border-b border-t font-mono tracking-tight dark:border-neutral-900 border-neutral-200">
         <div className="mx-auto gap-1  flex flex-col max-w-2xl border-x dark:border-neutral-900 border-neutral-200    relative">
           <div className="w-2 h-2 bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 -top-1 -left-1 absolute border"></div>
@@ -29,7 +32,7 @@ const Page = async ({ params }: Props) => {
                 <ChevronLeft />
               </div>
             </Link>
-            <p className="text-lg font-sans">Projects</p>
+            <p className="text-lg font-sans font-semibold">{project?.name}</p>
           </div>
           {/* Video Block */}
           <div className="h-70 border m-2 rounded-lg p-2 border-neutral-200 dark:border-neutral-800">
@@ -110,7 +113,7 @@ const Page = async ({ params }: Props) => {
               ))}
             </div>
           </div>
-          <div className="p-4 -mt-1 font-sans border-neutral-200 dark:border-neutral-900 items-center justify-center flex border-t">
+          <div className="p-4 -mt-1 font-sans border-neutral-200 dark:border-neutral-900 items-center justify-center flex ">
             <p className="text-sm text-neutral-600">
               For more cool projects, visit my{" "}
               <Link
@@ -125,7 +128,11 @@ const Page = async ({ params }: Props) => {
         </div>
       </div>
       <Navbar />
-      <div className="dotted-background p-12"></div>
+      <div className="w-full border-b z-0 items-center justify-center flex border-neutral-200 dark:border-neutral-900">
+        <div className="max-w-2xl w-full relative mx-auto">
+          <div className="dotted-background w-full h-[12.5rem] flex items-center justify-center p-12"></div>
+        </div>
+      </div>
     </div>
   );
 };

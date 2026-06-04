@@ -151,8 +151,8 @@ export default function Navbar() {
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
         onClick={handleToggle}
         className="
-          flex h-8 w-8 items-center justify-center
-          rounded-full
+          flex h-8 w-8 items-center relative justify-center
+          rounded-full group
           transition-colors duration-200
 
           text-zinc-500
@@ -249,3 +249,5 @@ function NavItem({
     </Link>
   );
 }
+
+//
