@@ -70,7 +70,6 @@ export const BlogCard = ({ title, link, description, date }: BlogDataProps) => {
             </button>
           </div>
         </div>
-        <Link href={link}>
           <div className="mr-2 cursor-pointer flex gap-1 group items-center">
             <p className="text-neutral-500 dark:group-hover:text-neutral-500 group-hover:text-neutral-700">
               Read
@@ -80,7 +79,6 @@ export const BlogCard = ({ title, link, description, date }: BlogDataProps) => {
               className="text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-500"
             />
           </div>
-        </Link>
       </Link>
     </div>
   );
