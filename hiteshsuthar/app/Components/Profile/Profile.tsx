@@ -166,7 +166,7 @@ const Profile = () => {
           </Link>
           <Link
             target="_blank"
-            href={"https://x.com/senorHitesh"}
+            href={"https://x.com/hiteshxdev"}
             className="flex-1"
           >
             <button className="w-full dark:bg-neutral-800 dark:border-neutral-900 cursor-pointer flex px-3 items-center justify-center gap-1.5 bg-white border border-zinc-200 text-zinc-600 text-[12px] font-medium py-2 rounded-[10px]">
