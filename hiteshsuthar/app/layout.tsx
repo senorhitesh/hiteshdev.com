@@ -17,7 +17,7 @@ const siteUrl = "https://hiteshdevcom.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Hitesh Suthar - Developer, Creator and Learner  .",
+    default: "Hitesh Suthar - Developer, Creator and Builder.",
     template: "%s – Hitesh Suthar",
   },
   description: "Full-Stack developer, AI enthusiast, Freelancer and Learner.",
@@ -35,6 +35,23 @@ export const metadata: Metadata = {
     title: "Hitesh Suthar - Developer, writer, creator.",
     description:
       "Full-Stack developer, JavaScript enthusiast, Freelancer and a Learner.",
+    image: ["./og-image.png"],
+    creator: "@hiteshxdev",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://helxstudio.in",
   },
 };
 
