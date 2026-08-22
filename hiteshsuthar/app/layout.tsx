@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Hitesh Suthar - Developer, writer, creator.",
     description:
       "Full-Stack developer, JavaScript enthusiast, Freelancer and a Learner.",
-    image: ["./og-image.png"],
+    images: ["./og-image.png"],
     creator: "@hiteshxdev",
   },
   robots: {
