@@ -16,32 +16,45 @@ const siteUrl = "https://hiteshdevcom.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+
   title: {
-    default: "Hitesh Suthar - Developer, Creator and Builder.",
-    template: "%s – Hitesh Suthar",
+    default: "Hitesh Suthar | Full-Stack Developer, Creator & Builder",
+    template: "%s | Hitesh Suthar",
   },
-  description: "Full-Stack developer, AI enthusiast, Freelancer and Learner.",
+
+  description:
+    "Hitesh Suthar is a Engineer, AI enthusiast, freelancer, creator.",
+
   openGraph: {
-    title: "Hitesh Suthar - Developer & creator.",
+    title: "Hitesh Suthar | Full-Stack Developer, Creator & Builder",
     description:
-      "Full-Stack developer, JavaScript , Python , AI Agents , Freelancer and  Learner.",
+      "Full-stack developer, AI enthusiast, freelancer, creator, and learner.",
     url: siteUrl,
     siteName: "Hitesh Suthar",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "./og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Hitesh Suthar - Full-Stack Developer",
+      },
+    ],
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Hitesh Suthar - Developer, writer, creator.",
+    title: "Hitesh Suthar | Full-Stack Developer, Creator & Builder",
     description:
-      "Full-Stack developer, JavaScript enthusiast, Freelancer and a Learner.",
+      "Full-stack developer, AI enthusiast, freelancer, creator, and learner.",
     images: ["./og-image.png"],
     creator: "@hiteshxdev",
   },
+
   robots: {
     index: true,
     follow: true,
-    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -50,8 +63,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+
   alternates: {
-    canonical: "https://helxstudio.in",
+    canonical: "/",
   },
 };
 
