@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import displayPicture from "@/public/profile.jpg";
-import {  MailIcon, CalendarClock } from "lucide-react";
+import displayPicture from "@/public/profile.jpeg";
+import { MailIcon, CalendarClock } from "lucide-react";
 import ShinyText from "../Global/ShineText";
 import Link from "next/link";
 import { getCalApi } from "@calcom/embed-react";

@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 
-import displayPicture from "@/public/profile.jpg";
+import displayPicture from "@/public/profile.jpeg";
 
 const navItems = [
   { label: "Projects", icon: FolderKanban, href: "/projects" },
