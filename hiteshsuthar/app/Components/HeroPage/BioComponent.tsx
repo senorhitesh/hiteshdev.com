@@ -64,11 +64,7 @@ const BioComponent = () => {
   return (
     <div className="w-full border-b font-mono tracking-tight dark:border-neutral-900 border-neutral-200">
       <div className="mx-auto border-x gap-3 flex flex-col dark:border-neutral-900 border-neutral-200 p-6 w-full max-w-2xl">
-        <BioCard
-          Icon={Code}
-          title={"Backend Intern at @"}
-          underLineText={"Labmentix"}
-        />
+        <BioCard Icon={Code} title={"Founder"} underLineText={"@helxstudio"} />
         <BioCard Icon={Map} title={"Vadodara, Gujarat [IN] "} />
         <BioCard Icon={Mail} title={"senorhitesh@gmail.com"} copy={true} />
         <BioCard Icon={Building2} title={"BCA, IGNOU"} />

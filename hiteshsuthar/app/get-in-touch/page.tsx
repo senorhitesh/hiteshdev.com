@@ -1,13 +1,12 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { supabase } from "@/lib/supabase";
 import { ArrowLeft, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import Navbar from "@/app/Components/Global/DockBar";
-
+import emailjs from "@emailjs/browser";
 const ValidationSchema = Yup.object({
   name: Yup.string()
     .required("Required")
@@ -71,6 +70,7 @@ const Page = () => {
   const [shakingFields, setShakingFields] = useState<Record<string, boolean>>(
     {},
   );
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   const formik = useFormik({
     initialValues: {
@@ -81,26 +81,39 @@ const Page = () => {
       message: "",
     },
     validationSchema: ValidationSchema,
-    onSubmit: async (values, { resetForm, setSubmitting }) => {
-      const { error } = await supabase.from("customers").insert([values]);
+    onSubmit: async (values, { setSubmitting, resetForm }) => {
+      const serviceId = process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY;
 
-      if (error) {
-        toast.error("Something went wrong");
-      } else {
-        playPopSound();
-        setIsSubmitted(true);
-        resetForm();
+      if (!formRef.current || !serviceId || !templateId || !publicKey) {
+        toast.error(
+          `Email service is not configured yet ${formRef.current}  ${serviceId}  ${templateId}  ${publicKey}`,
+        );
+        return;
       }
-      setSubmitting(false);
+
+      try {
+        await emailjs.sendForm(serviceId, templateId, formRef.current, {
+          publicKey,
+        });
+
+        resetForm();
+        setIsSubmitted(true);
+        playPopSound();
+        toast.success("Message sent successfully!");
+      } catch (error) {
+        console.error("EmailJS send failed:", error);
+        toast.error("Failed to send message. Please try again.");
+      } finally {
+        setSubmitting(false);
+      }
     },
   });
-
   const prevErrors = useRef(formik.errors);
-
   useEffect(() => {
     const newShaking: Record<string, boolean> = {};
     let shouldShake = false;
-
     Object.keys(formik.errors).forEach((key) => {
       const errorKey = key as keyof typeof formik.errors;
       // If it was not in error state before, but now has an error, trigger shake
@@ -109,7 +122,6 @@ const Page = () => {
         shouldShake = true;
       }
     });
-
     if (shouldShake) {
       setShakingFields((prev) => ({ ...prev, ...newShaking }));
       const timer = setTimeout(() => {
@@ -123,7 +135,6 @@ const Page = () => {
       }, 280);
       return () => clearTimeout(timer);
     }
-
     prevErrors.current = formik.errors;
   }, [formik.errors]);
 
@@ -238,6 +249,7 @@ const Page = () => {
                     full-time opportunities
                   </p>
                   <form
+                    ref={formRef}
                     onSubmit={formik.handleSubmit}
                     className="flex flex-col"
                   >
