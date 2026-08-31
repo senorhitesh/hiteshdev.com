@@ -26,7 +26,7 @@ const Projects = () => {
                 bgImage={p.backgroundImage}
                 projectImage={p.projectImage}
                 stack={p.stack}
-                link={p.link}
+                link={p.link || "https://github.com/senorhitesh"}
                 slug={p.slug}
               />
             );

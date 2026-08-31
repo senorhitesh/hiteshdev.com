@@ -4,12 +4,13 @@ import { RiNextjsFill } from "react-icons/ri";
 import {
   SiTypescript,
   SiTailwindcss,
-  SiFastapi,
-  SiCloudinary,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiRender,
 } from "react-icons/si";
 import { FaReact } from "react-icons/fa";
 import { BiLogoJavascript } from "react-icons/bi";
-import { BiLogoPostgresql } from "react-icons/bi";
 interface ProjectCardProps {
   id: number;
   name: string;
@@ -24,6 +25,7 @@ interface ProjectCardProps {
   longDescription?: string;
   github?: string;
   stack: StackProp[]; // ← change from ReactNode[] to StackProp[]
+  users?: string;
 }
 interface StackProp {
   icon: React.ReactNode;
@@ -32,30 +34,38 @@ interface StackProp {
 export const Project: ProjectCardProps[] = [
   {
     id: 1,
-    name: "Fypped",
-    slug: "fyyped",
-    type: "Meme Gallery",
+    name: "Bmarked",
+    slug: "bmark",
+    type: "Managment Tool",
     description:
-      "Fyyped is a Internet's first meme culture gallery where internet users discover and share the latest memes, viral edits, and popular formats — all in one place",
-    isActive: false,
+      "A simple bookmark management tool that keeps all your favorite links organized in one place.",
+    isActive: true,
     backgroundImage: projectBackgrounds.bg4,
-    projectImage: projectImages.flyyped,
+    projectImage: projectImages.bmarked,
     stack: [
       { icon: <RiNextjsFill size={18} />, label: "Next.js" },
       { icon: <SiTypescript size={18} color="#017ACB" />, label: "TypeScript" },
       { icon: <SiTailwindcss size={18} color="#06B6D4" />, label: "Tailwind" },
-      { icon: <SiFastapi size={18} color="#06B6D4" />, label: "FastAPI" },
       {
-        icon: <SiCloudinary size={18} color="#06B6D4" />,
-        label: "Cloudinary SDK",
+        icon: <SiNodedotjs size={18} color="#3fd600" />,
+        label: "Node.js",
       },
       {
-        icon: <BiLogoPostgresql size={18} color="#06B6D4" />,
-        label: "PostgreSQL",
+        icon: <SiExpress size={18} color="#3fd600" />,
+        label: "Express.js",
+      },
+      {
+        icon: <SiMongodb size={18} color="#3fd600" />,
+        label: "MongoDB",
+      },
+      {
+        icon: <SiRender size={18} color="#eeeeee" />,
+        label: "Render",
       },
     ],
-    link: "https://fyyped.vercel.app/",
-    video: "/Project/ProjectVideos/waiting.mp4",
+    github: "https://github.com/senorhitesh",
+    link: "https://bmarked.vercel.app/",
+    video: "/Project/ProjectVideos/bmark.mp4",
   },
   {
     id: 2,
@@ -100,21 +110,21 @@ export const Project: ProjectCardProps[] = [
   },
   {
     id: 4,
-    name: "Shushiman",
-    slug: "shushiman",
-    type: "Shushi Website",
-    video: "/Project/ProjectVideos/sw.mp4",
+    name: "Shikai",
+    slug: "shikai",
+    type: "Extenstion",
+    video: "/Project/ProjectVideos/shikai.mp4",
     description:
-      "A Japanese-theme sushi restaurant website featuring clean visuals, smooth animations, and a fully responsive design.",
+      "Shikai an Chrome extension that visualizes the time remaining in the current year.",
     isActive: true,
     backgroundImage: projectBackgrounds.bg2,
-    projectImage: projectImages.shushiman,
-    github: "https://github.com/senorhitesh/hiteshsuthar.portfolio.git",
+    projectImage: projectImages.shiklai,
+    github: "https://github.com/senorhitesh/Shikai-Chrome-Extension",
     stack: [
       { icon: <FaReact size={18} color="#61DAFB" />, label: "React" },
       { icon: <SiTailwindcss size={18} color="#06B6D4" />, label: "Tailwind" },
       { icon: <SiTypescript size={18} color="#017ACB" />, label: "TypeScript" },
     ],
-    link: "https://shushiwebsite.vercel.app/",
+    link: "https://github.com/senorhitesh/Shikai-Chrome-Extension",
   },
 ];

@@ -7,11 +7,7 @@ import ShinyText from "../Global/ShineText";
 import Link from "next/link";
 import { getCalApi } from "@calcom/embed-react";
 
-const phrases = [
-  "Python Full-Stack Developer",
-  "Building @Fypped",
-  "Cooking something",
-];
+const phrases = ["Engineer", "Founder @helxstudio", "Cooking something"];
 
 const Profile = () => {
   const [currentTime, setCurrentTime] = useState("");

@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 export default function GithubContribution() {
   const { theme } = useTheme();
   const explicitTheme = {
-    light: ["#f5f5f5", "#d4d4d4", "#a3a3a3", "#737373", "#262626"],
+    light: ["#ffffff", "#d8ecff", "#a4d3ff", "#6ab7ff", "#1b91ff"],
     dark: ["#161616", "#2a2a2a", "#525252", "#8a8a8a", "#d4d4d4"],
   };
   return (
