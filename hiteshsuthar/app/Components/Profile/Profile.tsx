@@ -19,7 +19,7 @@ const Profile = () => {
       const timeString = new Date().toLocaleTimeString("en-GB", {
         hour: "2-digit",
         minute: "2-digit",
-        hour12: false,
+        hour12: true,
       });
       setCurrentTime(`IST ${timeString}`);
     };
@@ -48,7 +48,7 @@ const Profile = () => {
 
   return (
     <div
-      className="bg-white z-12 rounded-xl border -mt-4 dark:bg-[#09090B]
+      className="bg-white z-12  border -mt-4 dark:bg-[#09090B]
                 border-neutral-100 dark:border-neutral-800 p-3.5 w-full max-w-3xl"
     >
       {/* Top row */}
@@ -82,7 +82,7 @@ const Profile = () => {
               disabled={false}
               className="text-[10px] text-zinc-400 uppercase tracking-[0.06em] font-medium mb-0.5"
             />
-            <p className="text-2xl sm:text-3xl font-[Neue] font-semibold dark:text-neutral-300 text-zinc-900 tracking-tight mb-0.5">
+            <p className="text-2xl sm:text-3xl font-Neue font-semibold dark:text-neutral-300 text-zinc-900 tracking-tight mb-0.5">
               Hitesh Suthar
             </p>
             <p
@@ -103,12 +103,16 @@ const Profile = () => {
       {/* Buttons - Added flex-wrap here for mobile responsiveness */}
       <div className="flex flex-wrap gap-2 mt-3.5">
         <Link href={"/get-in-touch"} className="flex-grow sm:flex-grow-0">
-          <button className="w-full px-4 flex items-center cursor-pointer justify-center gap-1.5 bg-zinc-900 dark:text-neutral-300 text-white text-[12px] font-medium py-2 rounded-[10px]">
+          <button
+            aria-label="getin-touch-mail"
+            className="w-full px-4 flex items-center cursor-pointer justify-center gap-1.5 bg-zinc-900 dark:text-neutral-300 text-white text-[12px] font-medium py-2 rounded-[10px]"
+          >
             <MailIcon className="w-3.5 h-3.5" />
             Get in touch
           </button>
         </Link>
         <button
+          aria-label="quick-chat"
           data-cal-namespace="quickchat"
           data-cal-link="senorhitesh/quickchat"
           data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
@@ -127,6 +131,7 @@ const Profile = () => {
           >
             <button className="w-full dark:bg-neutral-800 dark:border-neutral-900 cursor-pointer flex px-3 items-center justify-center gap-1.5 bg-white border border-zinc-200 text-zinc-600 text-[12px] font-medium py-2 rounded-[10px]">
               <svg
+                aria-label="svg-path"
                 width="14"
                 height="15"
                 viewBox="0 0 27 26"
@@ -145,6 +150,7 @@ const Profile = () => {
           >
             <button className="w-full dark:bg-neutral-800 dark:border-neutral-900 cursor-pointer flex px-3 items-center justify-center gap-1.5 bg-white border border-zinc-200 text-zinc-600 text-[12px] font-medium py-2 rounded-[10px]">
               <svg
+                aria-label="path-btn"
                 width="16"
                 height="16"
                 viewBox="0 0 27 27"
@@ -166,7 +172,10 @@ const Profile = () => {
             href={"https://x.com/hiteshxdev"}
             className="flex-1"
           >
-            <button className="w-full dark:bg-neutral-800 dark:border-neutral-900 cursor-pointer flex px-3 items-center justify-center gap-1.5 bg-white border border-zinc-200 text-zinc-600 text-[12px] font-medium py-2 rounded-[10px]">
+            <button
+              aria-label="x-btn"
+              className="w-full dark:bg-neutral-800 dark:border-neutral-900 cursor-pointer flex px-3 items-center justify-center gap-1.5 bg-white border border-zinc-200 text-zinc-600 text-[12px] font-medium py-2 rounded-[10px]"
+            >
               <svg
                 width="16"
                 height="13"
@@ -187,17 +196,6 @@ const Profile = () => {
             </button>
           </Link>
         </div>
-      </div>
-
-      {/* Status bar */}
-      <div className="mt-2.5 bg-zinc-100 dark:bg-neutral-900 rounded-[10px] px-3 py-2 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2">
-        <div className="flex items-center gap-1.5">
-          <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
-          <span className="text-[11px] dark:text-neutral-300 text-zinc-600">
-            Building @Fypped
-          </span>
-        </div>
-        <span className="text-[11px] text-zinc-400">Open to collab</span>
       </div>
     </div>
   );

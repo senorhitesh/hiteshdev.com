@@ -10,7 +10,7 @@ const Projects = () => {
     <div className="w-full">
       <div className="w-full max-w-2xl mx-auto px-3 border-x border-neutral-200 dark:border-neutral-900 py-6">
         <div className="flex items-baseline justify-between mb-5">
-          <h2 className="relative font-[Neue] text-2xl inline-block font-semibold text-neutral-900 dark:text-neutral-100 ">
+          <h2 className="relative font-Neue text-2xl inline-block font-semibold text-neutral-900 dark:text-neutral-100 ">
             Projects
           </h2>
         </div>
@@ -36,7 +36,10 @@ const Projects = () => {
           {" "}
           <Link href="/projects">
             {" "}
-            <button className="group flex inset-shadow-2xs items-center gap-2 rounded-lg ring-2 active:scale-95 ring-neutral-200   dark:ring-neutral-800 dark:bg-linear-to-b  from-neutral-900 to-neutral-950 px-4 py-1.5 dark:text-white font-medium text-neutral-800 dark:shadow-lg">
+            <button
+              aria-label="more-project"
+              className="group flex inset-shadow-2xs items-center gap-2 rounded-lg ring-2 active:scale-95 ring-neutral-200   dark:ring-neutral-800 dark:bg-linear-to-b  from-neutral-900 to-neutral-950 px-4 py-1.5 dark:text-white font-medium text-neutral-800 dark:shadow-lg"
+            >
               More{" "}
               <ArrowUpRight
                 size={18}

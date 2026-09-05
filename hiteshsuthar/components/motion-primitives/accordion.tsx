@@ -143,6 +143,7 @@ function AccordionTrigger({
 
   return (
     <button
+      aria-label="accordian"
       onClick={() => value !== undefined && toggleItem(value)}
       aria-expanded={isExpanded}
       type="button"

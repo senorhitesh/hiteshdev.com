@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Provider from "@/app/Provider";
+const Neue = localFont({
+  src: "../public/font/NMUltrabold.woff2",
+  variable: "--font-Neue",
+  display: "swap",
+});
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -90,7 +96,7 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${Neue.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex realtive flex-col">
         {" "}

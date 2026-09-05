@@ -61,6 +61,7 @@ const WorkExperience = ({ experience }: { experience: WorkExp[] }) => {
                     {/* Company Logo */}
                     <div className="w-9 h-9 rounded-lg border border-zinc-200 dark:border-zinc-800 overflow-hidden flex items-center justify-center bg-zinc-50 dark:bg-zinc-900 shrink-0">
                       <Image
+                        loading="lazy"
                         src={job.companyLogo}
                         alt={`${job.companyName} logo`}
                         className="object-contain w-6 h-6 sm:w-7 sm:h-7"

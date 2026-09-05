@@ -28,7 +28,7 @@ const Blogs = () => {
           {" "}
           {/* Increased padding slightly for better spacing */}
           <div className="w-full flex flex-col">
-            <h2 className="relative font-[Neue] text-2xl inline-block font-semibold text-neutral-900 dark:text-neutral-100">
+            <h2 className="relative font-Neue text-2xl inline-block font-semibold text-neutral-900 dark:text-neutral-100">
               Blogs
             </h2>
 

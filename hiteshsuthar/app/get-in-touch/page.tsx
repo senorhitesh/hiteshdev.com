@@ -207,7 +207,7 @@ const Page = () => {
                       <path d="M4 11l3.5 3.5L16 6" />
                     </svg>
                   </span>
-                  <h2 className="mb-2 font-[Neue] text-3xl font-semibold text-black dark:text-white">
+                  <h2 className="mb-2 font-Neue text-3xl font-semibold text-black dark:text-white">
                     Message Sent!
                   </h2>
                   <p className="mb-8 text-sm font-sans text-zinc-600 dark:text-zinc-500 max-w-sm">
@@ -216,13 +216,17 @@ const Page = () => {
                   </p>
                   <div className="flex gap-4">
                     <button
+                      aria-label="send-again-message"
                       onClick={() => setIsSubmitted(false)}
                       className="px-5 py-2.5 rounded-xl border border-zinc-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-zinc-700 dark:text-neutral-300 text-xs font-semibold hover:bg-zinc-50 dark:hover:bg-neutral-800 transition duration-150 cursor-pointer"
                     >
                       Send Another
                     </button>
                     <Link href="/">
-                      <button className="px-5 py-2.5 rounded-xl bg-zinc-900 dark:bg-neutral-100 text-white dark:text-zinc-900 text-xs font-semibold hover:bg-zinc-800 dark:hover:bg-neutral-200 transition duration-150 cursor-pointer">
+                      <button
+                        aria-label="go-back-home"
+                        className="px-5 py-2.5 rounded-xl bg-zinc-900 dark:bg-neutral-100 text-white dark:text-zinc-900 text-xs font-semibold hover:bg-zinc-800 dark:hover:bg-neutral-200 transition duration-150 cursor-pointer"
+                      >
                         Go Back Home
                       </button>
                     </Link>
@@ -237,7 +241,7 @@ const Page = () => {
                         <ChevronLeft />
                       </div>
                     </Link>
-                    <h2 className="mb-1 font-[Neue] text-center text-4xl font-semibold leading-[0.92] text-black dark:text-white">
+                    <h2 className="mb-1 font-Neue text-center text-4xl font-semibold leading-[0.92] text-black dark:text-white">
                       Get In Touch.
                     </h2>
                     <div className="opacity-0">
@@ -368,6 +372,7 @@ const Page = () => {
 
                     {/* Button */}
                     <button
+                      aria-label="formik-btn"
                       type="submit"
                       disabled={
                         !formik.isValid || !formik.dirty || formik.isSubmitting

@@ -37,10 +37,20 @@ const ProjectCard = ({
         {/* Grid pattern */}
         <div className="absolute inset-0 grid-background opacity-50" />
         <div className="absolute opacity-0 translate-y-5 scale-70 group-hover:scale-100 group-hover:blur-none  group-hover:opacity-100 group-hover:translate-y-0  transition duration-200 top-0 right-0 inset-0">
-          <Image src={bgImage} alt={"Background1"} className="object-cover" />
+          <Image
+            loading="lazy"
+            src={bgImage}
+            alt={"Background1"}
+            className="object-cover"
+          />
         </div>
         <div className="absolute overflow-hidden transition duration-500 bg-gray-50 rounded-md bottom-0 translate-y-14 group-hover:translate-y-5 w-[75%]  border border-neutral-300 h-30 left-1/2 -translate-x-1/2">
-          <Image src={projectImage} alt="fyyped" className="object-cover" />
+          <Image
+            loading="lazy"
+            src={projectImage}
+            alt="fyyped"
+            className="object-cover"
+          />
         </div>
         {/* Animated label */}
         <span className="absolute top-2.5 dark:text-neutral-300 dark:group-hover:text-neutral-200 left-2.5 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 text-xs text-neutral-500 group-hover:text-neutral-800 group-hover:bg-white group-hover:dark:bg-neutral-900 border border-transparent group-hover:border-neutral-200 group-hover:dark:border-neutral-700 rounded-md group-hover:px-2.5 py-1 whitespace-nowrap">
@@ -59,12 +69,10 @@ const ProjectCard = ({
             </p>
             {isActive ? (
               <Link target="_blank" href={link}>
-                <span>
-                  <Link2
-                    size={16}
-                    className="text-neutral-600 hover:text-blue-500 transition duration-200 scale-0 group-hover:scale-100"
-                  />
-                </span>
+                <Link2
+                  size={16}
+                  className="text-neutral-600 hover:text-blue-500 transition duration-200 scale-0 group-hover:scale-100"
+                />
               </Link>
             ) : null}
           </div>
@@ -123,7 +131,10 @@ const ProjectCard = ({
           )}
         </div>
         <Link href={`/projects/${slug}`}>
-          <button className="flex group cursor-pointer items-center   gap-1 text-xs text-neutral-400 group-hover:text-neutral-700 dark:group-hover:text-neutral-200 transition duration-200 group/btn">
+          <button
+            aria-label="view-project-btn"
+            className="flex group cursor-pointer items-center   gap-1 text-xs text-neutral-400 group-hover:text-neutral-700 dark:group-hover:text-neutral-200 transition duration-200 group/btn"
+          >
             View Project
             <ArrowUpRight className="size-0 scale-0  group-hover:scale-100  group-hover:size-4 transition " />
           </button>

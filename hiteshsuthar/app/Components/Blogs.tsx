@@ -27,7 +27,7 @@ const Blogs = () => {
             <ChevronLeft />
           </div>
         </Link>
-        <h2 className="relative font-[Neue] text-2xl inline-block font-semibold text-neutral-900 dark:text-neutral-100 ">
+        <h2 className="relative font-Neue text-2xl inline-block font-semibold text-neutral-900 dark:text-neutral-100 ">
           Blogs
         </h2>
       </div>
@@ -65,7 +65,10 @@ export const BlogCard = ({ title, link, description, date }: BlogDataProps) => {
             <p className="text-sm text-neutral-600">{description}</p>
           </div>
           <div className="flex mt-2 gap-2">
-            <button className="flex items-center text-neutral-400 text-[14px] gap-2">
+            <button
+              aria-label="date-shower"
+              className="flex items-center text-neutral-400 text-[14px] gap-2"
+            >
               <CalendarRange size={16} className="text-neutral-400" /> {date}
             </button>
           </div>

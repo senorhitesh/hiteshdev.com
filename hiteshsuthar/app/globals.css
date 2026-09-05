@@ -6,16 +6,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-
   --dotted-bg: #ffffff;
   --dotted-dot: #dcdcdc;
   --dotted-border: #e5e7eb;
-
   --grid-color: #e5e5e5;
-
   --divider-color-1: rgba(0, 0, 0, 0.02);
   --divider-color-2: rgba(0, 0, 0, 0.06);
-
   --expo-out: linear(
     0 0%,
     0.1684 2.66%,
@@ -55,6 +51,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-Neue:var(--font-Neue), sans-serif;
+
 }
 
 html.lenis, html.lenis body {
@@ -97,12 +95,6 @@ input, textarea, .cursor-text {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Neue",  Arial, Helvetica, sans-serif;
-}
-
-@font-face {
-  font-family: "Neue";
-  src: url("/font/NMUltrabold.woff2");
 }
 
 ::selection{

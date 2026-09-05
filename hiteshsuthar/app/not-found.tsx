@@ -14,7 +14,7 @@ export default function NotFound() {
             <h2 className="lg:text-3xl text-2xl text-neutral-900 font-semibold tracking-tighter">
               Page went out for snacks.
               <br />
-              We're not mad. We just <br /> hope it brings back chips.{" "}
+              I am not mad. We just <br /> hope it brings back chips.{" "}
             </h2>
 
             <Link

@@ -137,6 +137,7 @@ export function CodeBlock({
           {filename}
         </span>
         <button
+          aria-label="copy-email"
           onClick={handleCopy}
           className={`bg-transparent border-none cursor-pointer font-['JetBrains_Mono',monospace] text-[11px] px-1.5 py-0.5 rounded transition-colors ${
             copied
@@ -436,7 +437,10 @@ export default function SupabaseBlog() {
                 href="/blogs"
                 className="inline-block mb-2 text-[#78716c] dark:text-[#6b6b75] hover:text-[#1c1917] dark:hover:text-[#e8e6e1] transition-colors"
               >
-                <button className="flex gap-2 items-center text-sm font-medium">
+                <button
+                  aria-label="navigatio-blogs"
+                  className="flex gap-2 items-center text-sm font-medium"
+                >
                   <ChevronLeft size={18} /> Back to Blogs
                 </button>
               </Link>
@@ -485,7 +489,10 @@ export default function SupabaseBlog() {
               <span>No server required</span>
             </div>
             <div className="flex items-center mt-3 justify-between">
-              <button className="flex mt-4 items-center text-neutral-400 text-[14px] gap-2">
+              <button
+                aria-label="book-video-call"
+                className="flex mt-4 items-center text-neutral-400 text-[14px] gap-2"
+              >
                 <CalendarRange size={16} className="text-neutral-400" />{" "}
                 23-05-2026
               </button>

@@ -72,6 +72,7 @@ export default function ShareButton({
     <div className="relative inline-block">
       {/* ── Share Button ── */}
       <button
+        aria-label="Share-Button"
         onClick={() => setOpen((v) => !v)}
         className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-sm font-medium text-gray-700 dark:text-gray-200 shadow-sm hover:bg-gray-50 dark:hover:bg-neutral-800 hover:border-gray-300 dark:hover:border-neutral-600 active:scale-95 transition-all duration-150 cursor-pointer"
       >
@@ -112,9 +113,9 @@ export default function ShareButton({
             </div>
 
             <button
+              aria-label="close-model"
               onClick={() => setOpen(false)}
               className="ml-3 flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-gray-400 dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-neutral-800 hover:text-gray-600 dark:hover:text-gray-300 transition-colors cursor-pointer"
-              aria-label="Close"
             >
               <X size={15} strokeWidth={2.5} />
             </button>
@@ -133,13 +134,13 @@ export default function ShareButton({
                 </span>
 
                 <button
+                  aria-label="copy-btn"
                   onClick={handleCopy}
                   className={`flex-shrink-0 p-1 rounded-md transition-all duration-150 cursor-pointer ${
                     copied
                       ? "text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10"
                       : "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-200 dark:hover:bg-neutral-700"
                   }`}
-                  aria-label="Copy link"
                 >
                   {copied ? (
                     <Check size={15} strokeWidth={2.5} />
@@ -159,6 +160,7 @@ export default function ShareButton({
               <div className="flex gap-2">
                 {/* Twitter / X */}
                 <button
+                  aria-label="share=on-twitter"
                   onClick={shareTwitter}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-neutral-800 hover:border-gray-300 dark:hover:border-neutral-600 active:scale-95 transition-all duration-150 cursor-pointer"
                 >
@@ -176,6 +178,7 @@ export default function ShareButton({
 
                 {/* LinkedIn */}
                 <button
+                  aria-label="share-on-linkedin"
                   onClick={shareLinkedIn}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-neutral-800 hover:border-gray-300 dark:hover:border-neutral-600 active:scale-95 transition-all duration-150 cursor-pointer"
                 >
