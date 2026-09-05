@@ -429,17 +429,14 @@ body {
   .t-input { animation: none !important; transform: none !important; }
 }
 
-
 .section::-webkit-scrollbar {
   width: 10px;
 }
 
 
-
-
 ::-webkit-scrollbar{
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 2px;
 }
 
 ::-webkit-scrollbar-track{
@@ -447,8 +444,8 @@ body {
 }
 
 ::-webkit-scrollbar-thumb{
-  background: #333;
-  border-radius: 3px;
+  background: #e5e4e4;
+  border-radius: 1px;
 }
 ::-webkit-scrollbar-thumb:hover{
   background: #444;

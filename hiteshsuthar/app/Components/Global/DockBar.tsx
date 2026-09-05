@@ -130,7 +130,12 @@ export default function Navbar() {
             dark:bg-zinc-100
           "
         >
-          <Image src={displayPicture} alt="profile" className="object-cover" />
+          <Image
+            src={displayPicture}
+            loading="eager"
+            alt="profile"
+            className="object-cover"
+          />
         </motion.div>
       </Link>
 

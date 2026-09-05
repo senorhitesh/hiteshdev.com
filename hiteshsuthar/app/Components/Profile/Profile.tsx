@@ -60,6 +60,7 @@ const Profile = () => {
               <div className="bg-white absolute h-full blur-lg w-2 profile-sweep left-4" />
               <Image
                 src={displayPicture}
+                loading="eager"
                 alt="Hitesh Suthar"
                 className="object-cover w-full h-full"
               />

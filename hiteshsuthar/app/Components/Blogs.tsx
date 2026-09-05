@@ -59,9 +59,9 @@ export const BlogCard = ({ title, link, description, date }: BlogDataProps) => {
       <Link className="flex justify-between w-full items-center" href={link}>
         <div className="flex items-start flex-col ">
           <div className="flex flex-col">
-            <h1 className="font-sans font-semibold  text-xl md:text-md sm:text-md">
+            <h2 className="font-sans font-semibold  text-xl md:text-md sm:text-md">
               {title}
-            </h1>
+            </h2>
             <p className="text-sm text-neutral-600">{description}</p>
           </div>
           <div className="flex mt-2 gap-2">
@@ -70,15 +70,15 @@ export const BlogCard = ({ title, link, description, date }: BlogDataProps) => {
             </button>
           </div>
         </div>
-          <div className="mr-2 cursor-pointer flex gap-1 group items-center">
-            <p className="text-neutral-500 dark:group-hover:text-neutral-500 group-hover:text-neutral-700">
-              Read
-            </p>{" "}
-            <ArrowUpRight
-              size={18}
-              className="text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-500"
-            />
-          </div>
+        <div className="mr-2 cursor-pointer flex gap-1 group items-center">
+          <p className="text-neutral-500 dark:group-hover:text-neutral-500 group-hover:text-neutral-700">
+            Read
+          </p>{" "}
+          <ArrowUpRight
+            size={18}
+            className="text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-500"
+          />
+        </div>
       </Link>
     </div>
   );
