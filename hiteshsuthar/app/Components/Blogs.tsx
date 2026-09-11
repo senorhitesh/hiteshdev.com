@@ -10,10 +10,10 @@ export interface BlogDataProps {
 
 const BlogMetaData: BlogDataProps[] = [
   {
-    title: "Skip the Backend: Supabase Setup",
-    description: "How I connected my contact form with supabse",
-    link: "blogs/SupabaseBlog",
-    date: "23-05-2026",
+    title: "How did I got my first client",
+    description: "If you were an beginner here is honest guide for you.",
+    link: "/blogs/how-to-get-first-client",
+    date: "11-10-2026",
   },
 ];
 

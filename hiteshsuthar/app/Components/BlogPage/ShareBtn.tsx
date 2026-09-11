@@ -6,11 +6,15 @@ import { Share2, X, Copy, Check } from "lucide-react";
 interface ShareModalProps {
   title?: string;
   url?: string;
+  showIcon?: boolean;
+  className?: string;
 }
 
 export default function ShareButton({
   title = "How I Automated Everything Using AI!",
   url = "https://yourblog.com/how-i-automated-everything-using-ai",
+  showIcon = false,
+  className = "",
 }: ShareModalProps) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -74,9 +78,9 @@ export default function ShareButton({
       <button
         aria-label="Share-Button"
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-sm font-medium text-gray-700 dark:text-gray-200 shadow-sm hover:bg-gray-50 dark:hover:bg-neutral-800 hover:border-gray-300 dark:hover:border-neutral-600 active:scale-95 transition-all duration-150 cursor-pointer"
+        className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-sm font-medium text-neutral-700 dark:text-neutral-200 shadow-xs hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 active:scale-95 transition-all duration-150 cursor-pointer ${className}`}
       >
-        <Share2 size={15} strokeWidth={2} />
+        {showIcon && <Share2 size={14} strokeWidth={2} />}
         Share
       </button>
 

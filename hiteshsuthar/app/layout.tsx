@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Provider from "@/app/Provider";
@@ -15,6 +15,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const intrumetalSerif = Instrument_Serif({
+  variable: "--font-italic",
+  subsets: ["latin"],
+  weight: "400",
 });
 const siteUrl = "https://hiteshdevcom.vercel.app";
 export const metadata: Metadata = {
@@ -96,7 +102,7 @@ export default function RootLayout({
     <html
       suppressHydrationWarning
       lang="en"
-      className={`${geistSans.variable} ${Neue.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${Neue.variable} ${intrumetalSerif.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex realtive flex-col">
         {" "}

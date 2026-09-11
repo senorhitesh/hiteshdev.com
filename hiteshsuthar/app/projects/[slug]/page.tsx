@@ -3,20 +3,17 @@ import Link from "next/link";
 import { Project } from "@/lib/data/project";
 import { ChevronLeft } from "lucide-react";
 import ProjectVideoPlayer from "@/app/Components/Project/ProjectVideoPlayer";
-
 interface Props {
   params: {
     slug: string;
   };
 }
-
 const Page = async ({ params }: Props) => {
   const { slug } = await params;
   const project = Project.find((p) => p.slug === slug);
   return (
     <div className="flex flex-col flex-1 items-center justify-center font-sans dark:bg-[#09090B] mt-2">
       {/* Block */}
-
       <div className="w-full border-t z-0 items-center justify-center flex border-neutral-200 dark:border-neutral-900">
         <div className="max-w-2xl w-full relative mx-auto">
           <div className="dotted-background w-full h-[12.5rem] flex items-center justify-center p-12"></div>
