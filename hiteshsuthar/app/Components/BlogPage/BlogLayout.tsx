@@ -4,7 +4,6 @@ import Image from "next/image";
 import { ChevronLeft, CalendarDays } from "lucide-react";
 import ShareButton from "@/app/Components/BlogPage/ShareBtn";
 import { formatBlogDate } from "@/lib/blog/blog";
-import Navbar from "@/app/Components/Global/DockBar";
 import Page from "@/lib/assest/page";
 
 interface BlogLayoutProps {
@@ -85,7 +84,6 @@ export default function BlogLayout({
             />
           </div>
         )}
-
         {/* Content */}
         <article className="prose dark:prose-invert max-w-none text-neutral-800 dark:text-neutral-200">
           {children}

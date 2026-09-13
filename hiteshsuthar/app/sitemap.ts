@@ -12,6 +12,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
     },
     {
+      url: `${baseUrl}/blogs`,
+      changeFrequency: "weekly",
+      priority: 0.9,
+      lastModified: now,
+    },
+    {
+      url: `${baseUrl}/projects`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+      lastModified: now,
+    },
+    {
       url: `${baseUrl}/get-in-touch`,
       changeFrequency: "monthly",
       priority: 0.9,

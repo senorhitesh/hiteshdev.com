@@ -15,10 +15,12 @@ export async function generateStaticParams() {
   const slugs = getAllBlogSlugs();
   return slugs.map((slug) => ({ blog: slug }));
 }
-
+const p = getAllBlogSlugs();
+console.log(p);
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { blog } = await params;
   const post = getBlogBySlug(blog);
+
   if (!post) return {};
 
   return {
@@ -27,6 +29,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: post.frontmatter.title,
       description: post.frontmatter.description,
+      images: {
+        url: "./og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Hitesh Suthar - Full-Stack Developer",
+      },
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Hitesh Suthar | Full-Stack Developer, Creator & Builder",
+      description:
+        "yo, I’m Hitesh, an engineer based in India, obsessed in building scalable web products, developer tools, and good design.",
+      images: ["./og-image.png"],
+      creator: "@hiteshxdev",
     },
   };
 }

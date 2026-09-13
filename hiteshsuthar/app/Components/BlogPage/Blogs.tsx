@@ -1,7 +1,6 @@
 import type { BlogDataProps } from "@/app/Components/Blogs";
 import { BlogCard } from "@/app/Components/Blogs";
 import type { Metadata } from "next";
-import Link from "next/image";
 const BlogMetaData: BlogDataProps[] = [
   {
     title: "How did I got my first client",
