@@ -2,10 +2,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { ArrowLeft, ChevronLeft } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowLeft01Icon } from "@hugeicons/core-free-icons";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
-import Navbar from "@/app/Components/Global/DockBar";
 import emailjs from "@emailjs/browser";
 const ValidationSchema = Yup.object({
   name: Yup.string()
@@ -168,7 +168,7 @@ const Page = () => {
           pauseOnHover
           theme="light"
         />
-        <div className="flex items-center justify-center max-w-2xl mx-auto border-x border-zinc-200 dark:border-zinc-800">
+        <div className="flex items-center justify-center max-w-2xl mx-auto  -x  -zinc-200 dark: -zinc-800">
           <section className="h-full flex items-center justify-center mx-auto relative py-20">
             <p className="absolute font-extrabold text-7xl left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-zinc-200 dark:text-zinc-900">
               FAAHHHHHHH
@@ -177,14 +177,14 @@ const Page = () => {
             <div
               className="mx-auto relative overflow-hidden py-8 lg:px-16 md:px-14 px-4 max-w-195
             bg-white/10 dark:bg-black/20
-            border-y border-zinc-200 dark:border-zinc-800
+             -y  -zinc-200 dark: -zinc-800
             backdrop-blur-3xl"
             >
               {/* Corners */}
-              <div className="w-2 h-2 bg-zinc-300 dark:bg-neutral-500 border border-zinc-400 dark:border-neutral-400 top-0 left-0 absolute" />
-              <div className="w-2 h-2 bg-zinc-300 dark:bg-neutral-500 border border-zinc-400 dark:border-neutral-400 top-0 right-0 absolute" />
-              <div className="w-2 h-2 bg-zinc-300 dark:bg-neutral-500 border border-zinc-400 dark:border-neutral-400 bottom-0 left-0 absolute" />
-              <div className="w-2 h-2 bg-zinc-300 dark:bg-neutral-500 border border-zinc-400 dark:border-neutral-400 bottom-0 right-0 absolute" />
+              <div className="w-2 h-2 bg-zinc-300 dark:bg-neutral-500    -zinc-400  -400 top-0 left-0 absolute" />
+              <div className="w-2 h-2 bg-zinc-300 dark:bg-neutral-500    -zinc-400  -400 top-0 right-0 absolute" />
+              <div className="w-2 h-2 bg-zinc-300 dark:bg-neutral-500    -zinc-400  -400 bottom-0 left-0 absolute" />
+              <div className="w-2 h-2 bg-zinc-300 dark:bg-neutral-500    -zinc-400  -400 bottom-0 right-0 absolute" />
               {/* Glow */}
               <div className="w-30 h-30 bg-black/5 dark:bg-white/20 -left-10 -top-20 blur-3xl absolute" />
               <div className="w-30 h-30 bg-black/5 dark:bg-white/20 -right-10 -bottom-20 blur-3xl absolute" />
@@ -218,7 +218,7 @@ const Page = () => {
                     <button
                       aria-label="send-again-message"
                       onClick={() => setIsSubmitted(false)}
-                      className="px-5 py-2.5 rounded-xl border border-zinc-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-zinc-700 dark:text-neutral-300 text-xs font-semibold hover:bg-zinc-50 dark:hover:bg-neutral-800 transition duration-150 cursor-pointer"
+                      className="px-5 py-2.5 rounded-xl    -zinc-300  -700 bg-white dark:bg-neutral-900 text-zinc-700 dark:text-neutral-300 text-xs font-semibold hover:bg-zinc-50 dark:hover:bg-neutral-800 transition duration-150 cursor-pointer"
                     >
                       Send Another
                     </button>
@@ -237,16 +237,13 @@ const Page = () => {
                   {/* Heading */}
                   <div className="flex items-center justify-between">
                     <Link href={"/"}>
-                      <div className="text-neutral-700 hover:dark:bg-neutral-900 hover:dark:border-neutral-800 rounded-md border border-transparent hover:border-neutral-200 hover:bg-neutral-50">
-                        <ChevronLeft />
+                      <div className="text-neutral-700 hover:dark:bg-neutral-900 hover: -800 rounded-md    -transparent hover:  hover:bg-neutral-50">
+                        <HugeiconsIcon icon={ArrowLeft01Icon} />
                       </div>
                     </Link>
                     <h2 className="mb-1 font-Neue text-center text-4xl font-semibold leading-[0.92] text-black dark:text-white">
                       Get In Touch.
                     </h2>
-                    <div className="opacity-0">
-                      <ArrowLeft />
-                    </div>
                   </div>
                   <p className="mb-8 mt-4 text-base font-sans text-center text-zinc-600 dark:text-zinc-500">
                     Available for freelance projects, collaborations, and
@@ -313,11 +310,11 @@ const Page = () => {
                           value={formik.values.interested}
                           onChange={formik.handleChange}
                           onBlur={formik.handleBlur}
-                          className={`mt-2.5 mb-5 w-full rounded-xl border t-input px-4 py-3.5 text-[15px] text-black dark:text-neutral-300 outline-none focus:border-neutral-400 ${
+                          className={`mt-2.5 mb-5 w-full rounded-xl   t-input px-4 py-3.5 text-[15px] text-black dark:text-neutral-300 outline-none focus: -neutral-400 ${
                             formik.touched.interested &&
                             formik.errors.interested
-                              ? `is-error border-red-500 dark:border-red-900 bg-red-50/10 dark:bg-red-950/10 ${shakingFields.interested ? "is-shaking" : ""}`
-                              : "border-zinc-300 dark:border-zinc-800 bg-zinc-100 dark:bg-[#0f0f0f]"
+                              ? `is-error  -red-500 dark: -red-900 bg-red-50/10 dark:bg-red-950/10 ${shakingFields.interested ? "is-shaking" : ""}`
+                              : " -zinc-300 dark: -zinc-800 bg-zinc-100 dark:bg-[#0f0f0f]"
                           }`}
                         >
                           <option value="">Select a subject</option>
@@ -353,10 +350,10 @@ const Page = () => {
                         onBlur={formik.handleBlur}
                         placeholder="Type your message here."
                         rows={6}
-                        className={`mt-2.5 w-full  rounded-xl border t-input px-4 py-3.5 text-[15px] text-black dark:text-white outline-none transition placeholder:text-zinc-500 dark:placeholder:text-zinc-600 focus:border-neutral-400 resize-none font-mono ${
+                        className={`mt-2.5 w-full  rounded-xl   t-input px-4 py-3.5 text-[15px] text-black dark:text-white outline-none transition placeholder:text-zinc-500 dark:placeholder:text-zinc-600 focus: -neutral-400 resize-none font-mono ${
                           formik.touched.message && formik.errors.message
-                            ? `is-error border-red-500 dark:border-red-900 bg-red-50/10 dark:bg-red-950/10 ${shakingFields.message ? "is-shaking" : ""}`
-                            : "border-zinc-300 dark:border-zinc-800 bg-zinc-100 dark:bg-[#0f0f0f]"
+                            ? `is-error  -red-500 dark: -red-900 bg-red-50/10 dark:bg-red-950/10 ${shakingFields.message ? "is-shaking" : ""}`
+                            : " -zinc-300 dark: -zinc-800 bg-zinc-100 dark:bg-[#0f0f0f]"
                         }`}
                       />
                       <div
@@ -384,7 +381,7 @@ const Page = () => {
                     ${
                       !formik.isValid || !formik.dirty
                         ? "bg-neutral-100 dark:bg-neutral-800 text-neutral-500 cursor-not-allowed"
-                        : "text-neutral-800 dark:text-white border border-zinc-300 dark:border-neutral-700 cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                        : "text-neutral-800 dark:text-white    -zinc-300  -700 cursor-pointer hover:bg-zinc-100 dark:hover:bg-zinc-900"
                     }`}
                     >
                       <div className="absolute w-10  h-30 -top-5 -translate-x-26 group-hover:translate-x-26 bg-white blur-xl -rotate-12 transition duration-500" />
@@ -395,7 +392,6 @@ const Page = () => {
               )}
             </div>
           </section>
-          <Navbar />
         </div>
       </div>
     </>
@@ -440,15 +436,15 @@ const InputField = ({
         onChange={onChange}
         onBlur={onBlur}
         placeholder={placeholder}
-        className={`mt-2.5 mb-5 w-full rounded-xl border t-input
+        className={`mt-2.5 mb-5 w-full rounded-xl   t-input
         px-4 py-3.5 text-[15px]
         text-black dark:text-white
         outline-none transition
         placeholder:text-zinc-500 dark:placeholder:text-zinc-600
-        focus:border-neutral-400 font-mono ${
+        focus: -neutral-400 font-mono ${
           error
-            ? `is-error border-red-500 dark:border-red-900 bg-red-50/10 dark:bg-red-950/10 ${isShaking ? "is-shaking" : ""}`
-            : "border-zinc-300 dark:border-zinc-800 bg-zinc-100 dark:bg-[#0f0f0f]"
+            ? `is-error  -red-500 dark: -red-900 bg-red-50/10 dark:bg-red-950/10 ${isShaking ? "is-shaking" : ""}`
+            : " -zinc-300 dark: -zinc-800 bg-zinc-100 dark:bg-[#0f0f0f]"
         }`}
       />
       <div className={`t-error-msg ${error ? "-mt-3 mb-4" : ""}`}>

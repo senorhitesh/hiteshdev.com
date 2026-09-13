@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ArrowUpRight, Link2 } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowRight02Icon, Link01Icon } from "@hugeicons/core-free-icons";
 import Link from "next/link";
 import { StaticImageData } from "next/image";
 interface StackProp {
@@ -33,7 +34,7 @@ const ProjectCard = ({
   return (
     <div className="w-full  justify-between  flex flex-col items-start group dark:bg-[#09090B] cursor-pointer   transition-all duration-200">
       {/* Thumbnail */}
-      <div className="relative h-36 w-full dark:bg-neutral-900 bg-neutral-50  rounded-xl border-neutral-200 dark:border-neutral-800 border overflow-hidden ">
+      <div className="relative h-36 w-full dark:bg-neutral-900 bg-neutral-50  rounded-xl    -800   overflow-hidden ">
         {/* Grid pattern */}
         <div className="absolute inset-0 grid-background opacity-50" />
         <div className="absolute opacity-0 translate-y-5 scale-70 group-hover:scale-100 group-hover:blur-none  group-hover:opacity-100 group-hover:translate-y-0  transition duration-200 top-0 right-0 inset-0">
@@ -44,7 +45,7 @@ const ProjectCard = ({
             className="object-cover"
           />
         </div>
-        <div className="absolute overflow-hidden transition duration-500 bg-gray-50 rounded-md bottom-0 translate-y-14 group-hover:translate-y-5 w-[75%]  border border-neutral-300 h-30 left-1/2 -translate-x-1/2">
+        <div className="absolute overflow-hidden transition duration-500 bg-gray-50 rounded-md bottom-0 translate-y-14 group-hover:translate-y-5 w-[75%]     -neutral-300 h-30 left-1/2 -translate-x-1/2">
           <Image
             loading="lazy"
             src={projectImage}
@@ -53,7 +54,7 @@ const ProjectCard = ({
           />
         </div>
         {/* Animated label */}
-        <span className="absolute top-2.5 dark:text-neutral-300 dark:group-hover:text-neutral-200 left-2.5 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 text-xs text-neutral-500 group-hover:text-neutral-800 group-hover:bg-white group-hover:dark:bg-neutral-900 border border-transparent group-hover:border-neutral-200 group-hover:dark:border-neutral-700 rounded-md group-hover:px-2.5 py-1 whitespace-nowrap">
+        <span className="absolute top-2.5 dark:text-neutral-300 dark:group-hover:text-neutral-200 left-2.5 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 text-xs text-neutral-500 group-hover:text-neutral-800 group-hover:bg-white group-hover:dark:bg-neutral-900    -transparent group-hover:  group-hover: -700 rounded-md group-hover:px-2.5 py-1 whitespace-nowrap">
           {type}
         </span>
       </div>
@@ -69,7 +70,8 @@ const ProjectCard = ({
             </p>
             {isActive ? (
               <Link target="_blank" href={link}>
-                <Link2
+                <HugeiconsIcon
+                  icon={Link01Icon}
                   size={16}
                   className="text-neutral-600 hover:text-blue-500 transition duration-200 scale-0 group-hover:scale-100"
                 />
@@ -103,14 +105,14 @@ const ProjectCard = ({
               {stack.slice(0, 4).map((item, i) => (
                 <div
                   key={i}
-                  className="w-6 h-6 rounded-full border-2 border-white dark:border-neutral-900 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-[10px] font-medium text-neutral-500"
+                  className="w-6 h-6 rounded-full  -2  -white  -900 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-[10px] font-medium text-neutral-500"
                   style={{ marginLeft: i === 0 ? 0 : -6 }}
                 >
                   {item.icon}
                 </div>
               ))}
               <div
-                className="w-6 h-6 rounded-full border-2 border-white dark:border-neutral-900 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-[10px] font-medium text-neutral-500"
+                className="w-6 h-6 rounded-full  -2  -white  -900 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-[10px] font-medium text-neutral-500"
                 style={{ marginLeft: -6 }}
               >
                 +{stack.length - 4}
@@ -121,7 +123,7 @@ const ProjectCard = ({
               {stack.map((item, i) => (
                 <div
                   key={i}
-                  className="w-6 h-6 rounded-full border-2 border-white dark:border-neutral-900 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-[10px] font-medium text-neutral-500"
+                  className="w-6 h-6 rounded-full  -2  -white  -900 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-[10px] font-medium text-neutral-500"
                   style={{ marginLeft: i === 0 ? 0 : -6 }}
                 >
                   {item.icon}
@@ -136,7 +138,10 @@ const ProjectCard = ({
             className="flex group cursor-pointer items-center   gap-1 text-xs text-neutral-400 group-hover:text-neutral-700 dark:group-hover:text-neutral-200 transition duration-200 group/btn"
           >
             View Project
-            <ArrowUpRight className="size-0 scale-0  group-hover:scale-100  group-hover:size-4 transition " />
+            <HugeiconsIcon
+              icon={ArrowRight02Icon}
+              className="size-0 scale-0  group-hover:scale-100  group-hover:size-4 transition "
+            />
           </button>
         </Link>
       </div>

@@ -1,8 +1,13 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Share2, X, Copy, Check } from "lucide-react";
-
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  Share05Icon,
+  NewTwitterIcon,
+  Copy01Icon,
+  CheckmarkBadge01Icon,
+} from "@hugeicons/core-free-icons";
 interface ShareModalProps {
   title?: string;
   url?: string;
@@ -78,9 +83,11 @@ export default function ShareButton({
       <button
         aria-label="Share-Button"
         onClick={() => setOpen((v) => !v)}
-        className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-sm font-medium text-neutral-700 dark:text-neutral-200 shadow-xs hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 active:scale-95 transition-all duration-150 cursor-pointer ${className}`}
+        className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg      -800 bg-white dark:bg-neutral-900 text-sm font-medium text-neutral-700 dark:text-neutral-200 shadow-xs hover:bg-neutral-50 dark:hover:bg-neutral-800 hover: -neutral-300 dark:hover: -neutral-700 active:scale-95 transition-all duration-150 cursor-pointer ${className}`}
       >
-        {showIcon && <Share2 size={14} strokeWidth={2} />}
+        {showIcon && (
+          <HugeiconsIcon icon={Share05Icon} size={14} strokeWidth={2} />
+        )}
         Share
       </button>
 
@@ -88,7 +95,7 @@ export default function ShareButton({
       {open && (
         <div
           ref={modalRef}
-          className="absolute right-0 top-full mt-2 w-[calc(100vw-2rem)] max-w-[320px] sm:w-80 rounded-2xl border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 shadow-xl z-50 overflow-hidden"
+          className="absolute right-0 top-full mt-2 w-[calc(100vw-2rem)] max-w-[320px] sm:w-80 rounded-2xl    -gray-200  -700 bg-white dark:bg-neutral-900 shadow-xl z-50 overflow-hidden"
           style={{ animation: "popIn .15s ease both" }}
         >
           <style>{`
@@ -121,7 +128,11 @@ export default function ShareButton({
               onClick={() => setOpen(false)}
               className="ml-3 flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-gray-400 dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-neutral-800 hover:text-gray-600 dark:hover:text-gray-300 transition-colors cursor-pointer"
             >
-              <X size={15} strokeWidth={2.5} />
+              <HugeiconsIcon
+                icon={NewTwitterIcon}
+                size={15}
+                strokeWidth={2.5}
+              />
             </button>
           </div>
 
@@ -132,7 +143,7 @@ export default function ShareButton({
                 Copy link
               </p>
 
-              <div className="flex items-center gap-2 border border-gray-200 dark:border-neutral-700 rounded-lg px-3 py-2 bg-gray-50 dark:bg-neutral-800">
+              <div className="flex items-center gap-2    -gray-200  -700 rounded-lg px-3 py-2 bg-gray-50 dark:bg-neutral-800">
                 <span className="flex-1 text-xs text-gray-500 dark:text-gray-300 truncate font-mono">
                   {displayUrl}
                 </span>
@@ -147,9 +158,17 @@ export default function ShareButton({
                   }`}
                 >
                   {copied ? (
-                    <Check size={15} strokeWidth={2.5} />
+                    <HugeiconsIcon
+                      icon={CheckmarkBadge01Icon}
+                      size={15}
+                      strokeWidth={2.5}
+                    />
                   ) : (
-                    <Copy size={15} strokeWidth={2} />
+                    <HugeiconsIcon
+                      icon={Copy01Icon}
+                      size={15}
+                      strokeWidth={2}
+                    />
                   )}
                 </button>
               </div>
@@ -166,7 +185,7 @@ export default function ShareButton({
                 <button
                   aria-label="share=on-twitter"
                   onClick={shareTwitter}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-neutral-800 hover:border-gray-300 dark:hover:border-neutral-600 active:scale-95 transition-all duration-150 cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg    -gray-200  -700 bg-white dark:bg-neutral-900 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-neutral-800 hover: -gray-300 dark:hover: -neutral-600 active:scale-95 transition-all duration-150 cursor-pointer"
                 >
                   <svg
                     width="13"
@@ -184,7 +203,7 @@ export default function ShareButton({
                 <button
                   aria-label="share-on-linkedin"
                   onClick={shareLinkedIn}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-neutral-800 hover:border-gray-300 dark:hover:border-neutral-600 active:scale-95 transition-all duration-150 cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg    -gray-200  -700 bg-white dark:bg-neutral-900 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-neutral-800 hover: -gray-300 dark:hover: -neutral-600 active:scale-95 transition-all duration-150 cursor-pointer"
                 >
                   <svg
                     width="13"

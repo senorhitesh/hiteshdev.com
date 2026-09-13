@@ -9,39 +9,45 @@ Live site: [hiteshdevcom.vercel.app](https://hiteshdevcom.vercel.app)
 ## 🚀 Key Features
 
 ### 🌗 1. Persistent Dark / Light Mode Theme Engine
-*   **Fully Persistent:** Uses `next-themes` to remember the user's selected theme across page visits, reloads, and route navigation.
-*   **System Preference Sync:** Automatically checks and defaults to the user's operating system preferences on first load.
-*   **Class Variant Hook:** Configured Tailwind CSS v4's class variant `@variant dark (.dark &);` to cleanly toggle colors for background shapes, cards, text, and divider borders under a unified state.
+
+- **Fully Persistent:** Uses `next-themes` to remember the user's selected theme across page visits, reloads, and route navigation.
+- **System Preference Sync:** Automatically checks and defaults to the user's operating system preferences on first load.
+- **Class Variant Hook:** Configured Tailwind CSS v4's class variant `@variant dark (.dark &);` to cleanly toggle colors for background shapes, cards, text, and divider s under a unified state.
 
 ### 🌀 2. Cinematic Page-Slide Transitions
-*   **Native View Transitions:** Harnesses the modern **View Transitions API** in standard CSS for buttery-smooth visual page switches.
-*   **Premium Overlay Slide:** The incoming theme layer slides in horizontally from the right over the preceding layer using custom cubic-bezier spring physics (`350ms cubic-bezier(0.16, 1, 0.3, 1)`), complete with a subtle overlay drop-shadow for depth.
+
+- **Native View Transitions:** Harnesses the modern **View Transitions API** in standard CSS for buttery-smooth visual page switches.
+- **Premium Overlay Slide:** The incoming theme layer slides in horizontally from the right over the preceding layer using custom cubic-bezier spring physics (`350ms cubic-bezier(0.16, 1, 0.3, 1)`), complete with a subtle overlay drop-shadow for depth.
 
 ### 🔊 3. Tactile Audio Interactions (Web Audio API)
+
 Designed and synthesized premium sound effects natively in code with **zero external assets**, ensuring instantaneous latency-free triggers:
-*   **Mechanical Switch Mode Click:** Toggling the light/dark mode switch produces a satisfying mechanical tactile contact sound.
-*   **Elastic Pull & Snap (Footer):** Grabbing and dragging the animated avatar GIF in the footer triggers a rising elastic pitch sweep (rubber band tension), followed by a snappy "boing" pitch wobble decay upon release.
+
+- **Mechanical Switch Mode Click:** Toggling the light/dark mode switch produces a satisfying mechanical tactile contact sound.
+- **Elastic Pull & Snap (Footer):** Grabbing and dragging the animated avatar GIF in the footer triggers a rising elastic pitch sweep (rubber band tension), followed by a snappy "boing" pitch wobble decay upon release.
 
 ### 🎬 4. Dynamic Project Video Streamer
-*   **Dynamic Slugs:** Detail routes under `app/projects/[slug]/page.tsx` parse route parameters and automatically retrieve project metadata from the central database.
-*   **Static Streaming:** Resolves relative URLs into clean public root asset files in the browser (`/Project/ProjectVideos/...`), streaming corresponding project screencasts automatically on load.
+
+- **Dynamic Slugs:** Detail routes under `app/projects/[slug]/page.tsx` parse route parameters and automatically retrieve project metadata from the central database.
+- **Static Streaming:** Resolves relative URLs into clean public root asset files in the browser (`/Project/ProjectVideos/...`), streaming corresponding project screencasts automatically on load.
 
 ### 🎨 5. Theme-Adaptive Vector Patterns
-*   **Dotted Grids & Gradients:** Dynamic variables bind dot patterns (`.dotted-background`), line grids (`.grid-background`), and repeats (`.divider-background`) to dark/light colors smoothly using pure CSS variables.
-*   **Canvas Dot Matrix:** Beautiful canvas grid drawings powered by custom mathematical spring physics.
+
+- **Dotted Grids & Gradients:** Dynamic variables bind dot patterns (`.dotted-background`), line grids (`.grid-background`), and repeats (`.divider-background`) to dark/light colors smoothly using pure CSS variables.
+- **Canvas Dot Matrix:** Beautiful canvas grid drawings powered by custom mathematical spring physics.
 
 ---
 
 ## 🛠️ Technology Stack
 
-*   **Core Framework:** Next.js 16 (App Router) & React 19
-*   **Language:** TypeScript
-*   **Styling System:** Tailwind CSS v4, PostCSS, Vanilla CSS variables
-*   **Physics Animations:** Motion (Framer Motion v12)
-*   **Icon Sets:** Lucide React & React Icons
-*   **Integrations:**
-    *   **Supabase:** Secure contact form database storage (`lib/supabase.ts`).
-    *   **Cal.com:** Direct booking meeting widgets embedded inside the Profile card.
+- **Core Framework:** Next.js 16 (App Router) & React 19
+- **Language:** TypeScript
+- **Styling System:** Tailwind CSS v4, PostCSS, Vanilla CSS variables
+- **Physics Animations:** Motion (Framer Motion v12)
+- **Icon Sets:** Lucide React & React Icons
+- **Integrations:**
+  - **Supabase:** Secure contact form database storage (`lib/supabase.ts`).
+  - **Cal.com:** Direct booking meeting widgets embedded inside the Profile card.
 
 ---
 
@@ -84,6 +90,7 @@ npm install
 ```
 
 ### 2. Configure Environment Variables
+
 Create a `.env.local` file inside the `hiteshsuthar` directory:
 
 ```env
@@ -103,5 +110,5 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to interact 
 
 ## 📝 Customization
 
-*   **Projects Data:** To add, remove, or modify featured projects, update the registry inside `lib/data/project.tsx`.
-*   **Blog Listing:** To edit article metadata, configure the listing indexes inside `app/Components/Blogs.tsx`.
+- **Projects Data:** To add, remove, or modify featured projects, update the registry inside `lib/data/project.tsx`.
+- **Blog Listing:** To edit article metadata, configure the listing indexes inside `app/Components/Blogs.tsx`.

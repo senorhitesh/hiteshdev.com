@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { ArrowLeft, House, Calendar, Sparkle } from "lucide-react";
-import { ChevronLeft } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
 export default function NotFound() {
   return (
     <div className="flex min-h-screen items-center justify-center font-sans bg-white selection:bg-blue-100 selection:text-blue-600">
-      <main className="w-full relative min-h-screen flex flex-col justify-between max-w-[85rem] border-x border-neutral-200">
+      <main className="w-full relative min-h-screen flex flex-col justify-between max-w-[85rem]  -x  ">
         <div className="flex-1 flex flex-col items-center justify-center px-6 py-16 sm:py-24 text-center">
           {/* Big Stylish 404 Number */}
           <div className="relative flex flex-col gap-2 select-none">
@@ -19,9 +19,9 @@ export default function NotFound() {
 
             <Link
               href="/"
-              className="p-2 border w-fit mx-auto border-neutral-200 mt-4 rounded-md text-sm font-medium text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 transition-colors duration-200"
+              className="p-2   w-fit mx-auto   mt-4 rounded-md text-sm font-medium text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 transition-colors duration-200"
             >
-              <ChevronLeft />
+              <HugeiconsIcon icon={ArrowRight01Icon} />
             </Link>
           </div>
         </div>

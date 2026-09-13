@@ -1,5 +1,6 @@
 "use client";
-import { ChevronDown } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
 import {
   Accordion,
   AccordionItem,
@@ -48,7 +49,7 @@ const WorkExperience = ({ experience }: { experience: WorkExp[] }) => {
           return (
             <Accordion
               key={pos.id}
-              className="w-full focus-within:ring-1 ring-blue-500/20 overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950"
+              className="w-full focus-within:ring-1 ring-blue-500/20 overflow-hidden rounded-xl    -zinc-200 dark: -zinc-800 bg-white dark:bg-zinc-950"
               transition={{ type: "spring", stiffness: 120, damping: 20 }}
               variants={{
                 expanded: { opacity: 1, height: "auto" },
@@ -59,7 +60,7 @@ const WorkExperience = ({ experience }: { experience: WorkExp[] }) => {
                 <AccordionTrigger className="w-full px-3 py-3 sm:px-4 flex flex-row items-center justify-between gap-3 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-colors">
                   <div className="flex items-center gap-3 min-w-0 flex-1">
                     {/* Company Logo */}
-                    <div className="w-9 h-9 rounded-lg border border-zinc-200 dark:border-zinc-800 overflow-hidden flex items-center justify-center bg-zinc-50 dark:bg-zinc-900 shrink-0">
+                    <div className="w-9 h-9 rounded-lg    -zinc-200 dark: -zinc-800 overflow-hidden flex items-center justify-center bg-zinc-50 dark:bg-zinc-900 shrink-0">
                       <Image
                         loading="lazy"
                         src={job.companyLogo}
@@ -104,9 +105,6 @@ const WorkExperience = ({ experience }: { experience: WorkExp[] }) => {
                     <span className="hidden sm:inline text-[11px] font-medium text-zinc-400 dark:text-zinc-500 tabular-nums">
                       {range}
                     </span>
-                    <div className="p-1 rounded-md group-hover:bg-zinc-100 dark:group-hover:bg-zinc-800 transition-colors">
-                      <ChevronDown className="w-4 h-4 text-zinc-400 transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                    </div>
                   </div>
                 </AccordionTrigger>
 
@@ -133,7 +131,7 @@ const WorkExperience = ({ experience }: { experience: WorkExp[] }) => {
                       {pos.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-zinc-50 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 border border-zinc-200/50 dark:border-zinc-800"
+                          className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-zinc-50 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400    -zinc-200/50 dark: -zinc-800"
                         >
                           {skill}
                         </span>

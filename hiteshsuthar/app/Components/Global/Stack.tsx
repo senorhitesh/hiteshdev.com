@@ -610,15 +610,15 @@ const STACK = [
 ];
 
 const Badge = ({ name, icon }: { name: string; icon: React.ReactNode }) => (
-  <div className="inline-flex  items-center gap-1.5 px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 text-sm font-medium hover:border-neutral-400 dark:hover:border-neutral-500 transition-colors cursor-default select-none whitespace-nowrap">
+  <div className="inline-flex  items-center gap-1.5 px-3 py-1 rounded-full      -700 bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 text-sm font-medium hover: -neutral-400 dark:hover: -neutral-500 transition-colors cursor-default select-none whitespace-nowrap">
     <span className="text-xs leading-none">{icon}</span>
     {name}
   </div>
 );
 const Stack = () => {
   return (
-    <div className="border-b w-full dark:border-neutral-900 border-neutral-200">
-      <div className="max-w-2xl p-3 gap-3 flex flex-col w-full mx-auto border-x dark:border-neutral-900 border-neutral-200">
+    <div className=" -b w-full  -900  ">
+      <div className="max-w-2xl p-3 gap-3 flex flex-col w-full mx-auto  -x  -900  ">
         <div>
           <p className="text-xl text-neutral-900 dark:text-neutral-100 font-Neue">
             Skills & Technologies

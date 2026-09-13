@@ -20,7 +20,6 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
           opacity={0.5}
           className="z-99"
         />
-        <Page.ScrollTop />
       </LenisProvider>
       <SpeedInsights />
       <Analytics />

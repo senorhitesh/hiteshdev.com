@@ -1,17 +1,18 @@
 import { StaticImageData } from "next/image";
 import ProjectCard from "@/app/Components/Project/ProjectCard";
-import { ChevronLeft } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowLeft01Icon } from "@hugeicons/core-free-icons";
 import { Project } from "@/lib/data/project";
 import Link from "next/link";
 
 const Projects = () => {
   return (
     <div className="w-full">
-      <div className="max-w-2xl mx-auto px-3 border-x border-neutral-200 dark:border-neutral-900 py-6">
+      <div className="max-w-2xl mx-auto px-3  -x    -900 py-6">
         <div className="flex items-center gap-2 mb-5">
           <Link href={"/"}>
-            <div className="text-neutral-700 hover:dark:bg-neutral-900 hover:dark:border-neutral-800 rounded-md border border-transparent hover:border-neutral-200 hover:bg-neutral-50">
-              <ChevronLeft />
+            <div className="text-neutral-700 hover:dark:bg-neutral-900  rounded-md  hover:bg-neutral-50">
+              <HugeiconsIcon icon={ArrowLeft01Icon} />
             </div>
           </Link>
           <h2 className="relative font-Neue text-2xl inline-block font-semibold text-neutral-900 dark:text-neutral-100 ">

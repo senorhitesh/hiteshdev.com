@@ -21,8 +21,8 @@ export const metadata: Metadata = {
 
 const Blogs = () => {
   return (
-    <div className="w-full border-b font-mono tracking-tight dark:border-neutral-900 border-neutral-200">
-      <div className="mx-auto border-x flex items-center justify-center flex-col dark:border-neutral-900 relative border-neutral-200 w-full max-w-2xl">
+    <div className="w-full  -b font-mono tracking-tight  -900  ">
+      <div className="mx-auto  -x flex items-center justify-center flex-col  -900 relative   w-full max-w-2xl">
         <div className="w-full flex items-center justify-center p-4">
           {" "}
           {/* Increased padding slightly for better spacing */}

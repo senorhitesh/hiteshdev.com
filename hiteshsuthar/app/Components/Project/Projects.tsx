@@ -1,6 +1,5 @@
-import { projectBackgrounds, projectImages } from "@/lib/assest/project";
-import { StaticImageData } from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
 import ProjectCard from "./ProjectCard";
 import Link from "next/link";
 import { Project } from "@/lib/data/project";
@@ -8,7 +7,7 @@ import { Project } from "@/lib/data/project";
 const Projects = () => {
   return (
     <div className="w-full">
-      <div className="w-full max-w-2xl mx-auto px-3 border-x border-neutral-200 dark:border-neutral-900 py-6">
+      <div className="w-full max-w-2xl mx-auto px-3  -x    -900 py-6">
         <div className="flex items-baseline justify-between mb-5">
           <h2 className="relative font-Neue text-2xl inline-block font-semibold text-neutral-900 dark:text-neutral-100 ">
             Projects
@@ -41,9 +40,10 @@ const Projects = () => {
               className="group flex inset-shadow-2xs items-center gap-2 rounded-lg ring-2 active:scale-95 ring-neutral-200   dark:ring-neutral-800 dark:bg-linear-to-b  from-neutral-900 to-neutral-950 px-4 py-1.5 dark:text-white font-medium text-neutral-800 dark:shadow-lg"
             >
               More{" "}
-              <ArrowUpRight
+              <HugeiconsIcon
+                icon={ArrowRight02Icon}
                 size={18}
-                className="group-hover:rotate-45 transtion duration-300"
+                className="group-hover:-rotate-45 transtion duration-300"
               />
             </button>
           </Link>

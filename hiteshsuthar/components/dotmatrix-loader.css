@@ -19,7 +19,7 @@
 }
 
 .dmx-dot {
-  border-radius: 999px;
+   -radius: 999px;
   clip-path: none;
   display: block;
   background: var(--dmx-dot-fill, currentColor);
@@ -32,21 +32,21 @@
 }
 
 .dmx-root.dmx-dot-shape-circle .dmx-dot {
-  border-radius: 999px;
+   -radius: 999px;
   clip-path: none;
   -webkit-mask: none;
   mask: none;
 }
 
 .dmx-root.dmx-dot-shape-square .dmx-dot {
-  border-radius: 0;
+   -radius: 0;
   clip-path: none;
   -webkit-mask: none;
   mask: none;
 }
 
 .dmx-root.dmx-dot-shape-diamond .dmx-dot {
-  border-radius: 0;
+   -radius: 0;
   clip-path: none;
   -webkit-mask: none;
   mask: none;
@@ -55,7 +55,7 @@
 
 .dmx-root.dmx-dot-shape-hearts .dmx-dot {
   position: relative;
-  border-radius: 0;
+   -radius: 0;
   clip-path: none;
   transform: none;
   background: none;

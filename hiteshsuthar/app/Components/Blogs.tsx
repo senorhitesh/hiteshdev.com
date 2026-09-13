@@ -1,4 +1,9 @@
-import { ArrowUpRight, ChevronLeft, CalendarRange } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import {
+  ArrowRight02Icon,
+  ArrowRight01Icon,
+  CalendarRangeIcon,
+} from "@hugeicons/core-free-icons";
 import Link from "next/link";
 
 export interface BlogDataProps {
@@ -19,12 +24,12 @@ const BlogMetaData: BlogDataProps[] = [
 
 const Blogs = () => {
   return (
-    <div className="border-x flex flex-col dark:border-neutral-900   border-neutral-200 p-4">
+    <div className=" -x flex flex-col  -900     p-4">
       {" "}
       <div className="flex items-center gap-2 ">
         <Link href={"/"}>
-          <div className="text-neutral-700 hover:dark:bg-neutral-900 hover:dark:border-neutral-800 rounded-md border border-transparent hover:border-neutral-200 hover:bg-neutral-50">
-            <ChevronLeft />
+          <div className="text-neutral-700 hover:dark:bg-neutral-900 hover: -800 rounded-md    -transparent hover:  hover:bg-neutral-50">
+            <HugeiconsIcon className="rotate-180" icon={ArrowRight01Icon} />
           </div>
         </Link>
         <h2 className="relative font-Neue text-2xl inline-block font-semibold text-neutral-900 dark:text-neutral-100 ">
@@ -69,7 +74,7 @@ export const BlogCard = ({ title, link, description, date }: BlogDataProps) => {
               aria-label="date-shower"
               className="flex items-center text-neutral-400 text-[14px] gap-2"
             >
-              <CalendarRange size={16} className="text-neutral-400" /> {date}
+              <HugeiconsIcon icon={CalendarRangeIcon} /> {date}
             </button>
           </div>
         </div>
@@ -77,7 +82,8 @@ export const BlogCard = ({ title, link, description, date }: BlogDataProps) => {
           <p className="text-neutral-500 dark:group-hover:text-neutral-500 group-hover:text-neutral-700">
             Read
           </p>{" "}
-          <ArrowUpRight
+          <HugeiconsIcon
+            icon={ArrowRight02Icon}
             size={18}
             className="text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-500"
           />
