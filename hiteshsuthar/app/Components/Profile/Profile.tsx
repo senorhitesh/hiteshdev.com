@@ -47,10 +47,9 @@ const Profile = () => {
 
   return (
     <div
-      className="bg-white z-12 mt-12 dark:bg-[#09090B]
-                    p-3.5 w-full max-w-2xl"
+      className="bg-white z-12 mt-10 dark:bg-[#09090B]
+                     w-full mx-auto  max-w-2xl"
     >
-      {/* Top row */}
       <div className="flex flex-wrap sm:flex-nowrap items-start justify-between gap-3">
         <div className="flex items-center gap-3">
           {/* Avatar */}
@@ -98,8 +97,6 @@ const Profile = () => {
           {currentTime}
         </span>
       </div>
-
-      {/* Buttons - Added flex-wrap here for mobile responsiveness */}
     </div>
   );
 };

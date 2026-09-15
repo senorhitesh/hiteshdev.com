@@ -5,6 +5,7 @@ import {
   CalendarRangeIcon,
 } from "@hugeicons/core-free-icons";
 import Link from "next/link";
+import NAVBAR from "../Components2/NAVBAR";
 
 export interface BlogDataProps {
   title: string;
@@ -24,20 +25,15 @@ const BlogMetaData: BlogDataProps[] = [
 
 const Blogs = () => {
   return (
-    <div className=" -x flex flex-col  -900     p-4">
-      {" "}
-      <div className="flex items-center gap-2 ">
-        <Link href={"/"}>
-          <div className="text-neutral-700 hover:dark:bg-neutral-900 hover: -800 rounded-md    -transparent hover:  hover:bg-neutral-50">
-            <HugeiconsIcon className="rotate-180" icon={ArrowRight01Icon} />
-          </div>
-        </Link>
-        <h2 className="relative font-Neue text-2xl inline-block font-semibold text-neutral-900 dark:text-neutral-100 ">
+    <div className="flex flex-col  ">
+      <NAVBAR />
+      <div className="flex items-center  mt-10 gap-2 ">
+        <h2 className="relative  text-2xl inline-block font-bold tracking-tighter font-sans text-neutral-900 dark:text-neutral-100 ">
           Blogs
         </h2>
       </div>
-      <p className="font-mono ml-2 text-sm mt-2 mb-4 text-neutral-400">
-        Thoughts, tutorials, and insights on programming and life
+      <p className="font-sans text-sm mt-1 mb-4 tracking-tighter text-neutral-400">
+        My thoughts on things
       </p>
       <div className="flex  flex-col items-center gap-4">
         {BlogMetaData.map((blog, i) => {
@@ -60,7 +56,7 @@ export default Blogs;
 
 export const BlogCard = ({ title, link, description, date }: BlogDataProps) => {
   return (
-    <div className="w-full cursor-pointer px-2 py-3 flex justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-950 rounded-2xl">
+    <div className="w-full cursor-pointer py-3 flex justify-between items-center dark:hover:bg-neutral-950 rounded-2xl">
       <Link className="flex justify-between w-full items-center" href={link}>
         <div className="flex items-start flex-col ">
           <div className="flex flex-col">
@@ -72,9 +68,9 @@ export const BlogCard = ({ title, link, description, date }: BlogDataProps) => {
           <div className="flex mt-2 gap-2">
             <button
               aria-label="date-shower"
-              className="flex items-center text-neutral-400 text-[14px] gap-2"
+              className="flex items-center justify-center text-neutral-400 text-[14px] gap-1"
             >
-              <HugeiconsIcon icon={CalendarRangeIcon} /> {date}
+              <HugeiconsIcon icon={CalendarRangeIcon} size={18} /> {date}
             </button>
           </div>
         </div>

@@ -4,25 +4,20 @@ import { getBlogBySlug, getAllBlogSlugs } from "@/lib/blog/blog";
 import BlogLayout from "@/app/Components/BlogPage/BlogLayout";
 import { useMDXComponents } from "@/mdx-components";
 import type { Metadata } from "next";
-
 interface Props {
   params: Promise<{
     blog: string;
   }>;
 }
-
 export async function generateStaticParams() {
   const slugs = getAllBlogSlugs();
   return slugs.map((slug) => ({ blog: slug }));
 }
 const p = getAllBlogSlugs();
-console.log(p);
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { blog } = await params;
   const post = getBlogBySlug(blog);
-
   if (!post) return {};
-
   return {
     title: `${post.frontmatter.title} | Hitesh Suthar`,
     description: post.frontmatter.description,
@@ -54,9 +49,7 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) {
     notFound();
   }
-
   const components = useMDXComponents();
-
   return (
     <BlogLayout
       title={post.frontmatter.title}

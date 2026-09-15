@@ -1,17 +1,12 @@
 import type { WorkExp } from "@/components/work-experience";
 import WorkExperience from "@/components/work-experience";
 import softechLogo from "@/public/softech-logo.png";
-import Labmetix from "@/public/logoh1.webp";
 
 const Experience = () => {
   return (
-    <div className="w-full  -b    -900">
-      <div className="w-full max-w-2xl  -x flex flex-col p-3 gap-4    -900 mx-auto">
-        <p className="text-2xl font-bold font-Neue text-left mt-8">
-          Experience
-        </p>
-        <WorkExperienceDemo />
-      </div>
+    <div className="w-full mt-6 max-w-2xl flex flex-col gap-1   mx-auto">
+      <p className="text-md text-neutral-500  uppercase">Experience</p>
+      <WorkExperienceDemo />
     </div>
   );
 };

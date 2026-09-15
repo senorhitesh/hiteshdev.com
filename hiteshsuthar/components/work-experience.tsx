@@ -49,7 +49,7 @@ const WorkExperience = ({ experience }: { experience: WorkExp[] }) => {
           return (
             <Accordion
               key={pos.id}
-              className="w-full focus-within:ring-1 ring-blue-500/20 overflow-hidden rounded-xl    -zinc-200 dark: -zinc-800 bg-white dark:bg-zinc-950"
+              className="w-full focus-within:ring-1 ring-blue-500/20 overflow-hidden rounded-xl  border  border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-950"
               transition={{ type: "spring", stiffness: 120, damping: 20 }}
               variants={{
                 expanded: { opacity: 1, height: "auto" },

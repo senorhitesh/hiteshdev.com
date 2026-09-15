@@ -21,18 +21,15 @@ export const metadata: Metadata = {
 
 const Blogs = () => {
   return (
-    <div className="w-full  -b font-mono tracking-tight  -900  ">
-      <div className="mx-auto  -x flex items-center justify-center flex-col  -900 relative   w-full max-w-2xl">
-        <div className="w-full flex items-center justify-center p-4">
+    <div className="w-full  font-mono tracking-tight ">
+      <div className="mx-auto  flex items-center justify-center flex-col relative   w-full max-w-2xl">
+        <div className="w-full flex items-center justify-center ">
           {" "}
-          {/* Increased padding slightly for better spacing */}
           <div className="w-full flex flex-col">
-            <h2 className="relative font-Neue text-2xl inline-block font-semibold text-neutral-900 dark:text-neutral-100">
+            <h2 className="text-md  uppercase font-mono text-neutral-500 dark:text-neutral-100 ">
               Blogs
             </h2>
-
-            {/* Added gap-4 to prevent item compression and layout issues seen in the image */}
-            <div className="w-full flex flex-col mt-4 items-center gap-4">
+            <div className="w-full flex flex-col mt-1 items-center gap-4">
               {BlogMetaData.map((blog, i) => (
                 <BlogCard
                   key={i}

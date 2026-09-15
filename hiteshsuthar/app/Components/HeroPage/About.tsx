@@ -10,7 +10,7 @@ import {
 const About = () => {
   return (
     <div className="  w-full dark:bg-[#09090B]">
-      <div className="relative mx-auto w-full max-w-2xl flex-wrap px-4 ">
+      <div className="relative mx-auto w-full max-w-2xl flex-wrap mt-3 ">
         <h1 className="text-neutral-700 leading-5.5 sm:text-md  md:text-md">
           yo, I’m Hitesh, an engineer based in India, obsessed in building
           scalable web products, developer tools, and good design.
