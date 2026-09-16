@@ -9,39 +9,46 @@ import {
 } from "@hugeicons/core-free-icons";
 const About = () => {
   return (
-    <div className="  w-full dark:bg-[#09090B]">
+    <div className="w-full">
       <div className="relative mx-auto w-full max-w-2xl flex-wrap mt-3 ">
         <h1 className="text-neutral-700 leading-5.5 sm:text-md  md:text-md">
           yo, I’m Hitesh, an engineer based in India, obsessed in building
           scalable web products, developer tools, and good design.
         </h1>
 
-        <div className="mt-2 text-neutral-700 leading-5.5  items-start flex-wrap sm:text-md flex  md:text-md">
-          <p>Currently, I'm running my own Design & Development studio</p>
-          <Link
-            href="https://helxstudio.in"
-            target="_blanck"
-            className="bg-neutral-100 w-fit text-neutral-800 border ml-1 hover:bg-neutral-200 border-neutral-200 rounded-md block p-1.5"
-          >
-            <svg
-              width="12"
-              height="11"
-              viewBox="0 0 12 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+        <div className="mt-2 text-neutral-700 leading-5.5 sm:text-md md:text-md">
+          <p>
+            Currently, I'm running my own Design & Development studio{" "}
+            <Link
+              href="https://helxstudio.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex align-middle bg-neutral-100 text-neutral-800
+                 border border-neutral-200 rounded-md p-1.5
+                 hover:bg-neutral-200"
             >
-              <path
-                d="M2.992 11L5.984 7.744V0H2.904L0 3.256V11H2.992Z"
-                fill="#0A141E"
-              />
-              <path
-                d="M5.98401 11V7.74399L8.88801 4.39999H11.792V11H5.98401Z"
-                fill="#0A141E"
-              />
-            </svg>
-          </Link>{" "}
-          <p>Completed over 10+ projects across 2 countries</p>
+              <svg
+                width="12"
+                height="11"
+                viewBox="0 0 12 11"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2.992 11L5.984 7.744V0H2.904L0 3.256V11H2.992Z"
+                  fill="#0A141E"
+                />
+                <path
+                  d="M5.98401 11V7.74399L8.88801 4.39999H11.792V11H5.98401Z"
+                  fill="#0A141E"
+                />
+              </svg>
+            </Link>
+          </p>
         </div>
+        <p className="text-neutral-700 leading-5.5 sm:text-md  md:text-md">
+          Completed over 10+ projects across 2 countries
+        </p>
         <div className="flex flex-wrap gap-2 mt-3.5">
           <button
             aria-label="quick-chat"

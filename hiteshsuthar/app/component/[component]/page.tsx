@@ -28,7 +28,7 @@ const page = async ({ params }: Props) => {
   }
   const Component = activePageComponent.component;
   return (
-    <div className="max-w-2xl flex flex-col w-full mx-auto">
+    <div className="max-w-2xl px-3 flex flex-col w-full mx-auto">
       <div className="flex items-center justify-between mt-30">
         <p className="font-semibold">{activePageComponent?.label}</p>
         <a href="/component">

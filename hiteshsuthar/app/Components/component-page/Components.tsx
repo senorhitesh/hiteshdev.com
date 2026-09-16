@@ -1,4 +1,5 @@
 import NAVBAR from "@/app/Components2/NAVBAR";
+import Link from "next/link";
 import componentData from "@/data/components/data";
 const Blogs = () => {
   return (
@@ -15,9 +16,13 @@ const Blogs = () => {
       </p>
       {componentData.map((c) => {
         return (
-          <div className="flex  flex-col items-center gap-4">
+          <Link
+            href={`component/${c.fileName}`}
+            key={c.label}
+            className="flex  flex-col items-center gap-4"
+          >
             <ComponentBlockShowCase label={c.label} Component={c.component} />
-          </div>
+          </Link>
         );
       })}
     </div>

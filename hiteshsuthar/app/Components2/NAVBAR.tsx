@@ -1,18 +1,47 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 const NAVBAR = () => {
+  const pathname = usePathname();
+
+  const navItems = [
+    { href: "/", label: "Home" },
+    { href: "/blogs", label: "Blogs" },
+    { href: "/component", label: "Components" },
+  ];
+
   return (
-    <div className="w-full text-md font-sans mx-auto  flex items-center mt-3 justify-between max-w-2xl">
+    <div className="w-full text-[14px] font-sans mx-auto flex items-center mt-3 justify-between max-w-2xl">
       <div className="w-1"></div>
       <div className="flex items-center gap-4">
-        <Link href="/">
-          <p className="text-neutral-600 hover:text-neutral-800">Home</p>
-        </Link>
-        <Link href="/blogs">
-          <p className="text-neutral-600 hover:text-neutral-800">Blogs</p>
-        </Link>
-        <Link href="/component">
-          <p className="text-neutral-600 hover:text-neutral-800">Components</p>
-        </Link>
+        {navItems.map(({ href, label }) => {
+          const isActive =
+            href === "/" ? pathname === "/" : pathname.startsWith(href);
+
+          return (
+            <Link
+              key={href}
+              href={href}
+              aria-current={isActive ? "page" : undefined}
+              className="group inline-flex flex-col items-center"
+            >
+              <span
+                className={
+                  isActive
+                    ? "text-neutral-800 relative transition-colors  "
+                    : "text-neutral-600 relative transition-colors hover:text-neutral-800"
+                }
+              >
+                {label}
+                <span
+                  className={`${isActive && "border border-neutral-400 w-full  border-dashed left-1/2 bottom-0.5 -translate-x-1/2 "}  absolute `}
+                />
+              </span>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
