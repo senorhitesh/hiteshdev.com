@@ -59,7 +59,7 @@ export const Project: ProjectCardProps[] = [
         label: "MongoDB",
       },
       {
-        icon: <SiRender size={18} color="#eeeeee" />,
+        icon: <SiRender size={18} color="#000000" />,
         label: "Render",
       },
     ],
