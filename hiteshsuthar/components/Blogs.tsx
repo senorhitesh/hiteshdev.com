@@ -5,7 +5,7 @@ import {
   CalendarRangeIcon,
 } from "@hugeicons/core-free-icons";
 import Link from "next/link";
-import NAVBAR from "../Components2/NAVBAR";
+import NAVBAR from "./NAVBAR";
 
 export interface BlogDataProps {
   title: string;

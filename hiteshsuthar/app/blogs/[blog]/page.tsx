@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getBlogBySlug, getAllBlogSlugs } from "@/lib/blog/blog";
-import BlogLayout from "@/app/Components/BlogPage/BlogLayout";
+import BlogLayout from "@/components/BlogPage/BlogLayout";
 import { useMDXComponents } from "@/mdx-components";
 import type { Metadata } from "next";
 interface Props {

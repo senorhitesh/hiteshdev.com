@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import ProjectCard from "@/app/Components/Project/ProjectCard";
+import ProjectCard from "@/components/Project/ProjectCard";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowLeft01Icon } from "@hugeicons/core-free-icons";
 import { Project } from "@/lib/data/project";

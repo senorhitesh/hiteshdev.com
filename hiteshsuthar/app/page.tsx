@@ -1,5 +1,5 @@
 import Page from "@/lib/assest/page";
-import NAVBAR from "./Components2/NAVBAR";
+import NAVBAR from "@/components/NAVBAR";
 export default function Home() {
   return (
     <>

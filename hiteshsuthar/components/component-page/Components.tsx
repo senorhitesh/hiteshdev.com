@@ -1,4 +1,4 @@
-import NAVBAR from "@/app/Components2/NAVBAR";
+import NAVBAR from "@/components/NAVBAR";
 import Link from "next/link";
 import componentData from "@/data/components/data";
 const Blogs = () => {

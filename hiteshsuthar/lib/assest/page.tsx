@@ -1,14 +1,14 @@
-import About from "@/app/Components/HeroPage/About";
-import Profile from "@/app/Components/Profile/Profile";
-import GithubContribution from "@/app/Components/Profile/GithubContribution";
-import Stack from "@/app/Components/Global/Stack";
-import Experience from "@/app/Components/Experience";
-import Projects from "@/app/Components/Project/Projects";
-import Footer from "@/app/Components/Footer/Footer";
-import Quote from "@/app/Components/Quote/Quote";
-import QuoteSection from "@/app/Components/Quote/QuoteSection";
-import GradualBlur from "@/app/Components/Global/BelowBlur";
-import Blogs from "@/app/Components/BlogPage/Blogs";
+import About from "@/components/HeroPage/About";
+import Profile from "@/components/Profile/Profile";
+import GithubContribution from "@/components/Profile/GithubContribution";
+import Stack from "@/components/Global/Stack";
+import Experience from "@/components/Experience";
+import Projects from "@/components/Project/Projects";
+import Footer from "@/components/Footer/Footer";
+import Quote from "@/components/Quote/Quote";
+import QuoteSection from "@/components/Quote/QuoteSection";
+import GradualBlur from "@/components/Global/BelowBlur";
+import Blogs from "@/components/BlogPage/Blogs";
 const Page = {
   About,
   Profile,

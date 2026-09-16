@@ -1,5 +1,5 @@
-import CopyButton from "@/app/Components/CopyBtn";
-import Footer from "@/app/Components/Footer/Footer";
+import CopyButton from "@/components/CopyBtn";
+import Footer from "@/components/Footer/Footer";
 import componentData from "@/data/components/data";
 import {
   Cancel,

@@ -111,4 +111,4 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to interact 
 ## 📝 Customization
 
 - **Projects Data:** To add, remove, or modify featured projects, update the registry inside `lib/data/project.tsx`.
-- **Blog Listing:** To edit article metadata, configure the listing indexes inside `app/Components/Blogs.tsx`.
+- **Blog Listing:** To edit article metadata, configure the listing indexes inside `components/Blogs.tsx`.

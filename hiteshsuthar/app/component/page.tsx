@@ -1,6 +1,6 @@
 import Page from "@/lib/assest/page";
-import Blogs from "../Components/Blogs";
-import Components from "../Components/component-page/Components";
+import Blogs from "@/components/Blogs";
+import Components from "@/components/component-page/Components";
 const page = () => {
   return (
     <div className="w-full  px-3 max-w-2xl flex flex-col items-center justify-between h-screen mx-auto">

@@ -6,7 +6,7 @@ import {
   ArrowLeft01Icon,
   Calendar01FreeIcons,
 } from "@hugeicons/core-free-icons";
-import ShareButton from "@/app/Components/BlogPage/ShareBtn";
+import ShareButton from "@/components/BlogPage/ShareBtn";
 import { formatBlogDate } from "@/lib/blog/blog";
 import Page from "@/lib/assest/page";
 

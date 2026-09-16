@@ -1,5 +1,5 @@
 import Page from "@/lib/assest/page";
-import Blogs from "../Components/Blogs";
+import Blogs from "@/components/Blogs";
 
 const page = () => {
   return (

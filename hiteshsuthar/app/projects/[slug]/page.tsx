@@ -1,10 +1,10 @@
-import NAVBAR from "@/app/Components2/NAVBAR";
+import NAVBAR from "@/components/NAVBAR";
 import Link from "next/link";
 import { Project } from "@/lib/data/project";
 import { ChevronLeft } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import ProjectVideoPlayer from "@/app/Components/Project/ProjectVideoPlayer";
-import Footer from "@/app/Components/Footer/Footer";
+import ProjectVideoPlayer from "@/components/Project/ProjectVideoPlayer";
+import Footer from "@/components/Footer/Footer";
 interface Props {
   params: {
     slug: string;

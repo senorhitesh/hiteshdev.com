@@ -1,5 +1,5 @@
-import type { BlogDataProps } from "@/app/Components/Blogs";
-import { BlogCard } from "@/app/Components/Blogs";
+import type { BlogDataProps } from "@/components/Blogs";
+import { BlogCard } from "@/components/Blogs";
 import type { Metadata } from "next";
 const BlogMetaData: BlogDataProps[] = [
   {
