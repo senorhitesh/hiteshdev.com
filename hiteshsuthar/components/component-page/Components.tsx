@@ -19,7 +19,7 @@ const Blogs = () => {
           <Link
             href={`component/${c.fileName}`}
             key={c.label}
-            className="flex  flex-col items-center gap-4"
+            className="flex mb-3 flex-col items-center gap-4"
           >
             <ComponentBlockShowCase label={c.label} Component={c.component} />
           </Link>
