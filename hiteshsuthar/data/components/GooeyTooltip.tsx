@@ -1,9 +1,26 @@
 "use client";
-import { motion, Variants } from "motion/react";
-import { LucideIcon, Plus, Search, Upload } from "lucide-react";
-import { SVG } from "@/copmonents/GooeySearch";
+import { motion } from "motion/react";
+import { LucideIcon, Plus, Upload } from "lucide-react";
 import { useState, useRef } from "react";
-
+export const SVG = () => {
+  return (
+    <svg className="absolute hidden h-0 w-0">
+      <defs>
+        <filter width="200%" height="200%" id="gooey-filter" x="-50%" y="-50%">
+          {" "}
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+          <feColorMatrix
+            in="blur"
+            type="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0  0 20 -10"
+            result="goo"
+          />
+          <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+        </filter>
+      </defs>
+    </svg>
+  );
+};
 interface navItemsProps {
   label?: String;
   icon?: LucideIcon;
