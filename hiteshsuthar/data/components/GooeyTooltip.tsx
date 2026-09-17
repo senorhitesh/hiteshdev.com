@@ -1,73 +1,6 @@
-import React from "react";
-import AnimatedTab from "./AnimatedTabs";
-import GooeyTooltip from "./GooeyTooltip";
-interface ComponentProps {
-  label: string;
-  fileName: string;
-  code: string;
-  component: React.ComponentType;
-}
-
-const componentData: ComponentProps[] = [
-  {
-    label: "Animated Tabs",
-    fileName: "animated-tabs",
-
-    code: `"use client";
-import React, { useState } from "react";
-const tabs = ["All", "Discounted", "Free"] as const;
-import { hover, motion } from "motion/react";
-export default function AnimatedTab() {
-  const [selected, setSelected] = useState<(typeof tabs)[number]>(tabs[0]);
-  const [hoveredTab, setHoveredTab] = useState<(typeof tabs)[number] | null>(
-    null,
-  );
-  return (
-    <div className="bg-white flex  p-1 max-w-xs w-full relative rounded-2xl border border-neutral-200">
-      {tabs.map((tab) => {
-        const isHovered = hoveredTab === tab;
-        const isSelected = selected === tab;
-
-        return (
-          <div
-            key={tab}
-            className="relative flex-1"
-            onMouseEnter={() => setHoveredTab(tab)}
-            onMouseLeave={() => setHoveredTab(null)}
-          >
-            {(isHovered || isSelected) && (
-              <motion.div
-                layoutId="tab-background"
-                className="absolute inset-0 rounded-2xl bg-neutral-100"
-                transition={{
-                  type: "spring",
-                  stiffness: 500,
-                  damping: 70,
-                }}
-              />
-            )}
-
-            <button
-              className={\`relative z-10 w-full font-medium \${isSelected ? "text-neutral-950" : "text-neutral-500"} \${isHovered ? "text-neutral-800" : "text-neutral-500"} rounded-2xl py-3\`}
-              onClick={() => setSelected(tab)}
-            >
-              {tab}
-            </button>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-`,
-    component: AnimatedTab,
-  },
-  {
-    label: "Gooey Tooltip",
-    fileName: "gooey-tooltip",
-    code: `"use client";
-import { motion } from "motion/react";
-import { LucideIcon, Plus, Upload } from "lucide-react";
+"use client";
+import { motion, Variants } from "motion/react";
+import { LucideIcon, Plus, Search, Upload } from "lucide-react";
 import { SVG } from "@/copmonents/GooeySearch";
 import { useState, useRef } from "react";
 
@@ -168,9 +101,3 @@ const GooeyTooltip = () => {
   );
 };
 export default GooeyTooltip;
-`,
-    component: GooeyTooltip,
-  },
-];
-
-export default componentData;
