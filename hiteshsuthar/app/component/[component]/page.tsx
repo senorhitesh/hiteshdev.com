@@ -3,11 +3,9 @@ import Footer from "@/components/Footer/Footer";
 import componentData from "@/data/components/data";
 import {
   Cancel,
-  Copy01FreeIcons,
   ReactFreeIcons,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 interface Props {
   params: Promise<{ component: string }>;
