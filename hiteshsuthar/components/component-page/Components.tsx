@@ -39,8 +39,8 @@ const ComponentBlockShowCase = ({
   Component: React.ComponentType;
 }) => {
   return (
-    <div className="w-full relative bg-neutral-50 rounded-lg flex items-center justify-center  border-neutral-200 min-h-45">
-      <div className="absolute bg-white text-sm px-3 py-1 rounded-lg border border-neutral-100 text-neutral-700 top-1 left-1 font-sans">
+    <div className="w-full border  relative bg-neutral-50 transition hover:ring-4 hover:ring-blue-50/30 rounded-lg flex items-center justify-center  border-neutral-100 min-h-45">
+      <div className="absolute bg-white text-sm px-3 shadow-inset[5px_3px_12px-7px_#FAFAFF] py-1 rounded-lg border border-neutral-100 text-neutral-700 top-2 left-2 font-sans">
         {label}
       </div>
       <Component />

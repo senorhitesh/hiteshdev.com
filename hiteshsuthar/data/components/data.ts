@@ -2,10 +2,17 @@ import React from "react";
 import AnimatedTab from "./AnimatedTabs";
 import GooeyTooltip from "./GooeyTooltip";
 import GooeySearch from "./GooeySearch";
+interface dependencyType {
+  npm: string;
+  pnpm: string;
+  bun: string;
+  yarn: string;
+}
 interface ComponentProps {
   label: string;
   fileName: string;
   code: string;
+  dependency?: dependencyType;
   component: React.ComponentType;
 }
 
@@ -62,6 +69,12 @@ export default function AnimatedTab() {
 }
 `,
     component: AnimatedTab,
+    dependency: {
+      npm: "motion",
+      pnpm: "motion",
+      bun: "motion",
+      yarn: "motion",
+    },
   },
   {
     label: "Gooey Tooltip",
@@ -171,6 +184,12 @@ const GooeyTooltip = () => {
 export default GooeyTooltip;
 `,
     component: GooeyTooltip,
+    dependency: {
+      npm: "lucide-react  motion",
+      pnpm: "lucide-react  motion",
+      bun: "lucide-react  motion",
+      yarn: "lucide-react  motion",
+    },
   },
   {
     label: "Gooey Search",
@@ -285,7 +304,12 @@ export const TRANSITION = {
 };
 
 `,
-    component: GooeySearch,
+    component: GooeySearch, dependency: {
+      npm: "lucide-react  motion",
+      pnpm: "lucide-react  motion",
+      bun: "lucide-react  motion",
+      yarn: "lucide-react  motion",
+    },
   },
 ];
 

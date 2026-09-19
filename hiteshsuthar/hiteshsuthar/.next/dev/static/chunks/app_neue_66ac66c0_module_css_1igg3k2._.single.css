@@ -1,0 +1,25 @@
+/* [project]/app/neue_66ac66c0.module.css [app-client] (css) */
+@font-face {
+  font-family: Neue;
+  src: url("../media/NMUltrabold-s.p.0sbj89pv6b-i6.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Neue Fallback;
+  src: local(Arial);
+  ascent-override: 58.35%;
+  descent-override: 18.26%;
+  line-gap-override: 0.0%;
+  size-adjust: 125.97%;
+}
+
+.neue_66ac66c0-module__c9TaSq__className {
+  font-family: Neue, Neue Fallback;
+}
+
+.neue_66ac66c0-module__c9TaSq__variable {
+  --font-Neue: "Neue", "Neue Fallback";
+}
+
+/*# sourceMappingURL=app_neue_66ac66c0_module_css_1igg3k2._.single.css.map*/

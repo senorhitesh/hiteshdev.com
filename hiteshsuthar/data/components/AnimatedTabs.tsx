@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 const tabs = ["All", "Discounted", "Free"] as const;
 import { hover, motion } from "motion/react";
 export default function AnimatedTab() {

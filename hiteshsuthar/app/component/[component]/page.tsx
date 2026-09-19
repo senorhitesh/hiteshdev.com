@@ -1,10 +1,8 @@
 import CopyButton from "@/components/CopyBtn";
 import Footer from "@/components/Footer/Footer";
+import PackageManagerCommand from "@/components/PackageManagerCommand";
 import componentData from "@/data/components/data";
-import {
-  Cancel,
-  ReactFreeIcons,
-} from "@hugeicons/core-free-icons";
+import { Cancel, ReactFreeIcons } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { notFound } from "next/navigation";
 interface Props {
@@ -43,6 +41,12 @@ const page = async ({ params }: Props) => {
           {" "}
           <Component />
         </div>
+      </div>
+      <div className="flex flex-col mt-8 gap-2">
+        <p className="font-medium font-neutral-800">
+          Install the following dependencies
+        </p>
+        <PackageManagerCommand dependency={activePageComponent.dependency} />
       </div>
       {/* Code */}
       <div className="flex flex-col mt-8 gap-2">

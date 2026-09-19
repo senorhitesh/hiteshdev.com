@@ -5,17 +5,17 @@ import { Copy01FreeIcons, Tick02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 
 interface CopyButtonProps {
-  code: string;
+  code?: string;
 }
 
 export default function CopyButton({ code }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
+    if (!code) return;
+
     await navigator.clipboard.writeText(code);
-
     setCopied(true);
-
     setTimeout(() => {
       setCopied(false);
     }, 2000);
@@ -26,7 +26,7 @@ export default function CopyButton({ code }: CopyButtonProps) {
       <motion.button
         key={Math.random()}
         initial={{
-          scale: 0.9,
+          scale: 0.8,
           filter: "blur(2px)",
         }}
         animate={{
