@@ -2,6 +2,12 @@ import React from "react";
 import AnimatedTab from "./AnimatedTabs";
 import GooeyTooltip from "./GooeyTooltip";
 import GooeySearch from "./GooeySearch";
+import Dragable_Stickers from "./PaperScrumbled";
+import fs from "fs";
+const DragableCode = fs.readFileSync(
+  "./data/components/PaperScrumbled.tsx",
+  "utf-8",
+);
 interface dependencyType {
   npm: string;
   pnpm: string;
@@ -304,11 +310,24 @@ export const TRANSITION = {
 };
 
 `,
-    component: GooeySearch, dependency: {
+    component: GooeySearch,
+    dependency: {
       npm: "lucide-react  motion",
       pnpm: "lucide-react  motion",
       bun: "lucide-react  motion",
       yarn: "lucide-react  motion",
+    },
+  },
+  {
+    label: "Paper Sticker",
+    fileName: "paper-sticker",
+    code: `${DragableCode}`,
+    component: Dragable_Stickers,
+    dependency: {
+      npm: "@types/three  three motion",
+      pnpm: "@types/three  three motion",
+      bun: "@types/three  three motion",
+      yarn: "@types/three three  motion",
     },
   },
 ];

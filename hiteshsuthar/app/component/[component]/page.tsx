@@ -36,8 +36,8 @@ const page = async ({ params }: Props) => {
         </a>
       </div>
       {/* Component Preview */}
-      <div className="w-full relative mt-4 bg-neutral-50 p-1 rounded-lg border grid  border-neutral-200 min-h-45">
-        <div className="rounded-md w-full h-full border flex items-center justify-center border-neutral-100 bg-white">
+      <div className="w-full overflow-hidden relative mt-4 bg-neutral-50 p-1 rounded-lg border grid  border-neutral-200 min-h-45">
+        <div className="rounded-md  w-full h-full border flex items-center justify-center border-neutral-100 bg-white">
           {" "}
           <Component />
         </div>
