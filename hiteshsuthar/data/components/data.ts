@@ -1,11 +1,17 @@
 import React from "react";
 import AnimatedTab from "./AnimatedTabs";
+import AnimatedNumber from "./SlidingNumber";
 import GooeyTooltip from "./GooeyTooltip";
 import GooeySearch from "./GooeySearch";
 import Dragable_Stickers from "./PaperScrumbled";
 import fs from "fs";
 const DragableCode = fs.readFileSync(
   "./data/components/PaperScrumbled.tsx",
+  "utf-8",
+);
+
+const SlidingNumberCode = fs.readFileSync(
+  "./data/components/SlidingNumber.tsx",
   "utf-8",
 );
 interface dependencyType {
@@ -328,6 +334,18 @@ export const TRANSITION = {
       pnpm: "@types/three  three motion",
       bun: "@types/three  three motion",
       yarn: "@types/three three  motion",
+    },
+  },
+  {
+    label: "Sliding Number",
+    fileName: "sliding-number",
+    code: `${SlidingNumberCode}`,
+    component: AnimatedNumber,
+    dependency: {
+      npm: "lucide-react motion",
+      pnpm: "lucide-react motion",
+      bun: "lucide-react motion",
+      yarn: "lucide-react motion",
     },
   },
 ];
