@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useRef, useState, useCallback } from "react";
 interface MagneticCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
