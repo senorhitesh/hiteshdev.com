@@ -5,6 +5,7 @@ import GooeyTooltip from "./GooeyTooltip";
 import GooeySearch from "./GooeySearch";
 import Dragable_Stickers from "./PaperScrumbled";
 import fs from "fs";
+import BentoCard from "./BentoCard";
 const DragableCode = fs.readFileSync(
   "./data/components/PaperScrumbled.tsx",
   "utf-8",
@@ -14,6 +15,8 @@ const SlidingNumberCode = fs.readFileSync(
   "./data/components/SlidingNumber.tsx",
   "utf-8",
 );
+
+const MagneticCard = fs.readFileSync("./data/components/MagneticCard.tsx");
 interface dependencyType {
   npm: string;
   pnpm: string;
@@ -346,6 +349,18 @@ export const TRANSITION = {
       pnpm: "lucide-react motion",
       bun: "lucide-react motion",
       yarn: "lucide-react motion",
+    },
+  },
+  {
+    label: "Magnetic Card",
+    fileName: "magnetic-card",
+    code: `${MagneticCard}`,
+    component: BentoCard,
+    dependency: {
+      npm: "motion",
+      pnpm: "motion",
+      bun: "motion",
+      yarn: "motion",
     },
   },
 ];
