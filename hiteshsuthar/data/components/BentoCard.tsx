@@ -5,11 +5,11 @@ const BentoCard = () => {
     <MagneticCard
       intensity={14}
       maxTilt={6}
-      className="bg-[#b9dca2] rounded-[24px] p-6 sm:p-7 flex flex-col justify-between shadow-[0_10px_30px_-10px_rgba(185,220,162,0.3)] group transition-shadow duration-300 hover:shadow-2xl min-h-[300px] cursor-pointer"
+      className="bg-[#b9dca2] scale-60 rounded-[24px] p-6 sm:p-7 flex flex-col justify-between shadow-[0_10px_30px_-10px_rgba(185,220,162,0.3)] group transition-shadow duration-300 hover:shadow-2xl min-h-[300px] cursor-pointer"
     >
       {/* Floating Metric Card */}
       <div
-        className="bg-[#181d22] text-white rounded-2xl p-4 shadow-[0_12px_28px_rgba(0,0,0,0.15)] transition-transform duration-300 group-hover:scale-105"
+        className="bg-[#181d22] text-white rounded-2xl p-4 shadow-[0_12px_28px_rgba(0,0,0,0.15)] transition-transform duration-300 group-hover:scale-101"
         style={{ transform: "translateZ(35px)" }}
       >
         <div className="flex items-center justify-between text-[11px] text-neutral-400 mb-1">
