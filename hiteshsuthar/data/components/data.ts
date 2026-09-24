@@ -5,6 +5,7 @@ import GooeyTooltip from "./GooeyTooltip";
 import GooeySearch from "./GooeySearch";
 import Dragable_Stickers from "./PaperScrumbled";
 import fs from "fs";
+import MacosNavbar from "./SectionNav";
 import BentoCard from "./BentoCard";
 const DragableCode = fs.readFileSync(
   "./data/components/PaperScrumbled.tsx",
@@ -17,6 +18,7 @@ const SlidingNumberCode = fs.readFileSync(
 );
 
 const MagneticCard = fs.readFileSync("./data/components/MagneticCard.tsx");
+const MacosCode = fs.readFileSync("./data/components/SectionNav.tsx");
 interface dependencyType {
   npm: string;
   pnpm: string;
@@ -356,6 +358,18 @@ export const TRANSITION = {
     fileName: "magnetic-card",
     code: `${MagneticCard}`,
     component: BentoCard,
+    dependency: {
+      npm: "motion",
+      pnpm: "motion",
+      bun: "motion",
+      yarn: "motion",
+    },
+  },
+  {
+    label: "Smooth Scrool Nav",
+    fileName: "smooth-scrool-nav",
+    code: `${MacosCode}`,
+    component: MacosNavbar,
     dependency: {
       npm: "motion",
       pnpm: "motion",
