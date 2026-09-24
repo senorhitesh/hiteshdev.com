@@ -75,7 +75,7 @@ const MacosNavbar = () => {
           damping: 30,
         },
       }}
-      className="fixed bottom-6 left-1/2 z-50 flex py-2.5  ring-2 ring-neutral-700   w-fit -translate-x-1/2 items-center justify-center gap-1 rounded-2xl bg-neutral-900 px-3.5   text-white"
+      className=" z-50 flex py-2.5  ring-2 ring-neutral-700   w-fit  items-center justify-center gap-1 rounded-2xl bg-neutral-900 px-3.5   text-white"
     >
       <motion.div
         className="grid h-8 w-8 shrink-0 cursor-pointer relative place-items-center rounded-full bg-[#151515]"
