@@ -6,12 +6,10 @@ import ShinyText from "../Global/ShineText";
 import { getCalApi } from "@calcom/embed-react";
 
 const phrases = ["Engineer", "Founder @helxstudio", "Cooking something"];
-
 const Profile = () => {
   const [currentTime, setCurrentTime] = useState("");
   const [phraseIdx, setPhraseIdx] = useState(0);
   const [visible, setVisible] = useState(true);
-
   useEffect(() => {
     const tick = () => {
       const timeString = new Date().toLocaleTimeString("en-GB", {

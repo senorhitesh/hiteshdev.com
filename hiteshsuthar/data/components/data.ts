@@ -2,6 +2,7 @@ import React from "react";
 import AnimatedTab from "./AnimatedTabs";
 import AnimatedNumber from "./SlidingNumber";
 import GooeyTooltip from "./GooeyTooltip";
+import LinkPreview from "./LinkPreview";
 import GooeySearch from "./GooeySearch";
 import Dragable_Stickers from "./PaperScrumbled";
 import fs from "fs";
@@ -30,6 +31,7 @@ const GooeySearchCode = fs.readFileSync(
 );
 const MagneticCard = fs.readFileSync("./data/components/MagneticCard.tsx");
 const MacosCode = fs.readFileSync("./data/components/SectionNav.tsx");
+const linkPreviewCode = fs.readFileSync("./data/components/LinkPreview.tsx");
 interface dependencyType {
   npm: string;
   pnpm: string;
@@ -130,6 +132,17 @@ const componentData: ComponentProps[] = [
       yarn: "motion",
     },
   },
+  {
+    label: "Link Preview",
+    fileName: "link-preview",
+    code: `${linkPreviewCode}`,
+    component: LinkPreview,
+    dependency: {
+      npm: "motion",
+      pnpm: "motion",
+      bun: "motion",
+      yarn: "motion",
+    },
+  },
 ];
-
 export default componentData;
