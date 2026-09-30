@@ -7,8 +7,6 @@ import { getCalApi } from "@calcom/embed-react";
 const phrases = ["Engineer", "Founder @helxstudio", "Cooking something"];
 const Profile = () => {
   const [currentTime, setCurrentTime] = useState("");
-  const [phraseIdx, setPhraseIdx] = useState(0);
-  const [visible, setVisible] = useState(true);
   useEffect(() => {
     const tick = () => {
       const timeString = new Date().toLocaleTimeString("en-GB", {
@@ -20,17 +18,6 @@ const Profile = () => {
     };
     tick();
     const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, []);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setPhraseIdx((i) => (i + 1) % phrases.length);
-        setVisible(true);
-      }, 350);
-    }, 2200);
     return () => clearInterval(id);
   }, []);
 
@@ -50,7 +37,13 @@ const Profile = () => {
         <div className="flex items-center gap-3">
           {/* Avatar */}
           <div className="relative shrink-0">
-            <div className="w-20 h-20 p-1  rounded-[14px] bg-neutral-200 active:scale-90 transition select-none relative overflow-hidden">
+            <div
+              style={{
+                background:
+                  "linear-gradient(45deg,#999 5%,#fff 10%,#ccc 30%,#ddd 50%,#ccc 70%,#fff 80%,#999 95%)",
+              }}
+              className="w-20 h-20 p-1  rounded-[14px] bg-neutral-200 active:scale-90 transition select-none relative overflow-hidden"
+            >
               <div className="bg-white absolute h-full blur-lg w-2 profile-sweep left-4" />
               <Image
                 src={displayPicture}
@@ -65,11 +58,9 @@ const Profile = () => {
               Hitesh Suthar
             </p>
             <p
-              className={`text-[13px] sm:text-[14px] text-zinc-500 transition-opacity duration-300 ${
-                visible ? "opacity-100" : "opacity-0"
-              }`}
+              className={`text-[13px] sm:text-[14px] text-zinc-500 transition-opacity duration-300`}
             >
-              {phrases[phraseIdx]}
+              19 • Curios • Full-Stack Engineer
             </p>
           </div>
         </div>

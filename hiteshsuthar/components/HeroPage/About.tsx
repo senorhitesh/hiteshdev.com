@@ -10,15 +10,18 @@ import {
 const About = () => {
   return (
     <div className="w-full">
-      <div className="relative mx-auto w-full max-w-2xl flex-wrap mt-3 ">
-        <h1 className="text-neutral-700 leading-5.5 sm:text-md  md:text-md">
-          yo, I’m Hitesh, an engineer based in India, obsessed in building
-          scalable web products, developer tools, and good design.
+      <div className="relative text-neutral-600 mx-auto w-full max-w-2xl flex-wrap mt-5 ">
+        <h1 className=" leading-5.5 sm:text-md  md:text-md">
+          yo, I’m Hitesh, an engineer based in India,
+          <span className="text-neutral-800 font-medium"> obsessed</span> in
+          building{" "}
+          <span className="text-neutral-800 font-medium">scalable web</span>{" "}
+          products, developer tools, and{" "}
+          <span className="text-neutral-800 font-medium">good design</span>.
         </h1>
-
-        <div className="mt-2 text-neutral-700 leading-5.5 sm:text-md md:text-md">
+        <div className="mt-2  leading-5.5 sm:text-md md:text-md">
           <p>
-            Currently, I'm running my own Design & Development studio{" "}
+            Currently, I'm building my own Design & Development studio{" "}
             <Link
               href="https://helxstudio.in"
               target="_blank"
@@ -46,8 +49,20 @@ const About = () => {
             </Link>
           </p>
         </div>
-        <p className="text-neutral-700 leading-5.5 sm:text-md  md:text-md">
-          Completed over 10+ projects across 2 countries
+        <p className=" mt-2 leading-5.5 sm:text-md  md:text-md">
+          Outside of work, I love to watch anime and sleep.
+        </p>
+        <p className=" mt-2 leading-5.5 sm:text-md  md:text-md">
+          If you're someone who enjoys good conversations, random ideas, <br />
+          building cool stuff feel free to{" "}
+          <Link
+            className="text-neutral-800 font-medium underline underline-offset-1"
+            href={"mailto:senorhitesh@gmail.com"}
+            target="_blanck"
+          >
+            drop me an email
+          </Link>
+          .
         </p>
         <div className="flex flex-wrap gap-2 mt-3.5">
           <button

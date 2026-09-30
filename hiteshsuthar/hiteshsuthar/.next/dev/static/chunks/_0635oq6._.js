@@ -722,8 +722,6 @@ const phrases = [
 const Profile = ()=>{
     _s();
     const [currentTime, setCurrentTime] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
-    const [phraseIdx, setPhraseIdx] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
-    const [visible, setVisible] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Profile.useEffect": ()=>{
             const tick = {
@@ -738,26 +736,6 @@ const Profile = ()=>{
             }["Profile.useEffect.tick"];
             tick();
             const id = setInterval(tick, 1000);
-            return ({
-                "Profile.useEffect": ()=>clearInterval(id)
-            })["Profile.useEffect"];
-        }
-    }["Profile.useEffect"], []);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "Profile.useEffect": ()=>{
-            const id = setInterval({
-                "Profile.useEffect.id": ()=>{
-                    setVisible(false);
-                    setTimeout({
-                        "Profile.useEffect.id": ()=>{
-                            setPhraseIdx({
-                                "Profile.useEffect.id": (i)=>(i + 1) % phrases.length
-                            }["Profile.useEffect.id"]);
-                            setVisible(true);
-                        }
-                    }["Profile.useEffect.id"], 350);
-                }
-            }["Profile.useEffect.id"], 2200);
             return ({
                 "Profile.useEffect": ()=>clearInterval(id)
             })["Profile.useEffect"];
@@ -789,13 +767,16 @@ const Profile = ()=>{
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "relative shrink-0",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    background: "linear-gradient(45deg,#999 5%,#fff 10%,#ccc 30%,#ddd 50%,#ccc 70%,#fff 80%,#999 95%)"
+                                },
                                 className: "w-20 h-20 p-1  rounded-[14px] bg-neutral-200 active:scale-90 transition select-none relative overflow-hidden",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "bg-white absolute h-full blur-lg w-2 profile-sweep left-4"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Profile/Profile.tsx",
-                                        lineNumber: 54,
+                                        lineNumber: 47,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -805,18 +786,18 @@ const Profile = ()=>{
                                         className: "object-cover pointer-events-none   rounded-[14px] w-full h-full"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Profile/Profile.tsx",
-                                        lineNumber: 55,
+                                        lineNumber: 48,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/Profile/Profile.tsx",
-                                lineNumber: 53,
+                                lineNumber: 40,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/components/Profile/Profile.tsx",
-                            lineNumber: 52,
+                            lineNumber: 39,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -826,27 +807,27 @@ const Profile = ()=>{
                                     children: "Hitesh Suthar"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Profile/Profile.tsx",
-                                    lineNumber: 64,
+                                    lineNumber: 57,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: `text-[13px] sm:text-[14px] text-zinc-500 transition-opacity duration-300 ${visible ? "opacity-100" : "opacity-0"}`,
-                                    children: phrases[phraseIdx]
+                                    className: `text-[13px] sm:text-[14px] text-zinc-500 transition-opacity duration-300`,
+                                    children: "19 • Curios • Full-Stack Engineer"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Profile/Profile.tsx",
-                                    lineNumber: 67,
+                                    lineNumber: 60,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/Profile/Profile.tsx",
-                            lineNumber: 63,
+                            lineNumber: 56,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/Profile/Profile.tsx",
-                    lineNumber: 50,
+                    lineNumber: 37,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -854,22 +835,22 @@ const Profile = ()=>{
                     children: currentTime
                 }, void 0, false, {
                     fileName: "[project]/components/Profile/Profile.tsx",
-                    lineNumber: 77,
+                    lineNumber: 68,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/components/Profile/Profile.tsx",
-            lineNumber: 49,
+            lineNumber: 36,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/components/Profile/Profile.tsx",
-        lineNumber: 45,
+        lineNumber: 32,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(Profile, "NuIlkL21RHvMnF4pRYuhqOB+q04=");
+_s(Profile, "ZhcMkXpyk83iD9SwEBncjygrTv4=");
 _c = Profile;
 const __TURBOPACK__default__export__ = Profile;
 var _c;
