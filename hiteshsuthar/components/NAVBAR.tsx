@@ -13,7 +13,7 @@ const NAVBAR = () => {
   ];
 
   return (
-    <div className="w-full text-[14px] font-sans mx-auto flex items-center mt-3 justify-between max-w-2xl">
+    <div className="w-full text-[14px] font-sans mx-auto flex items-center mt-9 justify-between max-w-2xl">
       <div className="w-1"></div>
       <div className="flex items-center gap-4">
         {navItems.map(({ href, label }) => {

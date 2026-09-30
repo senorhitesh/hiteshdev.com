@@ -121,6 +121,7 @@
     --color-neutral-800: #262626;
     --color-neutral-900: #171717;
     --color-neutral-950: #0a0a0a;
+    --color-taupe-800: #2b2422;
     --color-black: #000;
     --color-white: #fff;
     --spacing: .25rem;
@@ -232,6 +233,7 @@
       --color-neutral-800: lab(15.204% 0 0);
       --color-neutral-900: lab(7.78201% -.0000149012 0);
       --color-neutral-950: lab(2.75381% 0 0);
+      --color-taupe-800: lab(15.0089% 3.01887 2.55873);
     }
   }
 }
@@ -580,20 +582,12 @@
     top: 100%;
   }
 
-  .-right-0\.5 {
-    right: calc(var(--spacing) * -.5);
-  }
-
   .-right-10 {
     right: calc(var(--spacing) * -10);
   }
 
   .right-0 {
     right: 0;
-  }
-
-  .-bottom-0\.5 {
-    bottom: calc(var(--spacing) * -.5);
   }
 
   .-bottom-1 {
@@ -610,10 +604,6 @@
 
   .bottom-0\.5 {
     bottom: calc(var(--spacing) * .5);
-  }
-
-  .bottom-6 {
-    bottom: calc(var(--spacing) * 6);
   }
 
   .-left-10 {
@@ -1269,8 +1259,16 @@
     margin-top: calc(var(--spacing) * 6);
   }
 
+  .mt-7 {
+    margin-top: calc(var(--spacing) * 7);
+  }
+
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
+  }
+
+  .mt-9 {
+    margin-top: calc(var(--spacing) * 9);
   }
 
   .mt-10 {
@@ -1418,10 +1416,6 @@
     height: calc(var(--spacing) * 2);
   }
 
-  .h-2\.75 {
-    height: calc(var(--spacing) * 2.75);
-  }
-
   .h-3 {
     height: calc(var(--spacing) * 3);
   }
@@ -1516,10 +1510,6 @@
 
   .w-2 {
     width: calc(var(--spacing) * 2);
-  }
-
-  .w-2\.75 {
-    width: calc(var(--spacing) * 2.75);
   }
 
   .w-3 {
@@ -1907,6 +1897,10 @@
     border-radius: var(--radius-4xl);
   }
 
+  .rounded-\[1px\] {
+    border-radius: 1px;
+  }
+
   .rounded-\[2px\] {
     border-radius: 2px;
   }
@@ -1948,6 +1942,16 @@
     border-width: 1px;
   }
 
+  .border-x {
+    border-inline-style: var(--tw-border-style);
+    border-inline-width: 1px;
+  }
+
+  .border-y {
+    border-block-style: var(--tw-border-style);
+    border-block-width: 1px;
+  }
+
   .border-t {
     border-top-style: var(--tw-border-style);
     border-top-width: 1px;
@@ -1982,6 +1986,10 @@
     border-color: var(--color-neutral-800);
   }
 
+  .border-neutral-900 {
+    border-color: var(--color-neutral-900);
+  }
+
   .border-zinc-100 {
     border-color: var(--color-zinc-100);
   }
@@ -2010,6 +2018,10 @@
     .bg-black\/5 {
       background-color: color-mix(in oklab, var(--color-black) 5%, transparent);
     }
+  }
+
+  .bg-blue-100 {
+    background-color: var(--color-blue-100);
   }
 
   .bg-current {
@@ -2062,6 +2074,10 @@
 
   .bg-neutral-100 {
     background-color: var(--color-neutral-100);
+  }
+
+  .bg-neutral-200 {
+    background-color: var(--color-neutral-200);
   }
 
   .bg-neutral-500 {
@@ -2118,6 +2134,10 @@
 
   .bg-zinc-100 {
     background-color: var(--color-zinc-100);
+  }
+
+  .bg-zinc-200 {
+    background-color: var(--color-zinc-200);
   }
 
   .bg-zinc-300 {
@@ -2651,6 +2671,10 @@
     color: var(--color-red-500);
   }
 
+  .text-taupe-800 {
+    color: var(--color-taupe-800);
+  }
+
   .text-white {
     color: var(--color-white);
   }
@@ -2791,6 +2815,14 @@
     .ring-blue-500\/20 {
       --tw-ring-color: color-mix(in oklab, var(--color-blue-500) 20%, transparent);
     }
+  }
+
+  .ring-neutral-100 {
+    --tw-ring-color: var(--color-neutral-100);
+  }
+
+  .ring-neutral-300 {
+    --tw-ring-color: var(--color-neutral-300);
   }
 
   .ring-neutral-700 {
@@ -3095,6 +3127,16 @@
       background-color: var(--color-neutral-50);
     }
 
+    .hover\:bg-neutral-50\/52:hover {
+      background-color: #fafafa85;
+    }
+
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-neutral-50\/52:hover {
+        background-color: color-mix(in oklab, var(--color-neutral-50) 52%, transparent);
+      }
+    }
+
     .hover\:bg-neutral-100:hover {
       background-color: var(--color-neutral-100);
     }
@@ -3180,6 +3222,13 @@
     --tw-scale-x: 75%;
     --tw-scale-y: 75%;
     --tw-scale-z: 75%;
+    scale: var(--tw-scale-x) var(--tw-scale-y);
+  }
+
+  .active\:scale-90:active {
+    --tw-scale-x: 90%;
+    --tw-scale-y: 90%;
+    --tw-scale-z: 90%;
     scale: var(--tw-scale-x) var(--tw-scale-y);
   }
 
@@ -3322,16 +3371,8 @@
       height: calc(var(--spacing) * 7);
     }
 
-    .sm\:h-26 {
-      height: calc(var(--spacing) * 26);
-    }
-
     .sm\:w-7 {
       width: calc(var(--spacing) * 7);
-    }
-
-    .sm\:w-26 {
-      width: calc(var(--spacing) * 26);
     }
 
     .sm\:w-80 {

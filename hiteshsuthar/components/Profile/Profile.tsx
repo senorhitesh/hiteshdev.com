@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import displayPicture from "@/public/profile.jpg";
-import ShinyText from "../Global/ShineText";
 import { getCalApi } from "@calcom/embed-react";
 
 const phrases = ["Engineer", "Founder @helxstudio", "Cooking something"];
@@ -44,39 +43,24 @@ const Profile = () => {
 
   return (
     <div
-      className="bg-white z-12 mt-10 dark:bg-[#09090B]
+      className="bg-white z-12 mt-7  dark:bg-[#09090B]
                      w-full mx-auto  max-w-2xl"
     >
       <div className="flex flex-wrap sm:flex-nowrap items-start justify-between gap-3">
         <div className="flex items-center gap-3">
           {/* Avatar */}
           <div className="relative shrink-0">
-            <div className="w-20 h-20 sm:w-26 sm:h-26 rounded-[14px] bg-zinc-100 relative    -zinc-200  -700 overflow-hidden">
+            <div className="w-20 h-20 p-1  rounded-[14px] bg-neutral-200 active:scale-90 transition select-none relative overflow-hidden">
               <div className="bg-white absolute h-full blur-lg w-2 profile-sweep left-4" />
               <Image
                 src={displayPicture}
                 loading="eager"
                 alt="Hitesh Suthar"
-                className="object-cover pointer-events-none w-full h-full"
+                className="object-cover pointer-events-none   rounded-[14px] w-full h-full"
               />
             </div>
-            <div className="absolute -bottom-0.5 -right-0.5 w-2.75 h-2.75 rounded-full bg-green-500  -2  -white" />
           </div>
-          {/* Text */}
           <div>
-            <ShinyText
-              text="✨ Hola, I'm"
-              speed={2}
-              delay={0}
-              color="#666666"
-              shineColor="#d6ddff"
-              spread={120}
-              direction="left"
-              yoyo={false}
-              pauseOnHover={false}
-              disabled={false}
-              className="text-[10px] text-zinc-400 uppercase tracking-[0.06em] font-medium mb-0.5"
-            />
             <p className="text-2xl sm:text-3xl font-Neue font-semibold dark:text-neutral-300 text-zinc-900 tracking-tight mb-0.5">
               Hitesh Suthar
             </p>
