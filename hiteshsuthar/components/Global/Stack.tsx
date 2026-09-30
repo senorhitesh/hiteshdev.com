@@ -1,4 +1,3 @@
-import React from "react";
 
 const STACK = [
   // Row 1
@@ -477,11 +476,11 @@ const Badge = ({ name, icon }: { name: string; icon: React.ReactNode }) => (
 );
 const Stack = () => {
   return (
-    <div className=" -b w-full  -900  ">
+    <div className=" -b w-full  ">
       <div className="max-w-2xl  gap-3 flex flex-col w-full mx-auto mt-3">
         <div>
-          <p className="text-md text-neutral-500 font-mono   uppercase">
-            Skills
+          <p className="text-[13px] font-medium text-neutral-500 dark:text-neutral-400">
+           # Skills
           </p>
         </div>
         <div className="flex justify-baseline flex-wrap  gap-2">

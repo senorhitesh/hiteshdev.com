@@ -4,7 +4,6 @@ import Image from "next/image";
 import displayPicture from "@/public/profile.jpg";
 import { getCalApi } from "@calcom/embed-react";
 
-const phrases = ["Engineer", "Founder @helxstudio", "Cooking something"];
 const Profile = () => {
   const [currentTime, setCurrentTime] = useState("");
   useEffect(() => {
@@ -42,7 +41,7 @@ const Profile = () => {
                 background:
                   "linear-gradient(45deg,#999 5%,#fff 10%,#ccc 30%,#ddd 50%,#ccc 70%,#fff 80%,#999 95%)",
               }}
-              className="w-20 h-20 p-1  rounded-[14px] bg-neutral-200 active:scale-90 transition select-none relative overflow-hidden"
+              className="w-16 h-16 p-0.5  rounded-[14px] bg-neutral-200 active:scale-90 transition select-none relative overflow-hidden"
             >
               <div className="bg-white absolute h-full blur-lg w-2 profile-sweep left-4" />
               <Image
@@ -54,7 +53,7 @@ const Profile = () => {
             </div>
           </div>
           <div>
-            <p className="text-2xl sm:text-3xl font-Neue font-semibold dark:text-neutral-300 text-zinc-900 tracking-tight mb-0.5">
+            <p className="text-2xl  font-Neue font-semibold dark:text-neutral-300 text-zinc-900 tracking-tight ">
               Hitesh Suthar
             </p>
             <p

@@ -5,9 +5,7 @@ const Projects = () => {
   return (
     <div className="w-full max-w-2xl mx-auto py-6">
       <div className="flex items-baseline justify-between mb-1">
-        <h2 className="text-md  uppercase text-neutral-500 dark:text-neutral-100 ">
-          Projects
-        </h2>
+        <h2 className="text-[13px] font-medium text-neutral-500 dark:text-neutral-400"># Stuff</h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {Project.map((p, i) => {
