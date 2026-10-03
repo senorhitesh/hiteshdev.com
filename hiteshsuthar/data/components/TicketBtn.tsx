@@ -282,7 +282,7 @@ const MovieTickeBtn = ({
               />
 
               {/* Icon */}
-              <IconTicket4OutlineDuo18
+              <Ticket
                 className={`
                   relative z-10 rotate-90 transition-all duration-150
                   group-hover:scale-110 group-hover:text-white text-neutral-800
