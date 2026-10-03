@@ -283,6 +283,8 @@ const MovieTickeBtn = ({
 
               {/* Icon */}
               <Ticket
+                size={18}
+                
                 className={`
                   relative z-10 rotate-90 transition-all duration-150
                   group-hover:scale-110 group-hover:text-white text-neutral-800
