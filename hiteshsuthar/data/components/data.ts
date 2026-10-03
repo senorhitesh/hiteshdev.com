@@ -8,6 +8,8 @@ import Dragable_Stickers from "./PaperScrumbled";
 import fs from "fs";
 import MacosNavbar from "./SectionNav";
 import BentoCard from "./BentoCard";
+import MovieTickeBtn from "./TicketBtn";
+import TicketBtn from "./TicketBtn";
 const DragableCode = fs.readFileSync(
   "./data/components/PaperScrumbled.tsx",
   "utf-8",
@@ -32,6 +34,7 @@ const GooeySearchCode = fs.readFileSync(
 const MagneticCard = fs.readFileSync("./data/components/MagneticCard.tsx");
 const MacosCode = fs.readFileSync("./data/components/SectionNav.tsx");
 const linkPreviewCode = fs.readFileSync("./data/components/LinkPreview.tsx");
+const TicketBtnCode = fs.readFileSync("./data/components/TicketBtn.tsx");
 interface dependencyType {
   npm: string;
   pnpm: string;
@@ -137,6 +140,18 @@ const componentData: ComponentProps[] = [
     fileName: "link-preview",
     code: `${linkPreviewCode}`,
     component: LinkPreview,
+    dependency: {
+      npm: "motion",
+      pnpm: "motion",
+      bun: "motion",
+      yarn: "motion",
+    },
+  },
+  {
+    label: "Ticket Btn",
+    fileName: "ticket-btn",
+    code: `${TicketBtnCode}`,
+    component: TicketBtn,
     dependency: {
       npm: "motion",
       pnpm: "motion",
