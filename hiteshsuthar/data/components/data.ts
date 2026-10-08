@@ -9,6 +9,7 @@ import fs from "fs";
 import MacosNavbar from "./SectionNav";
 import BentoCard from "./BentoCard";
 import MovieTickeBtn from "./TicketBtn";
+import SmoothBtn from "./SmoothBtn";
 import TicketBtn from "./TicketBtn";
 const DragableCode = fs.readFileSync(
   "./data/components/PaperScrumbled.tsx",
@@ -27,6 +28,7 @@ const GooeyToolTipCode = fs.readFileSync(
   "./data/components/GooeyTooltip.tsx",
   "utf-8",
 );
+const SmoothBtnCode = fs.readFileSync("./data/components/SmoothBtn.tsx", "utf-8");
 const GooeySearchCode = fs.readFileSync(
   "./data/components/GooeySearch.tsx",
   "utf-8",
@@ -159,5 +161,17 @@ const componentData: ComponentProps[] = [
       yarn: "motion",
     },
   },
+  {
+    label: "Smooth Btn",
+    fileName: "smooth-btn",
+    code: `${SmoothBtnCode}`,
+    component: SmoothBtn,
+    dependency: {
+      npm: "motion",
+      pnpm: "motion",
+      bun: "motion",
+      yarn: "motion",
+    },
+  },  
 ];
 export default componentData;
