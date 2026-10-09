@@ -77,7 +77,7 @@ hiteshsuthar/
 │   ├── Experience.tsx        # Work experience with year grouping & gliding tooltips
 │   ├── ThemeToggle.tsx       # Sun/Moon theme switcher with tooltip & click sound
 │   ├── theme-provider.tsx    # Theme provider with Ctrl+D global shortcut listener
-│   ├── ui/                   # Shared UI primitives (tooltip, separator, github-activity)
+│   ├── ui/                   # Shared UI primitives (tooltip, spinner, github-activity)
 │   └── NAVBAR.tsx            # Navigation header with active routes & theme toggle
 ├── lib/                      # Central logic and asset stores
 │   ├── click-sound.ts        # Zero-latency Web Audio API mechanical switch synthesizer

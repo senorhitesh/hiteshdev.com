@@ -8,7 +8,6 @@ import Dragable_Stickers from "./PaperScrumbled";
 import fs from "fs";
 import MacosNavbar from "./SectionNav";
 import BentoCard from "./BentoCard";
-import MovieTickeBtn from "./TicketBtn";
 import SmoothBtn from "./SmoothBtn";
 import TicketBtn from "./TicketBtn";
 const DragableCode = fs.readFileSync(

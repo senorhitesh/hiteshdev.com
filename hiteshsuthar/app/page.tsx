@@ -12,7 +12,6 @@ export default function Home() {
         <Page.Experience />
         <Page.Projects />
         <Page.Blogs />
-        <Page.Quote />
         <Page.QuoteSection />
         <Page.Footer />
       </div>

@@ -5,7 +5,6 @@ import Stack from "@/components/Global/Stack";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Project/Projects";
 import Footer from "@/components/Footer/Footer";
-import Quote from "@/components/Quote/Quote";
 import QuoteSection from "@/components/Quote/QuoteSection";
 import GradualBlur from "@/components/Global/BelowBlur";
 import Blogs from "@/components/BlogPage/Blogs";
@@ -18,7 +17,6 @@ const Page = {
   Projects,
   Blogs,
   Footer,
-  Quote,
   QuoteSection,
   GradualBlur,
 };

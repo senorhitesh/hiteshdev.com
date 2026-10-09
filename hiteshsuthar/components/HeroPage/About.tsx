@@ -4,7 +4,7 @@ import { Sent02Icon, Mail01Icon, Github } from "@hugeicons/core-free-icons";
 const About = () => {
   return (
     <div className="w-full">
-      <div className="relative text-neutral-600 dark:text-neutral-400 mx-auto w-full max-w-2xl flex-wrap mt-5">
+      <div className="relative text-neutral-600 dark:text-neutral-400 mx-auto w-full max-w-2xl mt-5">
         <h1 className="leading-5.5 sm:text-md md:text-md">
           yo, I’m Hitesh, an engineer based in India,
           <span className="text-neutral-900 dark:text-neutral-100 font-medium">
@@ -21,7 +21,6 @@ const About = () => {
           </span>
           .
         </h1>
-        <div className="mt-2 leading-5.5 sm:text-md md:text-md"></div>
         <p className="mt-2 leading-5.5 sm:text-md md:text-md">
           Outside of work, I love to watch anime and sleep.
         </p>
