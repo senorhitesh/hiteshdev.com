@@ -11,7 +11,7 @@ yo, I’m Hitesh, an engineer based in India, obsessed in building scalable web 
 
 ## Contact
 
-- Website: https://hiteshdevcom.vercel.app
+- Website: https://hiteshsuthar.xyz
 - Email : senorhitesh@gmail.com
 - X : https://x.com/hiteshxdev
 - Github : https://github.com/senorhitesh

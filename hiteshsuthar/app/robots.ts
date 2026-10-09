@@ -24,7 +24,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://hiteshdevcom.vercel.app/sitemap.xml",
-    host: "https://hiteshdevcom.vercel.app",
+    sitemap: "https://hiteshsuthar.xyz/sitemap.xml",
+    host: "https://hiteshsuthar.xyz",
   };
 }

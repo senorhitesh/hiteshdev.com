@@ -22,7 +22,7 @@ const intrumetalSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
 });
-const siteUrl = "https://hiteshdevcom.vercel.app";
+const siteUrl = "https://hiteshsuthar.xyz";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Hitesh Suthar | Full-Stack Developer, Creator & Builder",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://hiteshdevcom.vercel.app",
+    canonical: "https://hiteshsuthar.xyz",
   },
 };
 const jsonLd = [
@@ -74,7 +74,7 @@ const jsonLd = [
     "@content": "https://shema.org",
     "@type": "Person",
     name: "Hitesh Suthar",
-    url: "https://hiteshdevcom.vercel.app",
+    url: "https://hiteshsuthar.xyz",
     jobTitle: "Full-Stack Developer",
     description:
       "yo, I’m Hitesh, an engineer based in India, obsessed in building scalable web products, developer tools, and good design.",
@@ -90,7 +90,7 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Hitesh Suthar",
-    url: "https://hiteshdevcom.vercel.app",
+    url: "https://hiteshsuthar.xyz",
   },
 ];
 export default function RootLayout({

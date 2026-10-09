@@ -31,7 +31,7 @@ export default function BlogLayout({
   const shareUrl =
     typeof window !== "undefined"
       ? window.location.href
-      : `https://hiteshdevcom.vercel.app/blogs/${slug || ""}`;
+      : `https://hiteshsuthar.xyz/blogs/${slug || ""}`;
 
   return (
     <div className="flex flex-col min-h-screen font-sans dark:bg-[#09090B] bg-white text-neutral-900 dark:text-neutral-100">
