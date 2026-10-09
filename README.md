@@ -128,3 +128,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to interact 
 * **Projects Data:** To add, remove, or modify featured projects, update the registry inside `lib/data/project.tsx`.
 * **Experience:** To update career history or tech stack icons, configure items in `components/Experience.tsx`.
 * **Blog Posts:** Add or edit MDX articles inside `blogs/` and metadata inside `components/BlogPage/Blogs.tsx`.
+
+### all this is written by ai
+
