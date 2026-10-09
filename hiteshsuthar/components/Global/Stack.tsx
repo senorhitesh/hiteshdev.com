@@ -176,6 +176,8 @@ const STACK = [
           <path
             d="M9 17.9998C13.9706 17.9998 18 13.9703 18 8.99976C18 4.02919 13.9706 -0.000244141 9 -0.000244141C4.02944 -0.000244141 0 4.02919 0 8.99976C0 13.9703 4.02944 17.9998 9 17.9998Z"
             fill="black"
+            className="stroke-neutral-300 dark:stroke-neutral-700"
+            strokeWidth="0.5"
           />
           <path
             d="M14.9508 15.7519L6.91423 5.3999H5.40002V12.5969H6.61138V6.93825L13.9999 16.4844C14.3333 16.2613 14.6509 16.0164 14.9508 15.7519Z"
@@ -318,7 +320,7 @@ const STACK = [
         viewBox="0 0 18 18"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="fill-black dark:fill-yellow-300"
+        className="fill-neutral-900 dark:fill-neutral-100"
       >
         <path d="M6.8033 5.62476L3.24323 12.3756H0L2.78016 7.10455C3.21103 6.28696 4.28597 5.62476 5.18175 5.62476H6.8033ZM14.7568 7.31268C14.7568 6.38019 15.4827 5.6249 16.3783 5.6249C17.274 5.6249 18 6.38005 18 7.31268C18 8.24488 17.2741 9.00018 16.3783 9.00018C15.4827 9.00018 14.7568 8.24516 14.7568 7.31268ZM7.41136 5.62476H10.6546L7.09453 12.3756H3.8513L7.41136 5.62476ZM11.2417 5.62476H14.4849L11.7058 10.8958C11.2747 11.7134 10.199 12.3756 9.30333 12.3756H7.68164L11.2417 5.62476Z" />
       </svg>
@@ -357,7 +359,7 @@ const STACK = [
         viewBox="0 0 18 18"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="fill-[#161614] dark:fill-white"
+        className="fill-neutral-900 dark:fill-neutral-100"
       >
         <g clipPath="url(#clip0_867_20693)">
           <path d="M9.00003 0.180054C4.03009 0.180054 0 4.20944 0 9.18009C0 13.1566 2.57878 16.5302 6.15479 17.7203C6.60457 17.8035 6.76974 17.525 6.76974 17.2873C6.76974 17.0727 6.76134 16.3637 6.75753 15.6116C4.25364 16.1561 3.7253 14.5498 3.7253 14.5498C3.31591 13.5095 2.72602 13.2329 2.72602 13.2329C1.90949 12.6743 2.78757 12.6857 2.78757 12.6857C3.69135 12.7493 4.16724 13.6132 4.16724 13.6132C4.96994 14.9892 6.27267 14.5913 6.78625 14.3614C6.867 13.7797 7.10029 13.3827 7.35765 13.1579C5.35866 12.9303 3.25718 12.1586 3.25718 8.71006C3.25718 7.7275 3.60877 6.92459 4.18453 6.29433C4.09108 6.06761 3.78304 5.15225 4.27171 3.91256C4.27171 3.91256 5.02747 3.67066 6.74736 4.83511C7.46522 4.63564 8.23517 4.53569 9.00003 4.5323C9.7649 4.53569 10.5354 4.63564 11.2547 4.83511C12.9725 3.67066 13.7272 3.91256 13.7272 3.91256C14.2171 5.15225 13.9089 6.06761 13.8155 6.29433C14.3925 6.92459 14.7417 7.72743 14.7417 8.71006C14.7417 12.1668 12.6363 12.928 10.6322 13.1507C10.955 13.4301 11.2426 13.9778 11.2426 14.8174C11.2426 16.0216 11.2322 16.9908 11.2322 17.2873C11.2322 17.5268 11.3942 17.8074 11.8504 17.7191C15.4245 16.5276 18 13.1553 18 9.18009C18 4.20944 13.9705 0.180054 9.00003 0.180054Z" />
@@ -469,21 +471,21 @@ const STACK = [
 ];
 
 const Badge = ({ name, icon }: { name: string; icon: React.ReactNode }) => (
-  <div className="inline-flex  items-center gap-1.5 px-3 py-1 rounded-md bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 text-sm font-medium hover:border-neutral-400  transition-colors border-neutral-200 border-dashed cursor-default select-none border  whitespace-nowrap">
+  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 text-sm font-medium hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors border border-dashed border-neutral-200 dark:border-neutral-800 cursor-default select-none whitespace-nowrap">
     <span className="text-xs leading-none">{icon}</span>
     {name}
   </div>
 );
 const Stack = () => {
   return (
-    <div className=" -b w-full  ">
-      <div className="max-w-2xl  gap-3 flex flex-col w-full mx-auto mt-3">
+    <div className="w-full">
+      <div className="max-w-2xl gap-3 flex flex-col w-full mx-auto mt-3">
         <div>
           <p className="text-[13px] font-medium text-neutral-500 dark:text-neutral-400">
-           # Skills
+            # Skills
           </p>
         </div>
-        <div className="flex justify-baseline flex-wrap  gap-2">
+        <div className="flex justify-baseline flex-wrap gap-2">
           {STACK.map((item, index) => (
             <Badge key={index} name={item.name} icon={item.icon} />
           ))}

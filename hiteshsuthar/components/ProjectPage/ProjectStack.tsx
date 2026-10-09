@@ -8,10 +8,10 @@ import Link from "next/link";
 const Projects = () => {
   return (
     <div className="w-full">
-      <div className="max-w-2xl mx-auto px-3  -x    -900 py-6">
+      <div className="max-w-2xl mx-auto px-3 border-x border-neutral-200 dark:border-neutral-800 py-6">
         <div className="flex items-center gap-2 mb-5">
           <Link href={"/"}>
-            <div className="text-neutral-700 hover:dark:bg-neutral-900  rounded-md  hover:bg-neutral-50">
+            <div className="text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md p-1 transition-colors">
               <HugeiconsIcon icon={ArrowLeft01Icon} />
             </div>
           </Link>

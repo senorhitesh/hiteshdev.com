@@ -59,7 +59,7 @@ export default function BlogLayout({
             </p>
           )}
 
-          <div className="flex items-center justify-between mt-5 pb-5  -b    -800">
+          <div className="flex items-center justify-between mt-5 pb-5 border-b border-neutral-200 dark:border-neutral-800">
             {formattedDate && (
               <div className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400 text-sm">
                 <HugeiconsIcon
@@ -78,7 +78,7 @@ export default function BlogLayout({
 
         {/* Optional Cover Image */}
         {coverImage && (
-          <div className="my-6 overflow-hidden rounded-xl      -800">
+          <div className="my-6 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800">
             <Image
               src={coverImage}
               alt={title}

@@ -25,7 +25,7 @@ export type RepoContribution = {
   href?: string;
 };
 
-const DEFAULT_ACCENT = "#39d353";
+const DEFAULT_ACCENT = "#747474ff"; 
 const DEFAULT_CELL_SIZE = 11;
 const DEFAULT_LABEL = "Top contributions in:";
 const DEFAULT_MONTHS = 12;
@@ -257,40 +257,80 @@ function useFittedColumns(cellSize: number, gap: number) {
 
 const Tooltip = ({
   hovered,
+  isFresh,
   reduceMotion,
 }: {
   hovered: HoveredDay;
+  isFresh: boolean;
   reduceMotion: boolean | null;
 }) => {
   const ref = React.useRef<HTMLDivElement>(null);
-  const [left, setLeft] = React.useState(hovered.x);
+  const [width, setWidth] = React.useState(0);
 
   useIsoLayoutEffect(() => {
-    const half = (ref.current?.offsetWidth ?? 0) / 2;
-    const edge = TOOLTIP_EDGE + half;
-    setLeft(Math.min(Math.max(hovered.x, edge), window.innerWidth - edge));
-  }, [hovered]);
+    if (ref.current) {
+      setWidth(ref.current.offsetWidth);
+    }
+  }, [hovered.day]);
+
+  const half = (width || 120) / 2;
+  const edge = TOOLTIP_EDGE + half;
+  const clampedX =
+    typeof window !== "undefined"
+      ? Math.min(Math.max(hovered.x, edge), window.innerWidth - edge)
+      : hovered.x;
 
   return createPortal(
-    <div
-      className="pointer-events-none fixed z-50"
-      style={{
-        left,
-        top: hovered.y,
-        transform: "translate(-50%, calc(-100% - 8px))",
+    <motion.div
+      className="pointer-events-none fixed top-0 left-0 z-50"
+      initial={
+        reduceMotion
+          ? false
+          : {
+              opacity: 0,
+              scale: 0.94,
+              x: clampedX,
+              y: hovered.y,
+            }
+      }
+      animate={{
+        opacity: 1,
+        scale: 1,
+        x: clampedX,
+        y: hovered.y,
       }}
+      exit={
+        reduceMotion
+          ? { opacity: 0 }
+          : { opacity: 0, scale: 0.94 }
+      }
+      transition={
+        reduceMotion
+          ? { duration: 0 }
+          : isFresh
+          ? {
+              opacity: { duration: 0.14, ease: EASE_OUT },
+              scale: { type: "spring", stiffness: 450, damping: 25 },
+              x: { duration: 0 },
+              y: { duration: 0 },
+            }
+          : {
+              opacity: { duration: 0 },
+              scale: { duration: 0 },
+              x: { type: "spring", stiffness: 450, damping: 32 },
+              y: { type: "spring", stiffness: 450, damping: 32 },
+            }
+      }
     >
-      <motion.div
+      <div
         ref={ref}
-        className="whitespace-nowrap rounded-lg bg-foreground px-2 py-1 text-[11px] font-medium text-background shadow-md"
-        initial={reduceMotion ? false : { opacity: 0, scale: 0.94 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.94 }}
-        transition={reduceMotion ? { duration: 0 } : TOOLTIP_FADE}
+        style={{ transform: "translate(-50%, calc(-100% - 8px))" }}
+        className="relative whitespace-nowrap rounded-lg bg-foreground px-2 py-1 text-[11px] font-medium text-background shadow-md flex flex-col items-center"
       >
         {describeDay(hovered.day)}
-      </motion.div>
-    </div>,
+        <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rotate-45 bg-foreground" />
+      </div>
+    </motion.div>,
     document.body,
   );
 };
@@ -316,6 +356,8 @@ const ContributionGrid = ({
   const gap = gapFor(cellSize);
   const [ref, columns] = useFittedColumns(cellSize, gap);
   const [hovered, setHovered] = React.useState<HoveredDay>();
+  const [isFresh, setIsFresh] = React.useState(true);
+  const isInsideRef = React.useRef(false);
 
   const cap = Math.min(weeks.length, weeksFor(months));
   const visible = weeks.slice(-Math.min(cap, columns ?? cap));
@@ -323,7 +365,14 @@ const ContributionGrid = ({
 
   const hover = (day: Contribution) => (event: React.PointerEvent) => {
     const cell = event.currentTarget.getBoundingClientRect();
+    setIsFresh(!isInsideRef.current);
+    isInsideRef.current = true;
     setHovered({ day, x: cell.left + cell.width / 2, y: cell.top });
+  };
+
+  const handlePointerLeave = () => {
+    isInsideRef.current = false;
+    setHovered(undefined);
   };
 
   return (
@@ -368,7 +417,7 @@ const ContributionGrid = ({
       <div
         className="flex justify-center overflow-hidden"
         style={{ gap }}
-        onPointerLeave={() => setHovered(undefined)}
+        onPointerLeave={handlePointerLeave}
       >
         {visible.map((week, weekIndex) => (
           <div key={weekIndex} className="flex flex-col" style={{ gap }}>
@@ -386,7 +435,7 @@ const ContributionGrid = ({
                 }}
               >
                 <div
-                  className="h-full w-full rounded-[3px]"
+                  className="h-full w-full rounded-[1px]"
                   style={scale[day.level] ?? scale[0]}
                 />
               </motion.div>
@@ -400,6 +449,7 @@ const ContributionGrid = ({
           <Tooltip
             key="tooltip"
             hovered={hovered}
+            isFresh={isFresh}
             reduceMotion={reduceMotion}
           />
         )}
@@ -497,7 +547,7 @@ const GitHubActivity = ({
     <div
       data-slot="github-activity"
       className={cn(
-        "relative max-w-full   bg-white  dark:bg-black",
+        "relative max-w-full bg-transparent dark:bg-transparent",
         repos.length > 0 && "pb-[6px]",
         className,
       )}

@@ -81,10 +81,10 @@ const Footer = ({ cn = "" }) => {
       className={`max-w-2xl relative gap-3 flex justify-between items-center  w-full mx-auto    ${cn ? `${cn}` : "relative"}`}
     >
       <div>
-        <p className="text-xs font-mono text-neutral-900 dark:text-neutral-300 ">
+        <p className="text-xs font-mono text-neutral-600 dark:text-neutral-400">
           &copy; Hitesh Suthar
         </p>
-        <p className="text-xs font-mono text-neutral-900 dark:text-neutral-300 ">
+        <p className="text-xs font-mono text-neutral-600 dark:text-neutral-400">
           Built with Chai & ❤
         </p>
       </div>

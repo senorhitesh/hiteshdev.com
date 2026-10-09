@@ -136,7 +136,7 @@ const components: MDXComponents = {
     [key: string]: unknown;
   }) => (
     <blockquote
-      className=" -l-2  -neutral-300  -700 pl-4 py-1 italic text-neutral-600 dark:text-neutral-400 my-5"
+      className="border-l-2 border-neutral-300 dark:border-neutral-700 pl-4 py-1 italic text-neutral-600 dark:text-neutral-400 my-5"
       {...props}
     >
       {children}
@@ -150,14 +150,14 @@ const components: MDXComponents = {
     [key: string]: unknown;
   }) => (
     <code
-      className="font-mono text-[13px] bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 px-1.5 py-0.5 rounded      -800"
+      className="font-mono text-[13px] bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 px-1.5 py-0.5 rounded border border-neutral-200 dark:border-neutral-800"
       {...props}
     >
       {children}
     </code>
   ),
   hr: ({ ...props }: { [key: string]: unknown }) => (
-    <hr className=" -0  -t    -800 my-8" {...props} />
+    <hr className="border-0 border-t border-neutral-200 dark:border-neutral-800 my-8" {...props} />
   ),
   img: ({
     src = "",
@@ -168,7 +168,7 @@ const components: MDXComponents = {
     alt?: string;
     [key: string]: unknown;
   }) => (
-    <span className="block my-6 overflow-hidden rounded-xl      -800">
+    <span className="block my-6 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800">
       <img
         src={src}
         alt={alt}

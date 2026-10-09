@@ -8,7 +8,7 @@
   --foreground: #171717;
   --dotted-bg: #ffffff;
   --dotted-dot: #dcdcdc;
-  --dotted- : #e5e7eb;
+  --dotted-border: #e5e7eb;
   --grid-color: #e5e5e5;
   --divider-color-1: rgba(0, 0, 0, 0.02);
   --divider-color-2: rgba(0, 0, 0, 0.06);
@@ -38,7 +38,7 @@
 
   --dotted-bg: #09090b;
   --dotted-dot: rgba(255, 255, 255, 0.08);
-  --dotted- : #262626;
+  --dotted-border: #262626;
 
   --grid-color: rgba(255, 255, 255, 0.05);
 
@@ -99,8 +99,8 @@ body {
 }
 
 ::selection{
-  background-color: #e4e0e0;
-  color: #0f0f0f;
+  background-color: #e5e5e5;
+  color: #171717;
 }
 
 /* Spotify Btn CSS */
@@ -165,8 +165,8 @@ body {
 }
 
 .dark ::selection{
-  background-color: #e4e4e4;
-  color: #0a0a0a;
+  background-color: #262626;
+  color: #ededed;
 }
 
 .dotted-background {
@@ -178,8 +178,8 @@ body {
   width: 100%;       /* Changed from 42rem */
   height: 12.5rem;   /* You can keep this fixed, or change to min-height */
 
-   -left: 1px solid var(--dotted- );
-   -right: 1px solid var(--dotted- );
+  border-left: 1px solid var(--dotted-border);
+  border-right: 1px solid var(--dotted-border);
 
   background-color: var(--dotted-bg);
   background-image: radial-gradient(var(--dotted-dot) 1px, transparent 1px);
@@ -197,7 +197,7 @@ body {
   width: max-content;
   max-width: calc(100vw - 20px);
   padding: 0.2em 0.5em;
-   -radius: 0.25em;
+  border-radius: 0.25em;
   background-color: hsl(0, 0%, 95%);
  color: #18181b !important;
   overflow-x: hidden !important;
@@ -229,11 +229,17 @@ body {
   background: transparent;
 }
 .your-scroll-container::-webkit-scrollbar-thumb {
-  background-color: #888;
-   -radius: 999px;
+  background-color: #a3a3a3;
+  border-radius: 9999px;
+}
+.dark .your-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #404040;
 }
 .your-scroll-container::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
+  background-color: #737373;
+}
+.dark .your-scroll-container::-webkit-scrollbar-thumb:hover {
+  background-color: #525252;
 }
 .react-activity-calendar {
   width: 100%;
@@ -361,12 +367,12 @@ body {
 }
 
 .t-input {
-  transition:  -color 150ms ease-out;
+  transition: border-color 150ms ease-out;
   will-change: transform;
 }
 
 .t-input.is-error {
-  transition:  -color var(--revert-dur, 280ms) ease-out;
+  transition: border-color var(--revert-dur, 280ms) ease-out;
 }
 
 .t-error-msg {
@@ -437,10 +443,15 @@ body {
 }
 
 ::-webkit-scrollbar-thumb{
-  background: #e5e4e4;
-   -radius: 1px;
+  background: #d4d4d4;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb{
+  background: #333336;
 }
 ::-webkit-scrollbar-thumb:hover{
-  background: #444;
-   -radius: 3px;
+  background: #a3a3a3;
+}
+.dark ::-webkit-scrollbar-thumb:hover{
+  background: #525252;
 }

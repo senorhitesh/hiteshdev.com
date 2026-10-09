@@ -34,7 +34,7 @@ export default function CopyButton({ code }: CopyButtonProps) {
           filter: "blur(0px)",
         }}
         onClick={handleCopy}
-        className="hover:bg-white text-neutral-700 rounded-md p-1.5 transition-all"
+        className="hover:bg-white dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 rounded-md p-1.5 transition-all"
         aria-label="Copy code"
       >
         <HugeiconsIcon icon={copied ? Tick02Icon : Copy01FreeIcons} size={18} />

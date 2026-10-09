@@ -33,6 +33,7 @@ const Blogs = () => {
       title: post.frontmatter.title || post.slug,
       link: `/blogs/${post.slug}`,
       date: displayDate,
+      coverImage: post.frontmatter.coverImage || "/blogs/blog-1.png",
     });
     groupsMap.set(year, current);
   });
@@ -54,6 +55,7 @@ const Blogs = () => {
             title: "How did I got my first client",
             link: "/blogs/how-to-get-first-client",
             date: "11/10",
+            coverImage: "/blogs/blog-1.png",
           },
         ],
       },
@@ -63,9 +65,9 @@ const Blogs = () => {
   return (
     <section className="w-full max-w-2xl mx-auto py-6 font-sans">
       {/* Section Header */}
-      <div className="flex items-center justify-between pb-2 border-b border-black/[0.06] dark:border-white/[0.08]">
+      <div className="flex items-center justify-between pb-2 border-b border-neutral-200/80 dark:border-neutral-800">
         <h2 className="text-[13px] font-medium text-neutral-500 dark:text-neutral-400">
-          Writing
+          # Writing
         </h2>
       </div>
 
